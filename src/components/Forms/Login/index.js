@@ -1,7 +1,11 @@
 import React, { Fragment } from 'react'
+import { Image, View } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
-import { Container, Button, Icon, Item, Text, Form, Label, Content, Input } from 'native-base'
+import { Container, Button, Icon, Item, Text, Form, Label, Content, Input, Body } from 'native-base'
+
 import styles from '../styles'
+
+import { icEmail, icHide, icLock, icShare } from '../../../assets/images'
 
 const validate = values => {
   const error = {}
@@ -41,16 +45,13 @@ renderInput = ({ input, placeholder, type, meta: { touched, error, warning } }) 
   }
 
   return (
-    <Item error={touched && hasError} style={styles.item}>
-      <Input
-        {...input}
-        placeholder={placeholder}
-        secureTextEntry={type === 'password'}
-        style={styles.inputStyle}
-        placeholderTextColor="#fff"
-      />
-      {hasError && touched ? <Text style={styles.errorStyle}>{error}</Text> : <Text />}
-    </Item>
+    <Input
+      {...input}
+      placeholder={placeholder}
+      secureTextEntry={type === 'password'}
+      style={styles.inputStyle}
+      placeholderTextColor="#fff"
+    />
   )
 }
 
@@ -59,13 +60,32 @@ const LoginForm = props => {
     <Fragment>
       <Form>
         <Item style={styles.formGroup}>
+          <Image source={icEmail} style={styles.icon} />
           <Field
             name="email"
             component={this.renderInput}
             type="email"
             placeholder={'Ваша почта'}
-            placeholderTextColor="#000"
           />
+        </Item>
+        <Item style={styles.formGroup}>
+          <Image source={icShare} style={styles.icon} />
+          <Field
+            name="phone"
+            component={this.renderInput}
+            type="phone"
+            placeholder={'Ваш номер телефона'}
+          />
+        </Item>
+        <Item style={styles.formGroup}>
+          <Image source={icLock} style={styles.icon} />
+          <Field
+            name="password"
+            component={this.renderInput}
+            type="password"
+            placeholder={'Ваш пароль'}
+          />
+          <Image source={icLock} style={styles.icon} />
         </Item>
       </Form>
     </Fragment>

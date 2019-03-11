@@ -6,8 +6,14 @@ export default StyleSheet.create({
     fontSize: 12
   },
   formGroup: {
+    flex: 0,
+    marginTop: 20,
     marginRight: 0,
-    marginLeft: 0
+    marginLeft: 0,
+    borderBottomWidth: 1,
+    borderColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
   formBtnLinearGradient: {
     marginTop: 42
@@ -17,8 +23,7 @@ export default StyleSheet.create({
     width: '100%'
   },
   item: {
-    borderBottomWidth: 1,
-    borderColor: '#fff'
+    borderBottomWidth: 0
   },
   inputStyle: {
     color: '#fff',
@@ -27,5 +32,12 @@ export default StyleSheet.create({
   errorStyle: {
     color: '#FD4848',
     fontSize: 12
+  },
+  icon: {
+    resizeMode: 'contain',
+    width: 20,
+    tintColor: '#fff',
+    marginLeft: 5,
+    marginRight: 5
   }
 })

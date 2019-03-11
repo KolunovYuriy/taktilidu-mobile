@@ -1,1 +1,5 @@
 export const imgLogo = require('./logo.png')
+export const icEmail = require('./mail.png')
+export const icLock = require('./locked.png')
+export const icShare = require('./share.png')
+export const icHide = require('./hide.png')
