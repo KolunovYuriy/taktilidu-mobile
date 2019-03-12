@@ -3,17 +3,18 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   icon: {
     resizeMode: 'contain',
-    width: 20
+    width: 30
   },
   button: {
     backgroundColor: '#fff',
     alignSelf: 'center',
-    width: 200,
+    paddingLeft: 30,
+    paddingRight: 30,
     marginTop: -24,
     justifyContent: 'center',
-    shadowColor: 'rgba(0, 0, 0, 0.5)',
+    shadowColor: 'gray',
     shadowOpacity: 0.5,
-    elevation: 6,
+    elevation: 3,
     shadowRadius: 15,
     shadowOffset: { width: 1, height: 1 }
   },
