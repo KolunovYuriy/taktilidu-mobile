@@ -13,5 +13,8 @@ export default StyleSheet.create({
   image: {
     resizeMode: 'contain',
     width: (width - 60) / 2
+  },
+  bottomSection: {
+    flex: 0
   }
 })
