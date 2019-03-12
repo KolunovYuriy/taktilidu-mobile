@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
-import { Header, Left, Right, Icon, Button, Body, Title, Text, Container } from 'native-base'
+import { Image } from 'react-native'
+import { Container } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
+import Header from '../Views/AuthHeader'
+import Content from '../Views/AuthContent'
+import { AuthButton as Button } from '../Views/AuthButton'
+import BottomSection from '../Views/AuthBottomSection'
+import LoginForm from '../../../components/Forms/Login'
+
+import { imgLogo } from '../../../assets/images/'
 import styles from './styles'
 
 export class LoginScreen extends Component {
   render() {
+    const { navigation } = this.props
     return (
       <Container>
         <LinearGradient
@@ -15,20 +23,18 @@ export class LoginScreen extends Component {
           style={styles.linearGradient}
           colors={['#FD6585', '#0D25B9']}
         >
-          <Header style={{ backgroundColor: 'transparent', borderBottomWidth: 0 }}>
-            <Left>
-              <Button transparent>
-                <Icon name="arrow-back" />
-              </Button>
-            </Left>
-            <Right>
-              <Button transparent>
-                <Text>Регистрация</Text>
-              </Button>
-            </Right>
-          </Header>
-          <Text> LoginScreen </Text>
+          <Header
+            routeName="Регистрация"
+            onBackPress={() => navigation.navigate('')}
+            onPress={() => navigation.navigate('Register')}
+          />
+          <Content>
+            <Image style={styles.image} source={imgLogo} />
+            <LoginForm />
+          </Content>
         </LinearGradient>
+        <Button buttonText="Войти" />
+        <BottomSection buttonText="Забыли пароль" onPressText={() => navigation.navigate('')} />
       </Container>
     )
   }
