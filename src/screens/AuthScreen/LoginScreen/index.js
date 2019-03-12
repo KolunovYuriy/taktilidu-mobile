@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { Image } from 'react-native'
-import { Text, Container } from 'native-base'
+import { Container } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
-import Header from '../../../components/Views/AuthHeader'
-import Content from '../../../components/Views/AuthContent'
+import Header from '../Views/AuthHeader'
+import Content from '../Views/AuthContent'
+import { AuthButton as Button } from '../Views/AuthButton'
+import BottomSection from '../Views/AuthBottomSection'
 import LoginForm from '../../../components/Forms/Login'
 
 import { imgLogo } from '../../../assets/images/'
@@ -31,6 +33,8 @@ export class LoginScreen extends Component {
             <LoginForm />
           </Content>
         </LinearGradient>
+        <Button buttonText="Войти" />
+        <BottomSection buttonText="Забыли пароль" onPressText={() => navigation.navigate('')} />
       </Container>
     )
   }

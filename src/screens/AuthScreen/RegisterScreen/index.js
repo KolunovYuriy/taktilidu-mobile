@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 
-import Header from '../../../components/Views/AuthHeader'
+import Header from '../Views/AuthHeader'
+import Content from '../Views/AuthContent'
 import { Container, Text } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -23,15 +24,17 @@ export class RegisterScreen extends Component {
             onPress={() => navigation.navigate('Login')}
             routeName="Войти"
           />
-          <Text>RegisterScreen</Text>
+          <Content>
+            <Text>RegisterScreen</Text>
+          </Content>
         </LinearGradient>
       </Container>
     )
   }
 }
 
-const mapStateToProps = state => ({})
+// const mapStateToProps = state => ({})
 
-const mapDispatchToProps = {}
+// const mapDispatchToProps = {}
 
 export default RegisterScreen

@@ -85,7 +85,7 @@ const LoginForm = props => {
             type="password"
             placeholder={'Ваш пароль'}
           />
-          <Image source={icLock} style={styles.icon} />
+          <Image source={icHide} style={styles.icon} />
         </Item>
       </Form>
     </Fragment>
