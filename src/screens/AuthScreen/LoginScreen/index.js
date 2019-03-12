@@ -7,7 +7,7 @@ import Header from '../Views/AuthHeader'
 import Content from '../Views/AuthContent'
 import { AuthButton as Button } from '../Views/AuthButton'
 import BottomSection from '../Views/AuthBottomSection'
-import LoginForm from '../../../components/Forms/Login'
+import { LoginForm } from '../../../components/Forms'
 
 import { imgLogo } from '../../../assets/images/'
 import styles from './styles'

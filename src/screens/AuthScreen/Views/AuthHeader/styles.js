@@ -3,7 +3,8 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   header: {
     backgroundColor: 'transparent',
-    borderBottomWidth: 0
+    borderBottomWidth: 0,
+    elevation: 0
   },
   icon: {
     color: '#000'
