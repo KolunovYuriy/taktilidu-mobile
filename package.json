@@ -10,6 +10,7 @@
     "native-base": "^2.12.0",
     "react": "16.6.3",
     "react-native": "0.58.5",
+    "react-native-confirmation-code-field": "^3.2.2",
     "react-native-gesture-handler": "^1.0.16",
     "react-native-i18n": "^2.0.15",
     "react-native-linear-gradient": "^2.5.3",
