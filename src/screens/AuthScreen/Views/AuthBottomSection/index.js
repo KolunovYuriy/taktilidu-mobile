@@ -4,14 +4,25 @@ import styles from './styles'
 
 import { icVkontakte, icFacebook, icInstagram } from '../../../../assets/images'
 
-export default function BottomSection({ children, onPressText, buttonText }) {
+export default function BottomSection({ children, onPressText, plainText, buttonText, icon }) {
   return (
     <View style={styles.bottomSection}>
       {children}
       {onPressText ? (
-        <TouchableOpacity onPress={onPressText}>
-          <Text style={styles.text}>{buttonText}</Text>
-        </TouchableOpacity>
+        <View
+          style={{
+            width: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'row'
+          }}
+        >
+          {icon && <Image source={icon} style={styles.buttonIcon} />}
+          <Text style={styles.text}>{plainText}</Text>
+          <TouchableOpacity onPress={onPressText}>
+            <Text style={styles.buttonText}>{buttonText}</Text>
+          </TouchableOpacity>
+        </View>
       ) : (
         <Text style={styles.text}>{buttonText}</Text>
       )}

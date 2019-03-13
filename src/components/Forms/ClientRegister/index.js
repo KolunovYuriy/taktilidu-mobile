@@ -5,7 +5,7 @@ import { Item, Form, Input } from 'native-base'
 
 import styles from '../styles'
 
-import { icEmail, icHide, icLock, icShare } from '../../../assets/images'
+import { icEmail, icHide, icLock, icPhone, icUser } from '../../../assets/images'
 
 const validate = values => {
   const error = {}
@@ -55,26 +55,30 @@ renderInput = ({ input, placeholder, type, meta: { touched, error, warning } }) 
   )
 }
 
-const LoginForm = props => {
+const ClientRegisterForm = props => {
   return (
     <Fragment>
       <Form>
+        <Item style={styles.formGroup}>
+          <Image source={icUser} style={styles.icon} />
+          <Field name="name" component={this.renderInput} type="name" placeholder={'Ваше имя'} />
+        </Item>
+        <Item style={styles.formGroup}>
+          <Image source={icPhone} style={styles.icon} />
+          <Field
+            name="phone"
+            component={this.renderInput}
+            type="phone"
+            placeholder={'Ваш номер телефона*'}
+          />
+        </Item>
         <Item style={styles.formGroup}>
           <Image source={icEmail} style={styles.icon} />
           <Field
             name="email"
             component={this.renderInput}
             type="email"
-            placeholder={'Ваша e-mail'}
-          />
-        </Item>
-        <Item style={styles.formGroup}>
-          <Image source={icShare} style={styles.icon} />
-          <Field
-            name="phone"
-            component={this.renderInput}
-            type="phone"
-            placeholder={'Ваш номер телефона'}
+            placeholder={'Ваша e-mail*'}
           />
         </Item>
         <Item style={styles.formGroup}>
@@ -83,7 +87,7 @@ const LoginForm = props => {
             name="password"
             component={this.renderInput}
             type="password"
-            placeholder={'Ваш пароль'}
+            placeholder={'Придумайте пароль*'}
           />
           <Image source={icHide} style={styles.icon} />
         </Item>
@@ -93,6 +97,6 @@ const LoginForm = props => {
 }
 
 export default reduxForm({
-  form: 'login',
+  form: 'clientRegister',
   validate
-})(LoginForm)
+})(ClientRegisterForm)

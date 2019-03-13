@@ -6,14 +6,21 @@ export default StyleSheet.create({
     alignItems: 'center',
     minHeight: 132
   },
+  buttonIcon: {
+    width: 18,
+    height: 18
+  },
   iconStyle: {
     width: 32,
     height: 32,
     margin: 10
   },
   text: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#000'
+  },
+  buttonText: {
+    color: '#9B4B9A'
   },
   socials: {
     flexDirection: 'row',

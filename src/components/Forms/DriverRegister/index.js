@@ -5,7 +5,7 @@ import { Item, Form, Input } from 'native-base'
 
 import styles from '../styles'
 
-import { icEmail, icHide, icLock, icShare } from '../../../assets/images'
+import { icEmail, icHide, icLock, icPhone, icUser, icAttachment } from '../../../assets/images'
 
 const validate = values => {
   const error = {}
@@ -55,37 +55,37 @@ renderInput = ({ input, placeholder, type, meta: { touched, error, warning } }) 
   )
 }
 
-const LoginForm = props => {
+const DriverRegisterForm = props => {
   return (
     <Fragment>
       <Form>
         <Item style={styles.formGroup}>
-          <Image source={icEmail} style={styles.icon} />
-          <Field
-            name="email"
-            component={this.renderInput}
-            type="email"
-            placeholder={'Ваша e-mail'}
-          />
+          <Field name="name" component={this.renderInput} type="name" placeholder={'Машина'} />
         </Item>
         <Item style={styles.formGroup}>
-          <Image source={icShare} style={styles.icon} />
           <Field
             name="phone"
             component={this.renderInput}
             type="phone"
-            placeholder={'Ваш номер телефона'}
+            placeholder={'Номер лицензии'}
+          />
+          <Image source={icAttachment} style={styles.icon} />
+        </Item>
+        <Item style={styles.formGroup}>
+          <Field
+            name="email"
+            component={this.renderInput}
+            type="email"
+            placeholder={'Количество мест в машине'}
           />
         </Item>
         <Item style={styles.formGroup}>
-          <Image source={icLock} style={styles.icon} />
           <Field
             name="password"
             component={this.renderInput}
             type="password"
-            placeholder={'Ваш пароль'}
+            placeholder={'Компания перевозчик'}
           />
-          <Image source={icHide} style={styles.icon} />
         </Item>
       </Form>
     </Fragment>
@@ -93,6 +93,6 @@ const LoginForm = props => {
 }
 
 export default reduxForm({
-  form: 'login',
+  form: 'driverRegister',
   validate
-})(LoginForm)
+})(DriverRegisterForm)

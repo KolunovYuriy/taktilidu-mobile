@@ -5,7 +5,7 @@ import { Item, Form, Input } from 'native-base'
 
 import styles from '../styles'
 
-import { icEmail, icHide, icLock, icShare } from '../../../assets/images'
+import { icLock } from '../../../assets/images'
 
 const validate = values => {
   const error = {}
@@ -55,37 +55,18 @@ renderInput = ({ input, placeholder, type, meta: { touched, error, warning } }) 
   )
 }
 
-const LoginForm = props => {
+const NewPasswordForm = props => {
   return (
     <Fragment>
       <Form>
         <Item style={styles.formGroup}>
-          <Image source={icEmail} style={styles.icon} />
+          <Image source={icLock} style={styles.icon} />
           <Field
             name="email"
             component={this.renderInput}
             type="email"
-            placeholder={'Ваша e-mail'}
+            placeholder={'Введите новый пароль'}
           />
-        </Item>
-        <Item style={styles.formGroup}>
-          <Image source={icShare} style={styles.icon} />
-          <Field
-            name="phone"
-            component={this.renderInput}
-            type="phone"
-            placeholder={'Ваш номер телефона'}
-          />
-        </Item>
-        <Item style={styles.formGroup}>
-          <Image source={icLock} style={styles.icon} />
-          <Field
-            name="password"
-            component={this.renderInput}
-            type="password"
-            placeholder={'Ваш пароль'}
-          />
-          <Image source={icHide} style={styles.icon} />
         </Item>
       </Form>
     </Fragment>
@@ -93,6 +74,6 @@ const LoginForm = props => {
 }
 
 export default reduxForm({
-  form: 'login',
+  form: 'newPassword',
   validate
-})(LoginForm)
+})(NewPasswordForm)
