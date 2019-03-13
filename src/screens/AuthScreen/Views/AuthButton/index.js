@@ -6,9 +6,9 @@ import styles from './styles'
 
 import { icNext } from '../../../../assets/images'
 
-export function AuthButton({ buttonText, onPress }) {
+export function AuthButton({ buttonText, onPress, disabled }) {
   return (
-    <Button onPress={onPress} rounded style={styles.button}>
+    <Button onPress={onPress} rounded style={styles.button} disabled={disabled}>
       <Text style={styles.text}>{buttonText}</Text>
       <Image style={styles.icon} source={icNext} />
     </Button>

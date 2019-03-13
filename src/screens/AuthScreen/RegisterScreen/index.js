@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import { connect } from 'react-redux'
-import { Image } from 'react-native'
+import { Image, View } from 'react-native'
 import { Container, Text, List, ListItem } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -29,18 +29,29 @@ export class RegisterScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isRoleChoosen: false
+      isRoleChoosen: false,
+      choosenRoleType: null
     }
   }
 
   renderChooseRoleForm = () => {
+    const { choosenRoleType } = this.state
     return (
       <List style={styles.listStyle}>
         {roles.map((item, index) => (
-          <ListItem key={index} style={styles.listItemStyle}>
-            <Text style={styles.listItemText}>{item.text}</Text>
-            <Image style={styles.icon} source={icNext} />
-          </ListItem>
+          <View style={{ marginTop: 40 }}>
+            <ListItem
+              onPress={() => this.setState({ choosenRoleType: item.type })}
+              button
+              key={index}
+              style={styles.listItemStyle}
+            >
+              <Text style={[styles.listItemText, choosenRoleType === item.type && styles.boldText]}>
+                {item.text}
+              </Text>
+              <Image style={styles.icon} source={icNext} />
+            </ListItem>
+          </View>
         ))}
       </List>
     )
@@ -48,7 +59,7 @@ export class RegisterScreen extends Component {
 
   render() {
     const { navigation } = this.props
-    const { isRoleChoosen } = this.state
+    const { isRoleChoosen, choosenRoleType } = this.state
     return (
       <Container>
         <LinearGradient
@@ -70,7 +81,11 @@ export class RegisterScreen extends Component {
         {isRoleChoosen ? (
           <Button buttonText="Зарегистрироваться" />
         ) : (
-          <Button buttonText="Далее" onPress={() => this.setState({ isRoleChoosen: true })} />
+          <Button
+            buttonText="Далее"
+            disabled={!choosenRoleType}
+            onPress={() => this.setState({ isRoleChoosen: true })}
+          />
         )}
 
         <BottomSection buttonText="или" onPressText={() => navigation.navigate('')} />

@@ -30,5 +30,8 @@ export default StyleSheet.create({
   },
   listItemText: {
     color: '#fff'
+  },
+  boldText: {
+    fontWeight: 'bold'
   }
 })
