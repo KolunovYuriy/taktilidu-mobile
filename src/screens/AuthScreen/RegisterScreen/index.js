@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 // import { connect } from 'react-redux'
 import { Image, View } from 'react-native'
 import { Container, Text, List, ListItem } from 'native-base'
@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import Header from '../Views/AuthHeader'
 import Content from '../Views/AuthContent'
 import BottomSection from '../Views/AuthBottomSection'
-import { RegisterForm } from '../../../components/Forms'
+import { DriverRegisterForm, ClientRegisterForm } from '../../../components/Forms'
 import { AuthButton as Button } from '../Views/AuthButton'
 
 import styles from './styles'
@@ -57,6 +57,35 @@ export class RegisterScreen extends Component {
     )
   }
 
+  bottomSection = choosenRoleType => {
+    const { navigation } = this.props
+
+    switch (choosenRoleType) {
+      case 'client':
+        return (
+          <Fragment>
+            <Button buttonText="Зарегистрироваться" />
+            <BottomSection
+              plainText="Вы водитель? "
+              buttonText="Продолжить как водитель"
+              onPressText={() => this.setState({ choosenRoleType: 'driver' })}
+            />
+          </Fragment>
+        )
+      case 'driver':
+        return (
+          <Fragment>
+            <Button buttonText="Зарегистрироваться" />
+            <BottomSection
+              plainText="Возникли вопросы? "
+              buttonText="Служба поддержки"
+              onPressText={() => navigation.navigate('')}
+            />
+          </Fragment>
+        )
+    }
+  }
+
   render() {
     const { navigation } = this.props
     const { isRoleChoosen, choosenRoleType } = this.state
@@ -75,20 +104,29 @@ export class RegisterScreen extends Component {
           />
           <Content>
             <Image style={styles.image} source={imgLogo} />
-            {isRoleChoosen ? <RegisterForm /> : this.renderChooseRoleForm()}
+            {isRoleChoosen ? (
+              choosenRoleType === 'client' ? (
+                <ClientRegisterForm />
+              ) : (
+                <DriverRegisterForm />
+              )
+            ) : (
+              this.renderChooseRoleForm()
+            )}
           </Content>
         </LinearGradient>
         {isRoleChoosen ? (
-          <Button buttonText="Зарегистрироваться" />
+          this.bottomSection(choosenRoleType)
         ) : (
-          <Button
-            buttonText="Далее"
-            disabled={!choosenRoleType}
-            onPress={() => this.setState({ isRoleChoosen: true })}
-          />
+          <Fragment>
+            <Button
+              buttonText="Далее"
+              disabled={!choosenRoleType}
+              onPress={() => this.setState({ isRoleChoosen: true })}
+            />
+            <BottomSection plainText="или" onPressText={() => navigation.navigate('')} />
+          </Fragment>
         )}
-
-        <BottomSection buttonText="или" onPressText={() => navigation.navigate('')} />
       </Container>
     )
   }

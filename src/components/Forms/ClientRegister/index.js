@@ -55,7 +55,7 @@ renderInput = ({ input, placeholder, type, meta: { touched, error, warning } }) 
   )
 }
 
-const RegisterForm = props => {
+const ClientRegisterForm = props => {
   return (
     <Fragment>
       <Form>
@@ -97,6 +97,6 @@ const RegisterForm = props => {
 }
 
 export default reduxForm({
-  form: 'register',
+  form: 'clientRegister',
   validate
-})(RegisterForm)
+})(ClientRegisterForm)

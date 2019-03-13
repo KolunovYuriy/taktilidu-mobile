@@ -1,11 +1,12 @@
-import { createStackNavigator, createSwitchNavigator } from 'react-navigation'
+import { createSwitchNavigator } from 'react-navigation'
 
-import { LoginScreen, RegisterScreen } from '../screens'
+import { LoginScreen, RegisterScreen, ForgotPasswordScreen } from '../screens'
 
 export default createSwitchNavigator(
   {
     Login: LoginScreen,
-    Register: RegisterScreen
+    Register: RegisterScreen,
+    ForgotPassword: ForgotPasswordScreen
   },
   {
     initialRouteName: 'Login',
