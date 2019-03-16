@@ -1,4 +1,9 @@
 export { default as HomeScreen } from '../screens/HomeScreen'
+export { default as ProfileScreen } from '../screens/ProfileScreen'
+export { default as FindTripScreen } from '../screens/FindTripScreen'
+export { default as CreateTripScreen } from '../screens/CreateTripScreen'
+export { default as TicketsScreen } from '../screens/TicketsScreen'
+
 export { default as AuthLoadingScreen } from '../screens/AuthLoadingScreen'
 export { default as LoginScreen } from '../screens/AuthScreen/LoginScreen'
 export { default as RegisterScreen } from '../screens/AuthScreen/RegisterScreen'

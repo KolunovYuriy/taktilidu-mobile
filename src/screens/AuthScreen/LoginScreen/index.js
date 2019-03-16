@@ -33,7 +33,7 @@ export class LoginScreen extends Component {
             <LoginForm />
           </Content>
         </LinearGradient>
-        <Button buttonText="Войти" />
+        <Button buttonText="Войти" onPress={() => navigation.navigate('Tab')} />
         <BottomSection
           buttonText="Забыли пароль?"
           onPressText={() => navigation.navigate('ForgotPassword')}
