@@ -1,15 +1,16 @@
 import { createSwitchNavigator } from 'react-navigation'
 
-import { LoginScreen, RegisterScreen, ForgotPasswordScreen } from '../screens'
+import { LoginScreen, RegisterScreen, ForgotPasswordScreen, WelcomeScreen } from '../screens'
 
 export default createSwitchNavigator(
   {
     Login: LoginScreen,
     Register: RegisterScreen,
-    ForgotPassword: ForgotPasswordScreen
+    ForgotPassword: ForgotPasswordScreen,
+    Welcome: WelcomeScreen
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'Welcome',
     defaultNavigationOptions: {
       header: null
     }
