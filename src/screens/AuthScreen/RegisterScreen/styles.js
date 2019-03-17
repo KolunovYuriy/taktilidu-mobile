@@ -17,6 +17,8 @@ export default StyleSheet.create({
   },
   image: {
     resizeMode: 'contain',
+    tintColor: '#fff',
+    height: 100,
     width: (width - 60) / 2
   },
   listStyle: {
