@@ -38,7 +38,7 @@ const validate = values => {
   return error
 }
 
-renderInput = ({ input, placeholder, type, meta: { touched, error, warning } }) => {
+renderFindTripInput = ({ input, placeholder, type, meta: { touched, error, warning } }) => {
   let hasError = false
   if (error !== undefined) {
     hasError = true
@@ -63,7 +63,7 @@ const FindTripsForm = props => {
           <Image source={icFrom} style={styles.icon} />
           <Field
             name="email"
-            component={this.renderInput}
+            component={this.renderFindTripInput}
             type="email"
             placeholder={'Откуда вы едите?'}
           />
@@ -72,7 +72,7 @@ const FindTripsForm = props => {
           <Image source={icTo} style={styles.icon} />
           <Field
             name="phone"
-            component={this.renderInput}
+            component={this.renderFindTripInput}
             type="phone"
             placeholder={'Куда вы едите?'}
           />
@@ -81,7 +81,7 @@ const FindTripsForm = props => {
           <Image source={icTime} style={styles.icon} />
           <Field
             name="password"
-            component={this.renderInput}
+            component={this.renderFindTripInput}
             type="password"
             placeholder={'Желаемая дата, время?'}
           />
@@ -90,7 +90,7 @@ const FindTripsForm = props => {
           <Image source={icUsers} style={styles.icon} />
           <Field
             name="password"
-            component={this.renderInput}
+            component={this.renderFindTripInput}
             type="password"
             placeholder={'Количество пассажиров'}
           />
