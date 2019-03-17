@@ -13,13 +13,14 @@ export default StyleSheet.create({
   iconStyle: {
     width: 32,
     height: 32,
-    margin: 10
+    margin: 15
   },
   text: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#000'
   },
   buttonText: {
+    fontSize: 16,
     color: '#9B4B9A'
   },
   socials: {
