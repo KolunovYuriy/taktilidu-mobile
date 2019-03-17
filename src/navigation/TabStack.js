@@ -2,19 +2,14 @@ import React from 'react'
 import { createBottomTabNavigator } from 'react-navigation'
 import { Image } from 'react-native'
 
-import {
-  HomeScreen,
-  FindTripScreen,
-  CreateTripScreen,
-  ProfileScreen,
-  TicketsScreen
-} from '../screens'
+import { HomeScreen, CreateTripScreen, ProfileScreen, TicketsScreen } from '../screens'
+import FindTripStack from './FindTripStack'
 import { icHome, icPlus, icSearch, icTicket, icUserCircle } from '../assets/images'
 
 export default createBottomTabNavigator(
   {
     Home: HomeScreen,
-    FindTrip: FindTripScreen,
+    FindTrip: FindTripStack,
     CreateTrip: CreateTripScreen,
     Tickets: TicketsScreen,
     Profile: ProfileScreen
