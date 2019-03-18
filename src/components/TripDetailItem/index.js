@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Image } from 'react-native'
 import { ListItem, Text, Thumbnail, Label, Button } from 'native-base'
+import LinearGradient from 'react-native-linear-gradient'
 import { icBorder, icLine } from '../../assets/images'
 import styles from './styles'
 
@@ -100,9 +101,19 @@ export default function TripDetailItem({
               О водителе
             </Text>
           </View>
-          <Button style={styles.reserveButton} full>
-            <Text>Забронировать</Text>
-          </Button>
+          <LinearGradient
+            useAngle
+            angle={157.54}
+            start={{ x: 0, y: 0 }}
+            locations={[0, 1]}
+            end={{ x: 1, y: 0 }}
+            style={styles.linearGradient}
+            colors={['#FD6585', '#0D25B9']}
+          >
+            <Button style={styles.reserveButton} full>
+              <Text>Забронировать</Text>
+            </Button>
+          </LinearGradient>
         </ListItem>
       )
   }

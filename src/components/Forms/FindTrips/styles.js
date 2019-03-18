@@ -11,6 +11,9 @@ export default StyleSheet.create({
     marginLeft: 5,
     marginRight: 5
   },
+  form: {
+    marginBottom: 24
+  },
   formGroup: {
     flex: 0,
     marginTop: 20,
@@ -26,7 +29,6 @@ export default StyleSheet.create({
     borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'space-between',
-
     shadowColor: 'rgba(0, 0, 0, 0.1)',
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.8,

@@ -60,21 +60,12 @@ const LoginForm = props => {
     <Fragment>
       <Form>
         <Item style={styles.formGroup}>
-          <Image source={icEmail} style={styles.icon} />
-          <Field
-            name="email"
-            component={this.renderInput}
-            type="email"
-            placeholder={'Ваша e-mail'}
-          />
-        </Item>
-        <Item style={styles.formGroup}>
           <Image source={icShare} style={styles.icon} />
           <Field
             name="phone"
             component={this.renderInput}
             type="phone"
-            placeholder={'Ваш номер телефона'}
+            placeholder={'Ваш номер телефона или email*'}
           />
         </Item>
         <Item style={styles.formGroup}>

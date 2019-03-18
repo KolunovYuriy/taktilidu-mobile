@@ -58,7 +58,7 @@ renderFindTripInput = ({ input, placeholder, type, meta: { touched, error, warni
 const FindTripsForm = props => {
   return (
     <Fragment>
-      <Form>
+      <Form style={styles.form}>
         <Item style={styles.formGroup}>
           <Image source={icFrom} style={styles.icon} />
           <Field

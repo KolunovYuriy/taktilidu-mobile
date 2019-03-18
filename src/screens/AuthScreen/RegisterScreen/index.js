@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 // import { connect } from 'react-redux'
-import { Image, View } from 'react-native'
+import { Image, ImageBackground, View } from 'react-native'
 import { Container, Text, List, ListItem } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -12,7 +12,7 @@ import { AuthButton as Button } from '../Views/AuthButton'
 
 import styles from './styles'
 
-import { imgLogo, icNext } from '../../../assets/images'
+import { imgLogo, imgBgContent, icNext } from '../../../assets/images'
 
 const roles = [
   {
@@ -66,6 +66,8 @@ export class RegisterScreen extends Component {
           <Fragment>
             <Button buttonText="Зарегистрироваться" />
             <BottomSection
+              textColor="#9B4B9A"
+              underline
               plainText="Вы водитель? "
               buttonText="Продолжить как водитель"
               onPressText={() => this.setState({ choosenRoleType: 'driver' })}
@@ -77,6 +79,8 @@ export class RegisterScreen extends Component {
           <Fragment>
             <Button buttonText="Зарегистрироваться" />
             <BottomSection
+              textColor="#9B4B9A"
+              underline
               plainText="Возникли вопросы? "
               buttonText="Служба поддержки"
               onPressText={() => navigation.navigate('')}
@@ -91,30 +95,44 @@ export class RegisterScreen extends Component {
     const { isRoleChoosen, choosenRoleType } = this.state
     return (
       <Container>
-        <LinearGradient
-          start={{ x: 0.2, y: 0 }}
-          end={{ x: 1.2, y: 0 }}
-          style={styles.linearGradient}
-          colors={['#FD6585', '#0D25B9']}
-        >
-          <Header
-            onBackPress={() => navigation.navigate('Login')}
-            onPress={() => navigation.navigate('Login')}
-            routeName="Войти"
+        <ImageBackground source={imgBgContent} style={{ flex: 1, resizeMode: 'cover' }}>
+          <View
+            style={{
+              flex: 1,
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              backgroundColor: '#000',
+              opacity: 0.4
+            }}
           />
-          <Content>
-            <Image style={styles.image} source={imgLogo} />
-            {isRoleChoosen ? (
-              choosenRoleType === 'client' ? (
-                <ClientRegisterForm />
+          <LinearGradient
+            start={{ x: 0.2, y: 0 }}
+            end={{ x: 1.2, y: 0 }}
+            style={styles.linearGradient}
+            colors={['#FD6585', '#0D25B9']}
+          >
+            <Header
+              onBackPress={() => navigation.navigate('Login')}
+              onPress={() => navigation.navigate('Login')}
+              routeName="Войти"
+            />
+            <Content>
+              <Image style={styles.image} source={imgLogo} />
+              {isRoleChoosen ? (
+                choosenRoleType === 'client' ? (
+                  <ClientRegisterForm />
+                ) : (
+                  <DriverRegisterForm />
+                )
               ) : (
-                <DriverRegisterForm />
-              )
-            ) : (
-              this.renderChooseRoleForm()
-            )}
-          </Content>
-        </LinearGradient>
+                this.renderChooseRoleForm()
+              )}
+            </Content>
+          </LinearGradient>
+        </ImageBackground>
         {isRoleChoosen ? (
           this.bottomSection(choosenRoleType)
         ) : (

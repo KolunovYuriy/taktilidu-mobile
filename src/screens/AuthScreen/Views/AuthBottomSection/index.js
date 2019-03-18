@@ -11,7 +11,8 @@ export default function BottomSection({
   buttonText,
   icon,
   iconColor,
-  textColor
+  textColor,
+  underline
 }) {
   return (
     <View style={styles.bottomSection}>
@@ -28,7 +29,14 @@ export default function BottomSection({
           {icon && <Image source={icon} style={styles.buttonIcon} />}
           <Text style={styles.text}>{plainText}</Text>
           <TouchableOpacity onPress={onPressText}>
-            <Text style={[styles.buttonText, { color: textColor }]}>{buttonText}</Text>
+            <Text
+              style={[
+                styles.buttonText,
+                { color: textColor, textDecorationLine: underline && 'underline' }
+              ]}
+            >
+              {buttonText}
+            </Text>
           </TouchableOpacity>
         </View>
       ) : (

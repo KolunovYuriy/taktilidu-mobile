@@ -11,6 +11,7 @@ export const icUser = require('./user.png')
 export const icPhone = require('./phone.png')
 export const icAttachment = require('./attachment.png')
 export const icInfo = require('./info.png')
+export const icLeftArrow = require('./left-arrow.png')
 
 export const icHome = require('./home.png')
 export const icPlus = require('./plus.png')
@@ -26,3 +27,4 @@ export const icBorder = require('./border.png')
 export const icLine = require('./line.png')
 
 export const imgBG = require('./bg.png')
+export const imgBgContent = require('./bg-content.jpeg')

@@ -122,8 +122,17 @@ export default StyleSheet.create({
     borderBottomRightRadius: 6,
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
+    backgroundColor: 'transparent'
+  },
+  linearGradient: {
+    width: '100%',
     marginTop: 24,
-    backgroundColor: '#0D25B9',
+    alignSelf: 'center',
+    borderBottomLeftRadius: 6,
+    borderBottomRightRadius: 6,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
     borderColor: '#0D25B9'
   }
+  //
 })

@@ -37,6 +37,12 @@ const listSample = [
 ]
 
 class TripResultsScreen extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: null
+    }
+  }
+
   renderTripResultsList = () => {
     const { navigation } = this.props
     return (
@@ -59,8 +65,10 @@ class TripResultsScreen extends Component {
   }
 
   render() {
+    const { navigation } = this.props
     return (
       <Container>
+        <Header onBackPress={() => navigation.goBack()} />
         <Content padding={15}>
           <ScreenLabel mainText="Найдено: " additionalText="18 результатов" />
           {this.renderTripResultsList()}

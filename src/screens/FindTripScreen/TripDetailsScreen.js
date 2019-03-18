@@ -2,13 +2,22 @@ import React, { Component } from 'react'
 import { Container, Text } from 'native-base'
 
 import Content from '../../components/MainContent'
+import Header from '../../components/Header'
 import ScreenLabel from '../../components/ScreenLabel'
 import TripDetailItem from '../../components/TripDetailItem'
 
 class TripDetailsScreen extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: null
+    }
+  }
+
   render() {
+    const { navigation } = this.props
     return (
       <Container>
+        <Header onBackPress={() => navigation.goBack()} />
         <Content padding={15}>
           <ScreenLabel mainText="Найдено: " additionalText="18 результатов" />
           <TripDetailItem
