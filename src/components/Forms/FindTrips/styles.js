@@ -2,14 +2,14 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   inputStyle: {
-    backgroundColor: 'transparent'
+    borderRadius: 6
   },
   icon: {
     resizeMode: 'contain',
     width: 20,
     tintColor: '#818181',
-    marginLeft: 5,
-    marginRight: 5
+    marginLeft: 16,
+    marginRight: 16
   },
   form: {
     marginBottom: 24
@@ -20,6 +20,8 @@ export default StyleSheet.create({
     marginBottom: 5,
     marginRight: 0,
     marginLeft: 0,
+    alignSelf: 'center',
+    backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderColor: 'transparent',
     borderTopWidth: 1,
@@ -29,10 +31,10 @@ export default StyleSheet.create({
     borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'space-between',
-    shadowColor: 'rgba(0, 0, 0, 0.1)',
-    shadowOffset: { width: 5, height: 5 },
-    shadowOpacity: 0.8,
-    shadowRadius: 3,
-    elevation: 2
+    shadowColor: 'rgba(0, 0, 0, 0.2)',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    elevation: 10
   }
 })
