@@ -11,7 +11,12 @@ export default StyleSheet.create({
     paddingLeft: 30,
     paddingRight: 30,
     justifyContent: 'center',
-    marginTop: 24,
-    backgroundColor: '#0D25B9'
+    backgroundColor: 'transparent',
+    elevation: 0
+  },
+  linearGradient: {
+    alignSelf: 'center',
+    maxWidth: 214,
+    borderRadius: 100
   }
 })

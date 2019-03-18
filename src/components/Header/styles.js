@@ -7,13 +7,17 @@ export default StyleSheet.create({
     elevation: 0
   },
   icon: {
-    color: '#000'
+    color: '#000',
+    resizeMode: 'contain',
+    width: 16,
+    height: 16
   },
   textStyle: {
-    color: '#fff'
+    color: '#fff',
+    textDecorationLine: 'underline'
   },
   backTextStyle: {
     color: '#000',
-    fontSize: 14
+    fontSize: 12
   }
 })

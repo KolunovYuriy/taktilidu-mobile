@@ -1,6 +1,9 @@
 import React from 'react'
+import { Image } from 'react-native'
 import { Header, Left, Right, Button, Icon, Text } from 'native-base'
 import styles from './styles'
+
+import { icLeftArrow } from '../../assets/images'
 
 export default function AuthHeader({ routeName, onPress, onBackPress }) {
   return (
@@ -8,7 +11,7 @@ export default function AuthHeader({ routeName, onPress, onBackPress }) {
       <Left>
         {onBackPress && (
           <Button onPress={onBackPress} transparent>
-            <Icon name="arrow-back" style={styles.icon} />
+            <Image source={icLeftArrow} style={styles.icon} />
             <Text style={styles.backTextStyle}>назад</Text>
           </Button>
         )}

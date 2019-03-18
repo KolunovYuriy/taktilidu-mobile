@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image } from 'react-native'
+import { Image, ImageBackground, View } from 'react-native'
 import { Container } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -9,7 +9,7 @@ import { AuthButton as Button } from '../Views/AuthButton'
 import BottomSection from '../Views/AuthBottomSection'
 import { LoginForm } from '../../../components/Forms'
 
-import { imgLogo } from '../../../assets/images/'
+import { imgLogo, imgBgContent } from '../../../assets/images/'
 import styles from './styles'
 
 export class LoginScreen extends Component {
@@ -17,22 +17,36 @@ export class LoginScreen extends Component {
     const { navigation } = this.props
     return (
       <Container>
-        <LinearGradient
-          start={{ x: 0.2, y: 0 }}
-          end={{ x: 1.2, y: 0 }}
-          style={styles.linearGradient}
-          colors={['#FD6585', '#0D25B9']}
-        >
-          <Header
-            routeName="Регистрация"
-            onBackPress={() => navigation.navigate('')}
-            onPress={() => navigation.navigate('Register')}
+        <ImageBackground source={imgBgContent} style={{ flex: 1, resizeMode: 'cover' }}>
+          <View
+            style={{
+              flex: 1,
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              backgroundColor: '#000',
+              opacity: 0.4
+            }}
           />
-          <Content>
-            <Image style={styles.image} source={imgLogo} />
-            <LoginForm />
-          </Content>
-        </LinearGradient>
+          <LinearGradient
+            start={{ x: 0.2, y: 0 }}
+            end={{ x: 1.2, y: 0 }}
+            style={styles.linearGradient}
+            colors={['#FD6585', '#0D25B9']}
+          >
+            <Header
+              routeName="Регистрация"
+              onBackPress={() => navigation.navigate('')}
+              onPress={() => navigation.navigate('Register')}
+            />
+            <Content>
+              <Image style={styles.image} source={imgLogo} />
+              <LoginForm />
+            </Content>
+          </LinearGradient>
+        </ImageBackground>
         <Button buttonText="Войти" onPress={() => navigation.navigate('Tab')} />
         <BottomSection
           buttonText="Забыли пароль?"
