@@ -60,7 +60,12 @@ const DriverRegisterForm = props => {
     <Fragment>
       <Form>
         <Item style={styles.formGroup}>
-          <Field name="name" component={this.renderInput} type="name" placeholder={'Машина'} />
+          <Field
+            name="name"
+            component={this.renderInput}
+            type="name"
+            placeholder={'Модель автомобиля (пример: Volkswagen Transporter (T4))'}
+          />
         </Item>
         <Item style={styles.formGroup}>
           <Field
@@ -76,7 +81,7 @@ const DriverRegisterForm = props => {
             name="email"
             component={this.renderInput}
             type="email"
-            placeholder={'Количество мест в машине'}
+            placeholder={'Количество мест в автомобиле'}
           />
         </Item>
         <Item style={styles.formGroup}>
@@ -84,7 +89,7 @@ const DriverRegisterForm = props => {
             name="password"
             component={this.renderInput}
             type="password"
-            placeholder={'Компания перевозчик'}
+            placeholder={'Наименование компании'}
           />
         </Item>
       </Form>

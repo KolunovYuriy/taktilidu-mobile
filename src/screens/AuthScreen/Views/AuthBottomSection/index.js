@@ -4,7 +4,16 @@ import styles from './styles'
 
 import { icVkontakte, icFacebook, icInstagram } from '../../../../assets/images'
 
-export default function BottomSection({ children, onPressText, plainText, buttonText, icon }) {
+export default function BottomSection({
+  children,
+  onPressText,
+  plainText,
+  buttonText,
+  icon,
+  iconColor,
+  textColor,
+  underline
+}) {
   return (
     <View style={styles.bottomSection}>
       {children}
@@ -20,7 +29,14 @@ export default function BottomSection({ children, onPressText, plainText, button
           {icon && <Image source={icon} style={styles.buttonIcon} />}
           <Text style={styles.text}>{plainText}</Text>
           <TouchableOpacity onPress={onPressText}>
-            <Text style={styles.buttonText}>{buttonText}</Text>
+            <Text
+              style={[
+                styles.buttonText,
+                { color: textColor, textDecorationLine: underline && 'underline' }
+              ]}
+            >
+              {buttonText}
+            </Text>
           </TouchableOpacity>
         </View>
       ) : (
@@ -28,13 +44,13 @@ export default function BottomSection({ children, onPressText, plainText, button
       )}
       <View style={styles.socials}>
         <TouchableOpacity>
-          <Image source={icVkontakte} style={styles.iconStyle} />
+          <Image source={icVkontakte} style={[styles.iconStyle, { tintColor: iconColor }]} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Image source={icFacebook} style={styles.iconStyle} />
+          <Image source={icFacebook} style={[styles.iconStyle, { tintColor: iconColor }]} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Image source={icInstagram} style={styles.iconStyle} />
+          <Image source={icInstagram} style={[styles.iconStyle, { tintColor: iconColor }]} />
         </TouchableOpacity>
       </View>
     </View>

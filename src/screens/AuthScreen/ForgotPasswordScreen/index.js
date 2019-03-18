@@ -1,19 +1,19 @@
 import React, { Component, Fragment } from 'react'
-import { Image } from 'react-native'
+import { Image, ImageBackground, View } from 'react-native'
 import { Container, Text } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 import CodeInput from 'react-native-confirmation-code-field'
 // import { connect } from 'react-redux'
 
-import Header from '../Views/AuthHeader'
-import Content from '../Views/AuthContent'
+import Header from '../../../components/Header'
+import Content from '../../../components/MainContent'
 import { AuthButton as Button } from '../Views/AuthButton'
 import BottomSection from '../Views/AuthBottomSection'
 import { ForgotPasswordForm, NewPasswordForm } from '../../../components/Forms'
 
 import styles from './styles'
 
-import { imgLogo, icInfo } from '../../../assets/images'
+import { imgLogo, imgBgContent, icInfo } from '../../../assets/images'
 
 class ForgotPasswordScreen extends Component {
   constructor(props) {
@@ -64,21 +64,35 @@ class ForgotPasswordScreen extends Component {
 
     return (
       <Container>
-        <LinearGradient
-          start={{ x: 0.2, y: 0 }}
-          end={{ x: 1.2, y: 0 }}
-          style={styles.linearGradient}
-          colors={['#FD6585', '#0D25B9']}
-        >
-          <Header
-            routeName={stepCount === 1 && 'Отправить повторно'}
-            onBackPress={() => navigation.navigate('Login')}
+        <ImageBackground source={imgBgContent} style={{ flex: 1, resizeMode: 'cover' }}>
+          <View
+            style={{
+              flex: 1,
+              position: 'absolute',
+              left: 0,
+              right: 0,
+              top: 0,
+              bottom: 0,
+              backgroundColor: '#000',
+              opacity: 0.4
+            }}
           />
-          <Content>
-            <Image style={styles.image} source={imgLogo} />
-            {this.resetPasswordSteps(stepCount)}
-          </Content>
-        </LinearGradient>
+          <LinearGradient
+            start={{ x: 0.2, y: 0 }}
+            end={{ x: 1.2, y: 0 }}
+            style={styles.linearGradient}
+            colors={['#FD6585', '#0D25B9']}
+          >
+            <Header
+              routeName={stepCount === 1 && 'Отправить повторно'}
+              onBackPress={() => navigation.navigate('Login')}
+            />
+            <Content>
+              <Image style={styles.image} source={imgLogo} />
+              {this.resetPasswordSteps(stepCount)}
+            </Content>
+          </LinearGradient>
+        </ImageBackground>
         <Button
           buttonText="Далее"
           onPress={() =>

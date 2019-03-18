@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Text, View } from 'react-native'
+import { Container } from 'native-base'
 
 class HomeScreen extends Component {
   render() {
     return (
-      <View>
+      <Container>
         <Text> HomeScreen </Text>
-      </View>
+      </Container>
     )
   }
 }
