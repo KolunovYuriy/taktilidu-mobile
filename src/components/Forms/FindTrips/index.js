@@ -80,9 +80,9 @@ const FindTripsForm = props => {
         <Item style={styles.formGroup}>
           <Image source={icTime} style={styles.icon} />
           <Field
-            name="password"
+            name="time"
             component={this.renderFindTripInput}
-            type="password"
+            type="time"
             placeholder={'Желаемая дата, время?'}
           />
         </Item>
