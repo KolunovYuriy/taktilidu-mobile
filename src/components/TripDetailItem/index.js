@@ -62,7 +62,7 @@ export default function TripDetailItem({
     case 'TripDetailsScreen':
       return (
         <ListItem style={[styles.listItem, styles.verticalSection]}>
-          <View style={styles.horizontalSection}>
+          <View style={[styles.horizontalSection, styles.tripDetailItemSection]}>
             <View style={{ flex: 0.5, flexDirection: 'row', justifyContent: 'flex-start' }}>
               <Image source={icLine} style={styles.iconLine} />
               <View style={styles.verticalSection}>
@@ -97,7 +97,7 @@ export default function TripDetailItem({
                 {driverName} - {carId}
               </Text>
             </View>
-            <Text style={styles.moreButton} onPress={onPress}>
+            <Text style={styles.aboutDriver} onPress={onPress}>
               О водителе
             </Text>
           </View>

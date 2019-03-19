@@ -35,6 +35,7 @@ class ForgotPasswordScreen extends Component {
           <Fragment>
             <Text style={styles.labelText}>Введите код здесь: </Text>
             <CodeInput
+              inputPosition="full-width"
               size={64}
               variant="border-b"
               codeLength={4}
@@ -50,11 +51,11 @@ class ForgotPasswordScreen extends Component {
   bottomSectionText = steps => {
     switch (steps) {
       case 0:
-        return ' Вы получите сообщение с кодом'
+        return 'Вы получите письмо с кодом'
       case 1:
-        return ' На Ваш e-mail было выслано письмо с кодом подтверждения'
+        return 'На Ваш e-mail было выслано письмо с кодом подтверждения'
       case 2:
-        return ' Придумайте пароль'
+        return 'Придумайте пароль'
     }
   }
 
