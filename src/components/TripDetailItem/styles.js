@@ -127,6 +127,12 @@ export default StyleSheet.create({
   // Icon styles starts
   // Button styles starts
   reserveButton: {
+    fontSize: 16,
+    color: '#fff',
+    textAlign: 'center',
+    width: '100%',
+    paddingTop: 14,
+    paddingBottom: 14,
     borderBottomLeftRadius: 6,
     borderBottomRightRadius: 6,
     borderTopLeftRadius: 0,
