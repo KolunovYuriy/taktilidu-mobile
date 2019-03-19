@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Container, Text } from 'native-base'
 
 class AuthLoadingScreen extends Component {
   render() {
     return (
-      <View>
+      <Container>
         <Text> HomeScreen </Text>
-      </View>
+      </Container>
     )
   }
 }

@@ -36,6 +36,6 @@ export default StyleSheet.create({
     color: '#fff'
   },
   boldText: {
-    fontWeight: 'bold'
+    fontFamily: 'OpenSans-Bold'
   }
 })

@@ -103,7 +103,7 @@ export default StyleSheet.create({
     fontSize: 14,
     textAlign: 'left',
     alignSelf: 'flex-start',
-    fontWeight: 'bold'
+    fontFamily: 'OpenSans-Bold'
   },
   // Text styles ends
   // Icon styles starts
