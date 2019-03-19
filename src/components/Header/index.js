@@ -12,14 +12,18 @@ export default function AuthHeader({ routeName, onPress, onBackPress }) {
         {onBackPress && (
           <Button onPress={onBackPress} transparent>
             <Image source={icLeftArrow} style={styles.icon} />
-            <Text style={styles.backTextStyle}>назад</Text>
+            <Text style={styles.backTextStyle} uppercase={false}>
+              назад
+            </Text>
           </Button>
         )}
       </Left>
       <Right>
         {routeName && (
           <Button onPress={onPress} transparent>
-            <Text style={styles.textStyle}>{routeName}</Text>
+            <Text style={styles.textStyle} uppercase={false}>
+              {routeName}
+            </Text>
           </Button>
         )}
       </Right>

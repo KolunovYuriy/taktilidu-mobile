@@ -12,6 +12,9 @@ export default StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20
   },
+  tripDetailItemSection: {
+    paddingBottom: 8
+  },
   verticalSection: {
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -59,8 +62,8 @@ export default StyleSheet.create({
     textAlign: 'left',
     width: '100%',
     paddingLeft: 10,
-    paddingTop: 10,
-    paddingBottom: 10
+    paddingTop: 8,
+    paddingBottom: 8
   },
   label: {
     color: '#C4C4C4',
@@ -80,6 +83,11 @@ export default StyleSheet.create({
     fontSize: 14
   },
   moreButton: {
+    fontSize: 16,
+    color: '#9B4B9A'
+  },
+  aboutDriver: {
+    textDecorationLine: 'underline',
     fontSize: 16,
     color: '#9B4B9A'
   },

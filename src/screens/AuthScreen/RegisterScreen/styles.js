@@ -26,6 +26,8 @@ export default StyleSheet.create({
     padding: 0
   },
   listItemStyle: {
+    borderBottomWidth: 1,
+    borderColor: '#fff',
     marginLeft: 0,
     padding: 0,
     justifyContent: 'space-between'

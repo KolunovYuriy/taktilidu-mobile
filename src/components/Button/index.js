@@ -18,7 +18,9 @@ export function MainButton({ text, onPress, noIcon }) {
       colors={['#FD6585', '#0D25B9']}
     >
       <Button rounded style={styles.button} onPress={onPress}>
-        <Text style={styles.text}>{text}</Text>
+        <Text style={styles.text} uppercase={false}>
+          {text}
+        </Text>
         {!noIcon && <Image source={icNext} style={styles.icon} />}
       </Button>
     </LinearGradient>

@@ -39,11 +39,10 @@ export class RegisterScreen extends Component {
     return (
       <List style={styles.listStyle}>
         {roles.map((item, index) => (
-          <View style={{ marginTop: 40 }}>
+          <View style={{ marginTop: 40 }} key={index}>
             <ListItem
               onPress={() => this.setState({ choosenRoleType: item.type })}
               button
-              key={index}
               style={styles.listItemStyle}
             >
               <Text style={[styles.listItemText, choosenRoleType === item.type && styles.boldText]}>
@@ -142,7 +141,11 @@ export class RegisterScreen extends Component {
               disabled={!choosenRoleType}
               onPress={() => this.setState({ isRoleChoosen: true })}
             />
-            <BottomSection plainText="или" onPressText={() => navigation.navigate('')} />
+            <BottomSection
+              iconColor="#9B4B9A"
+              plainText="или"
+              onPressText={() => navigation.navigate('')}
+            />
           </Fragment>
         )}
       </Container>

@@ -9,7 +9,9 @@ import { icNext } from '../../../../assets/images'
 export function AuthButton({ buttonText, onPress, disabled, noIcon }) {
   return (
     <Button onPress={onPress} rounded style={styles.button} disabled={disabled}>
-      <Text style={styles.text}>{buttonText}</Text>
+      <Text style={styles.text} uppercase={false}>
+        {buttonText}
+      </Text>
       {!noIcon && <Image style={styles.icon} source={icNext} />}
     </Button>
   )

@@ -12,7 +12,8 @@ export default function BottomSection({
   icon,
   iconColor,
   textColor,
-  underline
+  underline,
+  facebookIconStyle
 }) {
   return (
     <View style={styles.bottomSection}>
@@ -20,19 +21,22 @@ export default function BottomSection({
       {onPressText ? (
         <View
           style={{
-            width: '100%',
+            width: '70%',
             justifyContent: 'center',
             alignItems: 'center',
             flexDirection: 'row'
           }}
         >
           {icon && <Image source={icon} style={styles.buttonIcon} />}
-          <Text style={styles.text}>{plainText}</Text>
+          <Text style={[styles.plainText, icon && { marginLeft: 9 }]}>{plainText}</Text>
           <TouchableOpacity onPress={onPressText}>
             <Text
               style={[
                 styles.buttonText,
-                { color: textColor, textDecorationLine: underline && 'underline' }
+                {
+                  color: textColor,
+                  textDecorationLine: underline && 'underline'
+                }
               ]}
             >
               {buttonText}
@@ -47,7 +51,16 @@ export default function BottomSection({
           <Image source={icVkontakte} style={[styles.iconStyle, { tintColor: iconColor }]} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Image source={icFacebook} style={[styles.iconStyle, { tintColor: iconColor }]} />
+          <Image
+            source={icFacebook}
+            style={[
+              styles.iconStyle,
+              {
+                tintColor: iconColor
+              },
+              facebookIconStyle
+            ]}
+          />
         </TouchableOpacity>
         <TouchableOpacity>
           <Image source={icInstagram} style={[styles.iconStyle, { tintColor: iconColor }]} />
