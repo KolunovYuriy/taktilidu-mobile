@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+
+const { width } = Dimensions.get('window')
 
 export default StyleSheet.create({
   icon: {
@@ -8,6 +10,7 @@ export default StyleSheet.create({
   button: {
     backgroundColor: '#fff',
     alignSelf: 'center',
+    minWidth: 204,
     paddingLeft: 30,
     paddingRight: 30,
     marginTop: -24,
