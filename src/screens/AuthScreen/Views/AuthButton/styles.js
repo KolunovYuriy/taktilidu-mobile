@@ -22,6 +22,7 @@ export default StyleSheet.create({
     shadowOffset: { width: 1, height: 1 }
   },
   text: {
-    color: '#9B4B9A'
+    color: '#9B4B9A',
+    fontSize: 16
   }
 })

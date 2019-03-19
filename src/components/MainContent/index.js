@@ -2,9 +2,6 @@ import React from 'react'
 import { SafeAreaView } from 'react-native'
 import { Content } from 'native-base'
 
-import { imgBgContent } from '../../assets/images'
-import styles from '../../assets/styles/commonStyles'
-
 export default function AuthContent(props) {
   return (
     <Content

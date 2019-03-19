@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
-import { Container } from 'native-base'
+import { Container, Text } from 'native-base'
 
 class ProfileScreen extends Component {
   render() {
