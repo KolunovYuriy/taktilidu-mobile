@@ -18,5 +18,8 @@ export default StyleSheet.create({
     alignSelf: 'center',
     maxWidth: 214,
     borderRadius: 100
+  },
+  text: {
+    fontSize: 16
   }
 })

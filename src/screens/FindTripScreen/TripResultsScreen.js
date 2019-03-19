@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Text, List } from 'native-base'
+import { Container, List } from 'native-base'
 
 import Content from '../../components/MainContent'
 import Header from '../../components/Header'
