@@ -4,7 +4,10 @@ export default StyleSheet.create({
   section: {
     flexDirection: 'row',
     flex: 1,
-    paddingTop: 24
+    marginTop: 16,
+    marginBottom: 16,
+    marginLeft: 5,
+    marginRight: 5
   },
   text: {
     fontSize: 24,

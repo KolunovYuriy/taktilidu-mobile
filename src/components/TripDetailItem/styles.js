@@ -41,20 +41,22 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   listItem: {
-    marginLeft: 0,
-    marginTop: 24,
+    marginLeft: 8,
+    marginRight: 8,
+    elevation: 20,
+    marginTop: 0,
+    marginBottom: 20,
     paddingRight: 0,
     paddingTop: 0,
     paddingBottom: 0,
+    borderBottomWidth: 0,
     borderRadius: 6,
-    borderWidth: 0,
     borderColor: 'transparent',
     backgroundColor: '#fff',
     shadowColor: 'rgba(0, 0, 0, 0.2)',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
-    shadowRadius: 10,
-    elevation: 5
+    shadowRadius: 10
   },
   // Sections ends
   // Text styles
