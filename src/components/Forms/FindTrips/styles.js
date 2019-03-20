@@ -16,25 +16,21 @@ export default StyleSheet.create({
   },
   formGroup: {
     flex: 0,
-    marginTop: 20,
-    marginBottom: 5,
-    marginRight: 0,
-    marginLeft: 0,
+    marginTop: 0,
+    marginBottom: 20,
+    marginRight: 8,
+    marginLeft: 8,
+    elevation: 8,
     alignSelf: 'center',
     backgroundColor: '#fff',
-    borderBottomWidth: 1,
+    borderBottomWidth: 0,
     borderColor: 'transparent',
-    borderTopWidth: 1,
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    borderWidth: 1,
     borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'space-between',
     shadowColor: 'rgba(0, 0, 0, 0.2)',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
-    shadowRadius: 10,
-    elevation: 10
+    shadowRadius: 10
   }
 })

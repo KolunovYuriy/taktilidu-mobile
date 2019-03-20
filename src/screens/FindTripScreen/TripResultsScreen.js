@@ -69,7 +69,7 @@ class TripResultsScreen extends Component {
     return (
       <Container>
         <Header onBackPress={() => navigation.goBack()} />
-        <Content padding={15}>
+        <Content padding={7}>
           <ScreenLabel mainText="Найдено: " additionalText="18 результатов" />
           {this.renderTripResultsList()}
         </Content>

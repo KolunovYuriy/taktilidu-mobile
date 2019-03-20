@@ -20,7 +20,7 @@ class FindTripScreen extends Component {
     const { navigation } = this.props
     return (
       <Container>
-        <Content padding={15}>
+        <Content padding={7}>
           <ScreenLabel mainText="Найти поездку" />
           <FindTripsForm />
           <Button text="Далее" onPress={() => navigation.push('TripResults')} />
