@@ -62,12 +62,11 @@ export default StyleSheet.create({
     textAlign: 'left',
     width: '100%',
     paddingLeft: 10,
-    paddingTop: 8,
-    paddingBottom: 8
+    paddingTop: 8
   },
   label: {
     color: '#C4C4C4',
-    fontSize: 12,
+    fontSize: 14,
     textAlign: 'left',
     alignSelf: 'flex-start'
   },
@@ -79,6 +78,7 @@ export default StyleSheet.create({
   carrierInfo: {
     textAlign: 'left',
     alignSelf: 'flex-start',
+    paddingTop: 8,
     paddingLeft: 10,
     fontSize: 14
   },
@@ -124,6 +124,15 @@ export default StyleSheet.create({
     height: 30,
     width: 4
   },
+  iconLine2x: {
+    resizeMode: 'contain',
+    tintColor: '#9B4B9A',
+    alignItems: 'center',
+    alignSelf: 'center',
+    marginRight: 8,
+    height: 45,
+    width: 4
+  },
   // Icon styles starts
   // Button styles starts
   reserveButton: {
@@ -141,7 +150,7 @@ export default StyleSheet.create({
   },
   linearGradient: {
     width: '100%',
-    marginTop: 24,
+    marginTop: 10,
     alignSelf: 'center',
     borderBottomLeftRadius: 6,
     borderBottomRightRadius: 6,
