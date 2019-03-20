@@ -43,7 +43,7 @@ export default StyleSheet.create({
   listItem: {
     marginLeft: 8,
     marginRight: 8,
-    elevation: 20,
+    elevation: 8,
     marginTop: 0,
     marginBottom: 20,
     paddingRight: 0,
