@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Image } from 'react-native'
 import { ListItem, Text, Thumbnail, Label, Button } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
-import { icBorder, icLine } from '../../assets/images'
+import { icBorder, icLine, icLine2x } from '../../assets/images'
 import styles from './styles'
 
 export default function TripDetailItem({
@@ -64,7 +64,7 @@ export default function TripDetailItem({
         <ListItem style={[styles.listItem, styles.verticalSection]}>
           <View style={[styles.horizontalSection, styles.tripDetailItemSection]}>
             <View style={{ flex: 0.5, flexDirection: 'row', justifyContent: 'flex-start' }}>
-              <Image source={icLine} style={styles.iconLine} />
+              <Image source={icLine2x} style={styles.iconLine2x} />
               <View style={styles.verticalSection}>
                 <Text style={styles.textCityStyle}>{fromCity}</Text>
                 <Text style={styles.textCityStyle}>{betweenCity}</Text>

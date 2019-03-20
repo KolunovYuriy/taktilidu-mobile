@@ -25,6 +25,7 @@ export const icTime = require('./time.png')
 export const icUsers = require('./users.png')
 export const icBorder = require('./border.png')
 export const icLine = require('./line.png')
+export const icLine2x = require('./line-2x.png')
 
 export const imgBG = require('./bg.png')
 export const imgBgContent = require('./bg-content.jpeg')
