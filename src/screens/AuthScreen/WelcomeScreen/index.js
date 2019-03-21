@@ -13,6 +13,18 @@ class WelcomeScreen extends Component {
     const { navigation } = this.props
     return (
       <ImageBackground source={imgBG} style={styles.imageBackground}>
+        <View
+          style={{
+            flex: 1,
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            backgroundColor: '#000',
+            opacity: 0.18
+          }}
+        />
         <SafeAreaView style={{ flex: 1 }}>
           <Container style={styles.container}>
             <View>

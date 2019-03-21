@@ -11,9 +11,8 @@ export function MainButton({ text, onPress, noIcon }) {
     <LinearGradient
       useAngle
       angle={139.56}
-      start={{ x: 0.5, y: 0 }}
       locations={[0, 1]}
-      end={{ x: 1.5, y: 0 }}
+      end={{ x: 1, y: 0 }}
       style={styles.linearGradient}
       colors={['#FD6585', '#0D25B9']}
     >

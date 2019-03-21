@@ -104,10 +104,12 @@ export class RegisterScreen extends Component {
               top: 0,
               bottom: 0,
               backgroundColor: '#000',
-              opacity: 0.4
+              opacity: 0.65
             }}
           />
           <LinearGradient
+            useAngle
+            angle={109.63}
             start={{ x: 0.2, y: 0 }}
             end={{ x: 1.2, y: 0 }}
             style={styles.linearGradient}

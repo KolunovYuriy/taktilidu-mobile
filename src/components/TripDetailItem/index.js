@@ -63,7 +63,9 @@ export default function TripDetailItem({
       return (
         <ListItem style={[styles.listItem, styles.verticalSection]}>
           <View style={[styles.horizontalSection, styles.tripDetailItemSection]}>
-            <View style={{ flex: 0.5, flexDirection: 'row', justifyContent: 'flex-start' }}>
+            <View
+              style={{ flex: 0.5, flexDirection: 'row', justifyContent: 'flex-space', height: 60 }}
+            >
               <Image source={icLine2x} style={styles.iconLine2x} />
               <View style={styles.verticalSection}>
                 <Text style={styles.textCityStyle}>{fromCity}</Text>
