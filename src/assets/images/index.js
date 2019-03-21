@@ -12,6 +12,7 @@ export const icPhone = require('./phone.png')
 export const icAttachment = require('./attachment.png')
 export const icInfo = require('./info.png')
 export const icLeftArrow = require('./left-arrow.png')
+export const icRightArrow = require('./right-arrow.png')
 
 export const icHome = require('./home.png')
 export const icPlus = require('./plus.png')
@@ -35,3 +36,5 @@ export const imgBG = require('./bg.png')
 export const imgBgContent = require('./bg-content.jpeg')
 
 export const imgUserPhoto = require('./user-photo.png')
+export const icPassenger = require('./passenger.png')
+export const icCircle = require('./circle.png')
