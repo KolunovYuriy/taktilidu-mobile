@@ -65,7 +65,7 @@ const FindTripsForm = props => {
             name="email"
             component={this.renderFindTripInput}
             type="email"
-            placeholder={'Откуда вы едите?'}
+            placeholder={'Откуда вы едете?'}
           />
         </Item>
         <Item style={styles.formGroup}>
@@ -74,7 +74,7 @@ const FindTripsForm = props => {
             name="phone"
             component={this.renderFindTripInput}
             type="phone"
-            placeholder={'Куда вы едите?'}
+            placeholder={'Куда вы едете?'}
           />
         </Item>
         <Item style={styles.formGroup}>

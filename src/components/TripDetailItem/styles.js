@@ -12,6 +12,16 @@ export default StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20
   },
+  tDhorizontalSection: {
+    flexDirection: 'row',
+    flex: 1,
+    paddingLeft: 16,
+    paddingRight: 16,
+    width: '100%',
+    justifyContent: 'space-between',
+    paddingTop: 16,
+    paddingBottom: 16
+  },
   tripDetailItemSection: {
     paddingBottom: 8
   },
@@ -67,12 +77,24 @@ export default StyleSheet.create({
     paddingTop: 8
   },
   label: {
+    paddingBottom: 8,
+    color: '#C4C4C4',
+    fontSize: 14,
+    textAlign: 'left',
+    alignSelf: 'flex-start'
+  },
+  tDLabel: {
     color: '#C4C4C4',
     fontSize: 14,
     textAlign: 'left',
     alignSelf: 'flex-start'
   },
   textStyle: {
+    fontSize: 12,
+    textAlign: 'left',
+    alignSelf: 'flex-start'
+  },
+  tDtextStyle: {
     fontSize: 14,
     textAlign: 'left',
     alignSelf: 'flex-start'
@@ -94,18 +116,24 @@ export default StyleSheet.create({
     color: '#9B4B9A'
   },
   price: {
+    fontSize: 16,
+    color: '#9B4B9A'
+  },
+  tDprice: {
+    fontSize: 14,
     color: '#9B4B9A'
   },
   textCityStyle: {
-    fontSize: 14,
-    textAlign: 'left',
-    alignSelf: 'flex-start'
-  },
-  toCityStyle: {
-    fontSize: 14,
+    fontSize: 12,
     textAlign: 'left',
     alignSelf: 'flex-start',
-    fontFamily: 'OpenSans-Bold'
+    fontWeight: '300'
+  },
+  toCityStyle: {
+    fontSize: 12,
+    textAlign: 'left',
+    alignSelf: 'flex-start',
+    fontWeight: 'normal'
   },
   // Text styles ends
   // Icon styles starts
@@ -128,12 +156,18 @@ export default StyleSheet.create({
   },
   iconLine2x: {
     resizeMode: 'contain',
-    tintColor: '#9B4B9A',
     alignItems: 'center',
     alignSelf: 'center',
     marginRight: 8,
-    height: 45,
+    height: 60,
     width: 4
+  },
+  icPassenger: {
+    resizeMode: 'contain',
+    width: 20,
+    height: 20,
+    marginTop: 5,
+    marginRight: 8
   },
   // Icon styles starts
   // Button styles starts

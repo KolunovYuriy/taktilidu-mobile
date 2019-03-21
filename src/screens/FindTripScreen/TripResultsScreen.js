@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-import { Container, List } from 'native-base'
+import { Image } from 'react-native'
+import { Container, List, ListItem, Text } from 'native-base'
 
 import Content from '../../components/MainContent'
 import Header from '../../components/Header'
 import ScreenLabel from '../../components/ScreenLabel'
 import TripDetailItem from '../../components/TripDetailItem'
+import { icCircle, icRightArrow } from '../../assets/images'
+import styles from './styles'
 
 const listSample = [
   {
@@ -43,6 +46,17 @@ class TripResultsScreen extends Component {
     }
   }
 
+  renderTarget = (fromCity, toCity) => {
+    return (
+      <ListItem style={styles.targetSection}>
+        <Image source={icCircle} style={styles.iconCircle} />
+        <Text style={styles.fromTargetText}>{fromCity}</Text>
+        <Image source={icRightArrow} style={styles.iconRightArrow} />
+        <Text style={styles.toTargetText}>{toCity}</Text>
+      </ListItem>
+    )
+  }
+
   renderTripResultsList = () => {
     const { navigation } = this.props
     return (
@@ -58,6 +72,7 @@ class TripResultsScreen extends Component {
             carId={item.carId}
             driverName={item.driver}
             onPress={() => navigation.navigate('TripDetails')}
+            passengersAmount={4}
           />
         ))}
       </List>
@@ -71,6 +86,7 @@ class TripResultsScreen extends Component {
         <Header onBackPress={() => navigation.goBack()} />
         <Content padding={7}>
           <ScreenLabel mainText="Найдено: " additionalText="18 результатов" />
+          {this.renderTarget('г. Санкт-Петербург', 'г. Москва')}
           {this.renderTripResultsList()}
         </Content>
       </Container>

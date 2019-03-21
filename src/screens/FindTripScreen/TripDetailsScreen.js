@@ -24,7 +24,7 @@ class TripDetailsScreen extends Component {
             tripDetailType="TripDetailsScreen"
             fromCity="г. Санкт-Петербург"
             betweenCity="г. Тверь"
-            toCity="г. Санкт-Петербург"
+            toCity="г. Москва"
             time="12:40"
             date="18 февраля"
             price="900 р"
