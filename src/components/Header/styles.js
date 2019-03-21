@@ -11,6 +11,11 @@ export default StyleSheet.create({
     width: 16,
     height: 16
   },
+  rightSideIcon: {
+    resizeMode: 'contain',
+    width: 20,
+    height: 20
+  },
   textStyle: {
     fontSize: 16,
     color: '#fff',

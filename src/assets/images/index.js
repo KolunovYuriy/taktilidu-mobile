@@ -26,6 +26,12 @@ export const icUsers = require('./users.png')
 export const icBorder = require('./border.png')
 export const icLine = require('./line.png')
 export const icLine2x = require('./line-2x.png')
+export const icNotification = require('./notification.png')
+export const icSettings = require('./settings.png')
+export const icBirthday = require('./birthday-cake.png')
+export const icGender = require('./gender.png')
 
 export const imgBG = require('./bg.png')
 export const imgBgContent = require('./bg-content.jpeg')
+
+export const imgUserPhoto = require('./user-photo.png')
