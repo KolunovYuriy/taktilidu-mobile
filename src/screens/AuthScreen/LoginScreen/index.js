@@ -17,7 +17,7 @@ export class LoginScreen extends Component {
     const { navigation } = this.props
     return (
       <Container>
-        <ImageBackground source={imgBgContent} style={{ flex: 1, resizeMode: 'cover' }}>
+        <ImageBackground source={imgBgContent} style={{ flex: 1, resizeMode: 'center' }}>
           <View
             style={{
               flex: 1,
@@ -27,12 +27,14 @@ export class LoginScreen extends Component {
               top: 0,
               bottom: 0,
               backgroundColor: '#000',
-              opacity: 0.4
+              opacity: 0.65
             }}
           />
           <LinearGradient
-            start={{ x: 0.2, y: 0 }}
-            end={{ x: 1.2, y: 0 }}
+            useAngle
+            angle={110.44}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
             style={styles.linearGradient}
             colors={['#FD6585', '#0D25B9']}
           >
