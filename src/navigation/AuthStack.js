@@ -1,8 +1,8 @@
-import { createSwitchNavigator } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation'
 
 import { LoginScreen, RegisterScreen, ForgotPasswordScreen, WelcomeScreen } from '../screens'
 
-export default createSwitchNavigator(
+export default createStackNavigator(
   {
     Login: LoginScreen,
     Register: RegisterScreen,

@@ -48,7 +48,7 @@ export class LoginScreen extends Component {
           >
             <Header
               routeName="Регистрация"
-              onBackPress={() => navigation.navigate('')}
+              onBackPress={() => navigation.goBack()}
               onPress={() => navigation.navigate('Register')}
             />
             <Content contentContainerStyle={{ flexGrow: 1 }}>
