@@ -34,7 +34,11 @@ class ForgotPasswordScreen extends Component {
         return <ForgotPasswordForm />
       case 1:
         return (
-          <View>
+          <View
+            style={{
+              height: 100
+            }}
+          >
             <Text style={styles.labelText}>Введите код здесь: </Text>
             <CodeInput
               inputPosition="full-width"

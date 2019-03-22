@@ -78,7 +78,7 @@ const ClientRegisterForm = props => {
             name="email"
             component={this.renderInput}
             type="email"
-            placeholder={'Ваша e-mail*'}
+            placeholder={'Ваш e-mail*'}
           />
         </Item>
         <Item style={styles.formGroup}>
