@@ -116,7 +116,7 @@ export class RegisterScreen extends Component {
             colors={['#FD6585', '#0D25B9']}
           >
             <Header
-              onBackPress={() => navigation.navigate('Login')}
+              onBackPress={() => navigation.goBack()}
               onPress={() => navigation.navigate('Login')}
               routeName="Войти"
             />
