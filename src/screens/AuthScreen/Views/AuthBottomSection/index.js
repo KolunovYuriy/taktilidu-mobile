@@ -6,6 +6,7 @@ import styles from './styles'
 import { icVkontakte, icFacebook, icInstagram } from '../../../../assets/images'
 
 export default function BottomSection({
+  onLayout,
   children,
   onPressText,
   plainText,
@@ -17,7 +18,7 @@ export default function BottomSection({
   facebookIconStyle
 }) {
   return (
-    <View style={styles.bottomSection}>
+    <View style={styles.bottomSection} onLayout={onLayout}>
       {children}
       {onPressText ? (
         <View

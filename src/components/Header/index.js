@@ -5,9 +5,9 @@ import styles from './styles'
 
 import { icLeftArrow } from '../../assets/images'
 
-export default function AuthHeader({ routeName, onPress, onBackPress, headerItems }) {
+export default function AuthHeader({ onLayout, routeName, onPress, onBackPress, headerItems }) {
   return (
-    <Header style={styles.header}>
+    <Header style={styles.header} onLayout={onLayout}>
       <Left>
         {onBackPress && (
           <Button onPress={onBackPress} transparent>
