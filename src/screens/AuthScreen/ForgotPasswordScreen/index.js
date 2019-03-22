@@ -32,7 +32,11 @@ class ForgotPasswordScreen extends Component {
         return <ForgotPasswordForm />
       case 1:
         return (
-          <Fragment>
+          <View
+            style={{
+              height: 100
+            }}
+          >
             <Text style={styles.labelText}>Введите код здесь: </Text>
             <CodeInput
               inputPosition="full-width"
@@ -41,7 +45,7 @@ class ForgotPasswordScreen extends Component {
               codeLength={4}
               onFulfill={this.handlerOnFulfill}
             />
-          </Fragment>
+          </View>
         )
       case 2:
         return <NewPasswordForm />
