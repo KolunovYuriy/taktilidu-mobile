@@ -51,7 +51,7 @@ export class LoginScreen extends Component {
               onBackPress={() => navigation.navigate('')}
               onPress={() => navigation.navigate('Register')}
             />
-            <Content>
+            <Content contentContainerStyle={{ flexGrow: 1 }}>
               <Image style={styles.image} source={imgLogo} />
               <View
                 style={{
