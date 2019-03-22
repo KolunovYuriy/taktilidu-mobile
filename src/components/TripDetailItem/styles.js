@@ -159,7 +159,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     marginRight: 8,
-    height: 60,
+    height: 54,
     width: 4
   },
   icPassenger: {
