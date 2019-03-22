@@ -10,11 +10,12 @@ export function MainButton({ text, onPress, noIcon }) {
   return (
     <LinearGradient
       useAngle
-      angle={139.56}
+      angle={143.92}
       locations={[0, 1]}
-      end={{ x: 1, y: 0 }}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 0, y: 0 }}
       style={styles.linearGradient}
-      colors={['#FD6585', '#0D25B9']}
+      colors={['#95499B', '#2131B5']}
     >
       <Button rounded style={styles.button} onPress={onPress}>
         <Text style={styles.text} uppercase={false}>
