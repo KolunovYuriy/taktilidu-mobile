@@ -96,7 +96,7 @@ class ForgotPasswordScreen extends Component {
               routeName={stepCount === 1 && 'Отправить повторно'}
               onBackPress={() => navigation.navigate('Login')}
             />
-            <Content>
+            <Content contentContainerStyle={{ flexGrow: 1 }}>
               <Image style={styles.image} source={imgLogo} />
               <View
                 style={{

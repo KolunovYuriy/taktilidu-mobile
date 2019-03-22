@@ -31,19 +31,18 @@ export default function BottomSection({
         >
           {icon && <Image source={icon} style={styles.buttonIcon} />}
           <Text style={[styles.plainText, icon && { marginLeft: 9 }]}>{plainText}</Text>
-          <TouchableOpacity onPress={onPressText}>
-            <Text
-              style={[
-                styles.buttonText,
-                {
-                  color: textColor,
-                  textDecorationLine: underline && 'underline'
-                }
-              ]}
-            >
-              {buttonText}
-            </Text>
-          </TouchableOpacity>
+          <Text
+            onPress={onPressText}
+            style={[
+              styles.buttonText,
+              {
+                color: textColor,
+                textDecorationLine: underline && 'underline'
+              }
+            ]}
+          >
+            {buttonText}
+          </Text>
         </View>
       ) : (
         <Text style={styles.text}>{buttonText}</Text>

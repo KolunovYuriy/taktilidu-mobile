@@ -8,28 +8,25 @@ export default StyleSheet.create({
   },
   buttonIcon: {
     width: 18,
-    height: 18,
-    marginTop: 12
+    height: 18
   },
   iconStyle: {
     width: 32,
     height: 32,
-    margin: 21
+    marginLeft: 21,
+    marginRight: 21
   },
   plainText: {
     fontSize: 16,
-    color: '#000',
-    marginTop: 12
+    color: '#000'
   },
   text: {
     fontSize: 16,
-    color: '#000',
-    marginTop: 12
+    color: '#000'
   },
   buttonText: {
     fontSize: 16,
-    color: '#9B4B9A',
-    marginTop: 12
+    color: '#9B4B9A'
   },
   socials: {
     flexDirection: 'row',
