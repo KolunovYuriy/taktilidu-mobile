@@ -120,7 +120,7 @@ export class RegisterScreen extends Component {
               onPress={() => navigation.navigate('Login')}
               routeName="Войти"
             />
-            <Content>
+            <Content contentContainerStyle={{ flexGrow: 1 }}>
               <Image style={styles.image} source={imgLogo} />
               <View
                 style={{

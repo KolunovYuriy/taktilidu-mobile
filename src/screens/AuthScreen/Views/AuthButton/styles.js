@@ -13,7 +13,7 @@ export default StyleSheet.create({
     minWidth: 204,
     paddingLeft: 30,
     paddingRight: 30,
-    marginTop: -24,
+    marginTop: -22,
     justifyContent: 'center',
     shadowColor: 'gray',
     shadowOpacity: 0.5,
