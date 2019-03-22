@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 // import { connect } from 'react-redux'
-import { Image, ImageBackground, View } from 'react-native'
+import { Image, ImageBackground, View, Dimensions } from 'react-native'
 import { Container, Text, List, ListItem } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -11,8 +11,8 @@ import { DriverRegisterForm, ClientRegisterForm } from '../../../components/Form
 import { AuthButton as Button } from '../Views/AuthButton'
 
 import styles from './styles'
-
 import { imgLogo, imgBgContent, icNext } from '../../../assets/images'
+const { height } = Dimensions.get('window')
 
 const roles = [
   {
@@ -39,7 +39,7 @@ export class RegisterScreen extends Component {
     return (
       <List style={styles.listStyle}>
         {roles.map((item, index) => (
-          <View style={{ marginTop: 40 }} key={index}>
+          <View style={{ marginTop: 20, marginBottom: 20 }} key={index}>
             <ListItem
               onPress={() => this.setState({ choosenRoleType: item.type })}
               button
@@ -122,15 +122,22 @@ export class RegisterScreen extends Component {
             />
             <Content>
               <Image style={styles.image} source={imgLogo} />
-              {isRoleChoosen ? (
-                choosenRoleType === 'client' ? (
-                  <ClientRegisterForm />
+              <View
+                style={{
+                  height: height / 2,
+                  justifyContent: 'center'
+                }}
+              >
+                {isRoleChoosen ? (
+                  choosenRoleType === 'client' ? (
+                    <ClientRegisterForm />
+                  ) : (
+                    <DriverRegisterForm />
+                  )
                 ) : (
-                  <DriverRegisterForm />
-                )
-              ) : (
-                this.renderChooseRoleForm()
-              )}
+                  this.renderChooseRoleForm()
+                )}
+              </View>
             </Content>
           </LinearGradient>
         </ImageBackground>

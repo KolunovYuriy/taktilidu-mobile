@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Image, ImageBackground, View } from 'react-native'
+import { Image, ImageBackground, View, Dimensions } from 'react-native'
 import { Container, Text } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 import CodeInput from 'react-native-confirmation-code-field'
@@ -14,6 +14,8 @@ import { ForgotPasswordForm, NewPasswordForm } from '../../../components/Forms'
 import styles from './styles'
 
 import { imgLogo, imgBgContent, icInfo } from '../../../assets/images'
+
+const { height } = Dimensions.get('window')
 
 class ForgotPasswordScreen extends Component {
   constructor(props) {
@@ -96,7 +98,14 @@ class ForgotPasswordScreen extends Component {
             />
             <Content>
               <Image style={styles.image} source={imgLogo} />
-              {this.resetPasswordSteps(stepCount)}
+              <View
+                style={{
+                  height: height / 2,
+                  justifyContent: 'center'
+                }}
+              >
+                {this.resetPasswordSteps(stepCount)}
+              </View>
             </Content>
           </LinearGradient>
         </ImageBackground>

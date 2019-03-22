@@ -128,7 +128,7 @@ export default function TripDetailItem({
             locations={[0, 1]}
             end={{ x: 1, y: 0 }}
             style={styles.linearGradient}
-            colors={['#FD6585', '#0D25B9']}
+            colors={['#95499B', '#2131B5']}
           >
             <Text style={styles.reserveButton} onPress={() => console.log('pressed')}>
               Забронировать
