@@ -64,7 +64,7 @@ const DriverRegisterForm = props => {
             name="name"
             component={this.renderInput}
             type="name"
-            placeholder={'Модель автомобиля (пример: Volkswagen Transporter (T4))'}
+            placeholder={'Модель автомобиля'}
           />
         </Item>
         <Item style={styles.formGroup}>

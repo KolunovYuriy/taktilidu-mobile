@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image, ImageBackground, View } from 'react-native'
+import { Image, ImageBackground, View, Dimensions } from 'react-native'
 import { Container } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -11,8 +11,16 @@ import { LoginForm } from '../../../components/Forms'
 
 import { imgLogo, imgBgContent } from '../../../assets/images/'
 import styles from './styles'
+const { height } = Dimensions.get('window')
 
 export class LoginScreen extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      inputSectionHeight: 0
+    }
+  }
   render() {
     const { navigation } = this.props
     return (
@@ -45,7 +53,14 @@ export class LoginScreen extends Component {
             />
             <Content>
               <Image style={styles.image} source={imgLogo} />
-              <LoginForm />
+              <View
+                style={{
+                  height: height / 2,
+                  justifyContent: 'center'
+                }}
+              >
+                <LoginForm />
+              </View>
             </Content>
           </LinearGradient>
         </ImageBackground>
