@@ -23,7 +23,7 @@ export default function TripDetailItem({
       const passengersList = Array.apply(null, Array(passengersAmount)).map(function(x, i) {
         return i
       })
-      console.log(passengersList)
+
       return (
         <ListItem style={[styles.listItem, styles.verticalSection]}>
           <View style={styles.tDhorizontalSection}>

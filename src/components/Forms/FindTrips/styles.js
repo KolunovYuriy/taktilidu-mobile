@@ -12,12 +12,12 @@ export default StyleSheet.create({
     marginRight: 16
   },
   form: {
-    marginBottom: 24
+    marginBottom: 8
   },
   formGroup: {
     flex: 0,
     marginTop: 0,
-    marginBottom: 20,
+    marginBottom: 16,
     marginRight: 8,
     marginLeft: 8,
     elevation: 8,
