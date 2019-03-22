@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { ImageBackground, Image, View, SafeAreaView } from 'react-native'
-import { Container, Text } from 'native-base'
+import { Container, Text, Spinner } from 'native-base'
 
 import { MainButton as Button } from '../../../components/Button'
 import BottomSection from '../Views/AuthBottomSection'
@@ -9,6 +9,14 @@ import { imgBG, imgLogo } from '../../../assets/images'
 import styles from './styles'
 
 class WelcomeScreen extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      inputSectionHeight: 0,
+      loading: false
+    }
+  }
   render() {
     const { navigation } = this.props
     return (
