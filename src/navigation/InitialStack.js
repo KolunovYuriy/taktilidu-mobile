@@ -13,7 +13,7 @@ export default createAppContainer(
       Tab: TabStack
     },
     {
-      initialRouteName: 'AuthLoading'
+      initialRouteName: 'Auth'
     }
   )
 )
