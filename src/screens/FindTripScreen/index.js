@@ -23,7 +23,7 @@ class FindTripScreen extends Component {
         <Content padding={7}>
           <ScreenLabel mainText="Найти поездку" />
           <FindTripsForm />
-          <Button text="Далее" onPress={() => navigation.push('TripResults')} />
+          <Button text="Далее" onPress={() => navigation.navigate('TripResults')} />
           <Text style={styles.text}>или</Text>
           <Text style={styles.createButton}>Создать поездку</Text>
         </Content>

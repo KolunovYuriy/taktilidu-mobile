@@ -27,7 +27,8 @@ export default StyleSheet.create({
   },
   inputStyle: {
     color: '#fff',
-    fontSize: 16
+    fontSize: 16,
+    fontWeight: '300'
   },
   errorStyle: {
     color: '#FD4848',
