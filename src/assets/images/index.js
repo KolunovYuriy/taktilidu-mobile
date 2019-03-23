@@ -31,6 +31,8 @@ export const icNotification = require('./notification.png')
 export const icSettings = require('./settings.png')
 export const icBirthday = require('./birthday-cake.png')
 export const icGender = require('./gender.png')
+export const icCoins = require('./coins.png')
+export const icLocation = require('./location.png')
 
 export const imgBG = require('./bg.png')
 export const imgBgContent = require('./bg-content.jpeg')
