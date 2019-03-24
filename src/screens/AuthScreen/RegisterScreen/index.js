@@ -34,6 +34,14 @@ export class RegisterScreen extends Component {
     }
   }
 
+  onBackButtonPress = () => {
+    this.state.isRoleChoosen
+      ? this.setState({
+          isRoleChoosen: false
+        })
+      : this.props.navigation.goBack()
+  }
+
   renderChooseRoleForm = () => {
     const { choosenRoleType } = this.state
     return (
@@ -116,7 +124,7 @@ export class RegisterScreen extends Component {
             colors={['#FD6585', '#0D25B9']}
           >
             <Header
-              onBackPress={() => navigation.goBack()}
+              onBackPress={this.onBackButtonPress}
               onPress={() => navigation.navigate('Login')}
               routeName="Войти"
             />

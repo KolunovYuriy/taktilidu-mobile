@@ -4,8 +4,16 @@ export default StyleSheet.create({
   section: {
     flexDirection: 'row',
     flex: 1,
-    marginTop: 16,
-    marginBottom: 16,
+    marginTop: 14,
+    marginBottom: 24,
+    marginLeft: 5,
+    marginRight: 5
+  },
+  sectionWithHeader: {
+    flexDirection: 'row',
+    flex: 1,
+    marginTop: 32,
+    marginBottom: 24,
     marginLeft: 5,
     marginRight: 5
   },
