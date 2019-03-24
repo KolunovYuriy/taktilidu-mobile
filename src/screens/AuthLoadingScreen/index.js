@@ -4,12 +4,8 @@ import { Container, Spinner } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
 class AuthLoadingScreen extends Component {
-  componentDidUpdate(prevProps) {
-    console.log(prevProps.isRehydrated)
-    console.log(this.props.isRehydrated)
-    if (this.props.isRehydrated) {
-      this.props.navigation.navigate('Auth')
-    }
+  componentDidMount() {
+    setTimeout(() => this.props.navigation.navigate('Auth'), 500)
   }
 
   render() {
@@ -32,7 +28,7 @@ class AuthLoadingScreen extends Component {
 
 const mapStateToProps = state => {
   return {
-    isRehydrated: state._persist.rehydrated
+    isRehydrated: state.reducers.isRehydrated
   }
 }
 
