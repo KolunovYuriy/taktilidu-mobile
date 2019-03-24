@@ -1,6 +1,5 @@
 import { createSwitchNavigator, createAppContainer } from 'react-navigation'
 
-import AppStack from './AppStack'
 import AuthStack from './AuthStack'
 import TabStack from './TabStack'
 import { AuthLoadingScreen } from '../screens'
@@ -13,7 +12,7 @@ export default createAppContainer(
       Tab: TabStack
     },
     {
-      initialRouteName: 'Auth'
+      initialRouteName: 'AuthLoading'
     }
   )
 )
