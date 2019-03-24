@@ -4,9 +4,9 @@ import { Text } from 'native-base'
 
 import styles from './styles'
 
-export default function ScreenLabel({ mainText, additionalText }) {
+export default function ScreenLabel({ mainText, additionalText, noHeader }) {
   return (
-    <View style={styles.section}>
+    <View style={noHeader ? styles.sectionWithHeader : styles.section}>
       <Text style={styles.text}>{mainText}</Text>
       {additionalText && <Text style={[styles.text, styles.additionalText]}>{additionalText}</Text>}
     </View>
