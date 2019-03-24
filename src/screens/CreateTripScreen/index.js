@@ -13,7 +13,7 @@ class CreateTripScreen extends Component {
     return (
       <Container>
         <Content padding={7}>
-          <ScreenLabel mainText="Создать поездку" />
+          <ScreenLabel noHeader mainText="Создать поездку" />
           <CreateTripForm />
           <Button text="Далее" onPress={() => navigation.navigate('')} />
         </Content>
