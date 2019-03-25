@@ -53,7 +53,7 @@ class SupportScreen extends Component {
     console.log(item)
     return (
       <View style={styles.accordionContent}>
-        <Text style={styles.accordionHeaderText}>{item.content}</Text>
+        <Text style={styles.accordionContentText}>{item.content}</Text>
       </View>
     )
   }
