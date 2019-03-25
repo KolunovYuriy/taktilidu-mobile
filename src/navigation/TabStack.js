@@ -4,6 +4,7 @@ import { Image } from 'react-native'
 
 import { HomeScreen, CreateTripScreen, ProfileScreen, TicketsScreen } from '../screens'
 import FindTripStack from './FindTripStack'
+import ProfileStack from './ProfileStack'
 import { icHome, icPlus, icSearch, icTicket, icUserCircle } from '../assets/images'
 
 export default createBottomTabNavigator(
@@ -12,7 +13,7 @@ export default createBottomTabNavigator(
     FindTrip: FindTripStack,
     CreateTrip: CreateTripScreen,
     Tickets: TicketsScreen,
-    Profile: ProfileScreen
+    Profile: ProfileStack
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({

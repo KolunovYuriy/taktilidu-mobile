@@ -1,5 +1,7 @@
 export { default as HomeScreen } from '../screens/HomeScreen'
 export { default as ProfileScreen } from '../screens/ProfileScreen'
+export { default as SettingsScreen } from '../screens/ProfileScreen/SettingsScreen'
+export { default as SupportScreen } from '../screens/ProfileScreen/SupportScreen'
 
 export { default as FindTripScreen } from '../screens/FindTripScreen'
 export { default as TripResultsScreen } from '../screens/FindTripScreen/TripResultsScreen'
