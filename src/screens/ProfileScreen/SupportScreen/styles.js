@@ -29,6 +29,10 @@ export default StyleSheet.create({
     paddingBottom: 15,
     marginLeft: 0
   },
+  accordionContentText: {
+    fontSize: 12,
+    fontWeight: '300'
+  },
   iconArrow: {
     width: 10,
     height: 10
