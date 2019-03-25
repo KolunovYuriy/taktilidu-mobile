@@ -14,6 +14,9 @@ export const icInfo = require('./info.png')
 export const icLeftArrow = require('./left-arrow.png')
 export const icRightArrow = require('./right-arrow.png')
 
+export const icUpArrow = require('./up-arrow.png')
+export const icDownArrow = require('./down-arrow.png')
+
 export const icHome = require('./home.png')
 export const icPlus = require('./plus.png')
 export const icTicket = require('./group.png')

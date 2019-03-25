@@ -6,6 +6,7 @@ import {
   CreateTripScreen,
   TicketsScreen,
   ProfileScreen,
+  SettingsScreen,
   TripResultsScreen
 } from '../screens'
 
@@ -16,6 +17,7 @@ export default createStackNavigator(
     CreateTrip: CreateTripScreen,
     Tickets: TicketsScreen,
     Profile: ProfileScreen,
+    Settings: SettingsScreen,
     TripResults: TripResultsScreen
   },
   {
