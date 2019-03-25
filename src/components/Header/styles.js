@@ -16,6 +16,9 @@ export default StyleSheet.create({
     width: 20,
     height: 20
   },
+  ltRightSideIcon: {
+    tintColor: '#fff'
+  },
   textStyle: {
     fontSize: 16,
     color: '#fff',

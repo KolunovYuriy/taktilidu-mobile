@@ -5,7 +5,14 @@ import styles from './styles'
 
 import { icLeftArrow } from '../../assets/images'
 
-export default function AuthHeader({ onLayout, routeName, onPress, onBackPress, headerItems }) {
+export default function AuthHeader({
+  onLayout,
+  routeName,
+  onPress,
+  onBackPress,
+  headerItems,
+  lightTheme
+}) {
   return (
     <Header style={styles.header} onLayout={onLayout}>
       <Left>
@@ -30,7 +37,10 @@ export default function AuthHeader({ onLayout, routeName, onPress, onBackPress, 
           headerItems.length > 0 &&
           headerItems.map((item, index) => (
             <Button key={index} onPress={item.onButtonPress} transparent>
-              <Image source={item.icon} style={styles.rightSideIcon} />
+              <Image
+                source={item.icon}
+                style={[styles.rightSideIcon, lightTheme && styles.ltRightSideIcon]}
+              />
             </Button>
           ))}
       </Right>

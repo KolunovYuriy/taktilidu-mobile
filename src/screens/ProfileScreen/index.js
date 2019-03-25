@@ -39,6 +39,12 @@ const userInformation = [
 ]
 
 class ProfileScreen extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: null
+    }
+  }
+
   renderInformation = items => {
     return (
       <List style={styles.infoSection}>
@@ -62,16 +68,16 @@ class ProfileScreen extends Component {
           headerItems={[
             {
               icon: icNotification,
-              onButtonPress: navigation.navigate('')
+              onButtonPress: () => navigation.navigate('')
             },
             {
               icon: icSettings,
-              onButtonPress: navigation.navigate('')
+              onButtonPress: () => navigation.navigate('Settings')
             }
           ]}
         />
         <Content padding={15}>
-          <ProfileTopSection userImg={imgUserPhoto} />
+          <ProfileTopSection lightTheme userImg={imgUserPhoto} />
           {this.renderInformation(userInformation)}
           <ScreenLabel mainText="Мои поездки" />
           <ScreenLabel mainText="Мои билеты" />
