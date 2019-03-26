@@ -9,6 +9,7 @@ import ScreenLabel from '../../components/ScreenLabel'
 
 import {
   icNotification,
+  icUnreadNotification,
   icSettings,
   icEmail,
   icBirthday,
@@ -67,7 +68,7 @@ class ProfileScreen extends Component {
         <Header
           headerItems={[
             {
-              icon: icNotification,
+              icon: icUnreadNotification,
               onButtonPress: () => navigation.navigate('')
             },
             {

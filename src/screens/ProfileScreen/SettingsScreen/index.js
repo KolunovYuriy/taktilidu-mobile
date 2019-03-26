@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Image } from 'react-native'
-import { Container, Text, List, ListItem } from 'native-base'
+import { Container, Text, List, ListItem, View } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
 import Header from '../../../components/Header'
@@ -15,7 +15,10 @@ import {
   icBirthday,
   icGender,
   icPhone,
-  imgUserPhoto
+  icDownThinArrow,
+  imgUserPhoto,
+  icRightArrow,
+  icCircle
 } from '../../../assets/images'
 
 import styles from './styles'
@@ -27,27 +30,20 @@ const settingsListItems = [
   },
   {
     routeName: '',
-    text: 'Уведомления'
+    text: 'Уведомления',
+    notify: true
   },
   {
     routeName: '',
-    text: 'Мои поездки'
+    text: 'Мои предстоящие поездки'
   },
   {
     routeName: '',
-    text: 'Мои билеты'
-  },
-  {
-    routeName: '',
-    text: 'Мои платежи'
+    text: 'История поездок'
   },
   {
     routeName: '',
     text: 'Наши контакты'
-  },
-  {
-    routeName: '',
-    text: 'О нас'
   },
   {
     routeName: 'Support',
@@ -72,7 +68,23 @@ class SettingsScreen extends Component {
             style={styles.listItem}
             onPress={() => item.routeName && navigation.navigate(item.routeName)}
           >
-            <Text style={styles.listItemText}>{item.text}</Text>
+            <View>
+              <Text style={styles.listItemText}>{item.text}</Text>
+              {item.notify && (
+                <Image
+                  source={icCircle}
+                  style={{
+                    width: 8,
+                    height: 8,
+                    tintColor: '#1BFB08',
+                    position: 'absolute',
+                    right: -9,
+                    top: 0
+                  }}
+                />
+              )}
+            </View>
+            <Image source={icDownThinArrow} style={styles.iconRightArrow} />
           </ListItem>
         ))}
       </List>
