@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Image } from 'react-native'
+import { Image, Dimensions } from 'react-native'
 import { Container, Text, List, ListItem, Accordion, View } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -21,17 +21,12 @@ const dataArray = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
   },
   {
-    title: 'Вопросы и ответы',
-    contentType: 'scrollableSection',
-    content: 'Lorem ipsum dolor sit amet'
-  },
-  {
     title: 'Связаться с нами',
     contentType: 'form',
     content: 'Lorem ipsum dolor sit amet'
   },
   {
-    title: 'Помощь',
+    title: 'Мои обращения',
     headerType: 'button',
     content: 'Lorem ipsum dolor sit amet'
   }
@@ -96,7 +91,7 @@ class SupportScreen extends Component {
         return (
           <View style={{ zIndex: 10 }}>
             <ContactUsForm />
-            <Button text="Связаться" />
+            <Button text="Связаться" buttonWidth={Dimensions.get('window').width - 120} />
           </View>
         )
       case 'scrollableSection':
@@ -127,6 +122,7 @@ class SupportScreen extends Component {
         <Content padding={10}>
           <ScreenLabel mainText="Поддержка" />
           <Accordion
+            animation={false}
             expanded
             renderHeader={this._renderHeader}
             renderContent={this._renderContent}

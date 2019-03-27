@@ -130,9 +130,7 @@ export default function TripDetailItem({
             style={styles.linearGradient}
             colors={['#95499B', '#2131B5']}
           >
-            <Text style={styles.reserveButton} onPress={() => console.log('pressed')}>
-              Забронировать
-            </Text>
+            <Text style={styles.reserveButton}>Забронировать</Text>
           </LinearGradient>
         </ListItem>
       )

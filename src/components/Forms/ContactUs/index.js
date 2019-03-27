@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Image } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
-import { Item, Form, Input } from 'native-base'
+import { Item, Form, Input, Textarea } from 'native-base'
 
 import { icFrom, icTo, icUsers, icTime } from '../../../assets/images'
 
@@ -55,6 +55,24 @@ renderContactUsInput = ({ input, placeholder, type, meta: { touched, error, warn
   )
 }
 
+renderContactUsTextarea = ({ input, placeholder, type, meta: { touched, error, warning } }) => {
+  let hasError = false
+  if (error !== undefined) {
+    hasError = true
+  }
+
+  return (
+    <Textarea
+      {...input}
+      placeholder={placeholder}
+      secureTextEntry={type === 'password'}
+      style={styles.textareaStyle}
+      placeholderTextColor="#818181"
+      rowSpan={6}
+    />
+  )
+}
+
 const ContactUsForm = props => {
   return (
     <Fragment>
@@ -78,7 +96,7 @@ const ContactUsForm = props => {
         <Item style={styles.formGroup}>
           <Field
             name="message"
-            component={this.renderContactUsInput}
+            component={this.renderContactUsTextarea}
             type="message"
             placeholder={'Сообщение *'}
           />
