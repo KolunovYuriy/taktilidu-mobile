@@ -6,7 +6,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { icNext } from '../../assets/images'
 import styles from './styles'
 
-export function MainButton({ text, onPress, noIcon }) {
+export function MainButton({ text, onPress, noIcon, buttonWidth }) {
   return (
     <LinearGradient
       useAngle
@@ -14,7 +14,7 @@ export function MainButton({ text, onPress, noIcon }) {
       locations={[0, 1]}
       start={{ x: 0, y: 0 }}
       end={{ x: 0, y: 0 }}
-      style={styles.linearGradient}
+      style={[styles.linearGradient, buttonWidth && { width: buttonWidth }]}
       colors={['#95499B', '#2131B5']}
     >
       <Button rounded style={styles.button} onPress={onPress}>
