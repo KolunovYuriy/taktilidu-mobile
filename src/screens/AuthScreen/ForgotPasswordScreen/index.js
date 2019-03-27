@@ -26,7 +26,7 @@ class ForgotPasswordScreen extends Component {
     }
   }
 
-  handlerOnFulfill = code => console.log(code)
+  handlerOnFulfill = code => {}
 
   resetPasswordSteps = steps => {
     switch (steps) {

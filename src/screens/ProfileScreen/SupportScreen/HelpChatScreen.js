@@ -63,7 +63,6 @@ class HelpChatScreen extends Component {
   }
 
   onSend(messages = []) {
-    console.log('messages', messages)
     this.setState(previousState => ({
       messages: GiftedChat.append(previousState.messages, messages)
     }))
@@ -84,7 +83,6 @@ class HelpChatScreen extends Component {
   }
 
   _renderMessage = item => {
-    console.log(item)
     return (
       <Fragment>
         {item.currentMessage.user._id === 1 ? (

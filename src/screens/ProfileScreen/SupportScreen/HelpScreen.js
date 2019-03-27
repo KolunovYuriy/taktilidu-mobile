@@ -80,7 +80,7 @@ class HelpScreen extends Component {
       <Container>
         <Header lightTheme onBackPress={() => navigation.goBack()} />
         <Content padding={10}>
-          <ScreenLabel mainText="Помощь" />
+          <ScreenLabel mainText="Мои обращения" />
           {this.renderHelpChatList()}
         </Content>
       </Container>

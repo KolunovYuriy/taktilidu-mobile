@@ -80,8 +80,8 @@ class ProfileScreen extends Component {
         <Content padding={15}>
           <ProfileTopSection lightTheme userImg={imgUserPhoto} />
           {this.renderInformation(userInformation)}
-          <ScreenLabel mainText="Мои поездки" />
-          <ScreenLabel mainText="Мои билеты" />
+          <ScreenLabel noMargin mainText="Мои предстоящие поездки" />
+          <ScreenLabel noMargin mainText="История поездок" />
         </Content>
       </Container>
     )

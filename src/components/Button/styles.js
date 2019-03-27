@@ -16,7 +16,6 @@ export default StyleSheet.create({
   },
   linearGradient: {
     alignSelf: 'center',
-    maxWidth: 214,
     borderRadius: 100
   },
   text: {
