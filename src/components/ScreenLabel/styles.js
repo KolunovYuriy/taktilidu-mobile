@@ -7,8 +7,7 @@ export default StyleSheet.create({
     marginTop: 14,
     marginBottom: 24,
     marginLeft: 5,
-    marginRight: 5,
-    backgroundColor: 'green'
+    marginRight: 5
   },
   sectionWithHeader: {
     flexDirection: 'row',

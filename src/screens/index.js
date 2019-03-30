@@ -1,7 +1,9 @@
 export { default as HomeScreen } from '../screens/HomeScreen'
 export { default as ProfileScreen } from '../screens/ProfileScreen'
 export { default as SettingsScreen } from '../screens/ProfileScreen/SettingsScreen'
+export { default as EditScreen } from '../screens/ProfileScreen/SettingsScreen/EditScreen'
 export { default as SupportScreen } from '../screens/ProfileScreen/SupportScreen'
+export { default as NotificationsScreen } from '../screens/ProfileScreen/NotificationsScreen'
 export { default as HelpScreen } from '../screens/ProfileScreen/SupportScreen/HelpScreen'
 export { default as HelpChatScreen } from '../screens/ProfileScreen/SupportScreen/HelpChatScreen'
 
