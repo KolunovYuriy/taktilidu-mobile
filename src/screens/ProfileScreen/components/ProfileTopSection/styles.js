@@ -27,10 +27,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingLeft: 20
   },
-  avatar: {
-    marginRight: 15,
-    marginBottom: 20
-  },
   registerDateStyle: {
     marginTop: 5,
     marginBottom: 5,
@@ -41,5 +37,20 @@ export default StyleSheet.create({
   profileStyle: {
     fontSize: 16,
     color: '#fff'
+  },
+  editButton: {
+    position: 'absolute',
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    borderRadius: 50,
+    width: '100%',
+    height: '100%',
+    opacity: 0.7
+  },
+  iconEdit: {
+    resizeMode: 'contain',
+    tintColor: '#000',
+    width: 20,
+    height: 20
   }
 })

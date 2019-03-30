@@ -5,16 +5,20 @@ import {
   SettingsScreen,
   SupportScreen,
   HelpScreen,
-  HelpChatScreen
+  HelpChatScreen,
+  NotificationsScreen,
+  EditScreen
 } from '../screens'
 
 export default createStackNavigator(
   {
     Profile: ProfileScreen,
     Settings: SettingsScreen,
+    Edit: EditScreen,
     Support: SupportScreen,
     Help: HelpScreen,
-    HelpChat: HelpChatScreen
+    HelpChat: HelpChatScreen,
+    Notifications: NotificationsScreen
   },
   {
     initialRouteName: 'Profile'

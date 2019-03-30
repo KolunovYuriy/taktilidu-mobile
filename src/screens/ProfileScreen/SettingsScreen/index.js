@@ -6,48 +6,32 @@ import LinearGradient from 'react-native-linear-gradient'
 import Header from '../../../components/Header'
 import Content from '../../../components/MainContent'
 import ProfileTopSection from '../components/ProfileTopSection'
-import ScreenLabel from '../../../components/ScreenLabel'
 
-import {
-  icNotification,
-  icSettings,
-  icEmail,
-  icBirthday,
-  icGender,
-  icPhone,
-  icDownThinArrow,
-  imgUserPhoto,
-  icRightArrow,
-  icCircle
-} from '../../../assets/images'
+import { icNotification, icDownThinArrow, imgUserPhoto, icCircle } from '../../../assets/images'
 
 import styles from './styles'
 
 const settingsListItems = [
   {
-    routeName: '',
+    routeName: 'Welcome',
+    text: 'Войти'
+  },
+  {
+    routeName: 'Edit',
     text: 'Информация обо мне'
   },
   {
-    routeName: '',
+    routeName: 'Notifications',
     text: 'Уведомления',
     notify: true
   },
   {
     routeName: '',
-    text: 'Мои предстоящие поездки'
+    text: 'Оставить отзыв о сервисе'
   },
   {
     routeName: '',
-    text: 'История поездок'
-  },
-  {
-    routeName: '',
-    text: 'Наши контакты'
-  },
-  {
-    routeName: 'Support',
-    text: 'Поддержка'
+    text: 'О приложении'
   }
 ]
 
