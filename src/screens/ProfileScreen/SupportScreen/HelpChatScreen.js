@@ -74,7 +74,7 @@ class HelpChatScreen extends Component {
         <View style={styles.verticalSection}>
           <Text style={styles.helpChatListItemText}>{item.chatTitle}</Text>
           <View style={styles.horizontalSection}>
-            <Text style={styles.helpChatListItemTime}>от {item.chatTime}</Text>
+            <Text style={styles.helpChatListItemTime}>{item.chatTime}</Text>
             <Text style={styles.helpChatListItemOpen}>{item.isChatOpen}</Text>
           </View>
         </View>

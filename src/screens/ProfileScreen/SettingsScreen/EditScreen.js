@@ -6,7 +6,8 @@ import LinearGradient from 'react-native-linear-gradient'
 import Header from '../../../components/Header'
 import Content from '../../../components/MainContent'
 import ProfileTopSection from '../components/ProfileTopSection'
-import ScreenLabel from '../../../components/ScreenLabel'
+import { TextInputMask } from 'react-native-masked-text'
+import { UserEmailInputEditForm } from '../../../components/Forms'
 import ImagePicker from 'react-native-image-picker'
 import moment from 'moment/min/moment-with-locales'
 
@@ -36,12 +37,12 @@ const editList = [
   {
     icon: icEmail,
     sectionType: 'email',
-    text: 'Slavik21.ua@gmail.com'
+    text: ''
   },
   {
     icon: icPhone,
     routeName: '',
-    text: '+3 (063) 760 00 00'
+    text: ''
   }
 ]
 
@@ -60,9 +61,12 @@ class EditScreen extends Component {
       chosenDate: null,
       avatarSource: imgUserPhoto,
       gender: null,
-      isInputFocused: false,
-      email: 'Slavik21.ua@gmail.com',
-      phoneNumber: '+3 (063) 760 00 00'
+      borderBottomEmailColor: '#D9D9D9',
+      borderBottomPhoneColor: '#D9D9D9',
+      isPhoneInputFocused: false,
+      isEmailInputFocused: false,
+      phoneNumber: '',
+      name: 'Вячеслав Михайлов'
     }
   }
 
@@ -86,9 +90,44 @@ class EditScreen extends Component {
     })
   }
 
+  onEmailFocus() {
+    this.setState({
+      borderBottomEmailColor: '#9B4B9A',
+      isEmailInputFocused: true
+    })
+  }
+
+  onEmailBlur() {
+    this.setState({
+      borderBottomEmailColor: '#D9D9D9',
+      isEmailInputFocused: false
+    })
+  }
+
+  onPhoneFocus() {
+    this.setState({
+      borderBottomPhoneColor: '#9B4B9A',
+      isPhoneInputFocused: true
+    })
+  }
+
+  onPhoneBlur() {
+    this.setState({
+      borderBottomPhoneColor: '#D9D9D9',
+      isPhoneInputFocused: false
+    })
+  }
+
   renderSettingsList = items => {
     const { navigation } = this.props
-    const { gender, isInputFocused, email, phoneNumber } = this.state
+    const {
+      gender,
+      borderBottomPhoneColor,
+      borderBottomEmailColor,
+      isPhoneInputFocused,
+      isEmailInputFocused,
+      phoneNumber
+    } = this.state
     return (
       <List style={styles.list}>
         {items.map((item, index) => {
@@ -141,53 +180,63 @@ class EditScreen extends Component {
               )
             case 'email':
               return (
-                <ListItem key={index} style={styles.listItem}>
+                <ListItem
+                  key={index}
+                  style={[styles.listItem, { borderBottomColor: borderBottomEmailColor }]}
+                >
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Image source={item.icon} style={styles.icon} />
-                    <Input
-                      ref={c => (this._emailInput = c)}
-                      style={styles.listItemInput}
-                      value={email}
-                      placeholder={item.text}
-                      onChangeText={text => this.setState({ email: text })}
+                    <UserEmailInputEditForm
+                      inputRef={c => (this._emailInput = c)}
+                      onInputFocus={() => this.onEmailFocus()}
+                      onInputBlur={() => this.onEmailBlur()}
                     />
                   </View>
                   <Button
                     style={styles.editButton}
-                    onPress={() => {
-                      console.log(this._emailInput._root)
-                      this._emailInput._root.focus()
-                      this.setState(prevState => ({ isInputFocused: !prevState.isInputFocused }))
-                    }}
+                    onPress={() => this._emailInput._root.focus()}
                     transparent
                   >
-                    <Image source={icEdit} style={styles.iconEdit} />
+                    <Image
+                      source={icEdit}
+                      style={[styles.iconEdit, isEmailInputFocused && { tintColor: '#9B4B9A' }]}
+                    />
                   </Button>
                 </ListItem>
               )
             default:
               return (
-                <ListItem key={index} style={styles.listItem}>
+                <ListItem
+                  key={index}
+                  style={[styles.listItem, { borderBottomColor: borderBottomPhoneColor }]}
+                >
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Image source={item.icon} style={styles.icon} />
-                    <Input
+                    <TextInputMask
+                      type={'custom'}
+                      options={{
+                        mask: '+7 (999) 999 99 99'
+                      }}
+                      onFocus={() => this.onPhoneFocus()}
+                      onBlur={() => this.onPhoneBlur()}
                       ref={c => (this._phoneInput = c)}
                       style={styles.listItemInput}
+                      keyboardType="phone-pad"
                       value={phoneNumber}
-                      placeholder={item.text}
+                      placeholder={'+7 (999) 999 99 99'}
+                      placeholderTextColor="#C4C4C4"
                       onChangeText={text => this.setState({ phoneNumber: text })}
                     />
                   </View>
                   <Button
                     style={styles.editButton}
-                    onPress={() => {
-                      console.log(this._phoneInput._root)
-                      this._phoneInput._root.focus()
-                      this.setState(prevState => ({ isInputFocused: !prevState.isInputFocused }))
-                    }}
+                    onPress={() => this._phoneInput._inputElement.focus()}
                     transparent
                   >
-                    <Image source={icEdit} style={styles.iconEdit} />
+                    <Image
+                      source={icEdit}
+                      style={[styles.iconEdit, isPhoneInputFocused && { tintColor: '#9B4B9A' }]}
+                    />
                   </Button>
                 </ListItem>
               )
@@ -222,7 +271,7 @@ class EditScreen extends Component {
 
   render() {
     const { navigation } = this.props
-    const { avatarSource } = this.state
+    const { avatarSource, name } = this.state
     return (
       <Container>
         <LinearGradient
@@ -236,6 +285,8 @@ class EditScreen extends Component {
         >
           <Header lightTheme onBackPress={() => navigation.goBack()} />
           <ProfileTopSection
+            onNameChange={text => this.setState({ name: text })}
+            nameValue={name}
             userImg={avatarSource}
             editable
             onImageEditPress={this.onImageUpload}

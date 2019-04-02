@@ -8,7 +8,8 @@ export default StyleSheet.create({
   verticalSection: {
     height: '100%',
     flexDirection: 'column',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    flex: 1
   },
   ltAvatar: {
     marginRight: 15
@@ -22,6 +23,17 @@ export default StyleSheet.create({
     fontSize: 16
   },
   // Light theme
+  item: {
+    paddingLeft: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
+    paddingRight: 15,
+    marginBottom: 0,
+    marginTop: 0,
+    marginLeft: 0,
+    borderBottomWidth: 0,
+    width: '100%'
+  },
   horizontalSection: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -35,6 +47,12 @@ export default StyleSheet.create({
     paddingBottom: 3
   },
   profileStyle: {
+    paddingLeft: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
+    marginBottom: 0,
+    marginLeft: 0,
+    height: 'auto',
     fontSize: 16,
     color: '#fff'
   },
@@ -50,6 +68,12 @@ export default StyleSheet.create({
   iconEdit: {
     resizeMode: 'contain',
     tintColor: '#000',
+    width: 20,
+    height: 20
+  },
+  iconNameEdit: {
+    resizeMode: 'contain',
+    tintColor: '#D9D9D9',
     width: 20,
     height: 20
   }

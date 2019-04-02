@@ -9,10 +9,9 @@ export default StyleSheet.create({
     marginLeft: 0,
     paddingLeft: 0,
     paddingRight: 0,
-    borderBottomWidth: 1,
+    borderBottomWidth: 1.5,
     borderBottomColor: '#D9D9D9',
-    justifyContent: 'space-between',
-    tintColor: '#D9D9D9'
+    justifyContent: 'space-between'
   },
   listItemText: {
     fontWeight: '300',
@@ -54,7 +53,6 @@ export default StyleSheet.create({
     marginBottom: 0
   },
   gender: {
-    backgroundColor: 'green',
     height: 'auto',
     width: 'auto',
     paddingVertical: 0,
