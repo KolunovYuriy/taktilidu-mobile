@@ -16,24 +16,24 @@ import styles from './styles'
 
 const dataArray = [
   {
-    title: 'Длинное название темы обращения',
+    title: 'Москва - Сочи',
     time: '11.01.2019 - 15.26',
-    isOpen: 'Открыто'
+    isOpen: 'Открыт'
   },
   {
-    title: 'Длинное название темы обращения 1',
+    title: 'Москва - Сочи',
     time: '11.01.2019 - 15.26',
-    isOpen: 'Закрыто'
+    isOpen: 'Закрыт'
   },
   {
-    title: 'Длинное название темы обращения 2',
+    title: 'Москва - Сочи',
     time: '11.01.2019 - 15.26',
-    isOpen: 'Закрыто'
+    isOpen: 'Закрыт'
   },
   {
-    title: 'Длинное название темы обращения 4',
+    title: 'Москва - Сочи',
     time: '11.01.2019 - 15.26',
-    isOpen: 'Закрыто'
+    isOpen: 'Закрыт'
   }
 ]
 
@@ -63,7 +63,7 @@ class HelpScreen extends Component {
             <View style={styles.verticalSection}>
               <Text style={styles.helpChatListItemText}>{item.title}</Text>
               <View style={styles.horizontalSection}>
-                <Text style={styles.helpChatListItemTime}>от {item.time}</Text>
+                <Text style={styles.helpChatListItemTime}>{item.time}</Text>
                 <Text style={styles.helpChatListItemOpen}>{item.isOpen}</Text>
               </View>
             </View>
@@ -80,7 +80,7 @@ class HelpScreen extends Component {
       <Container>
         <Header lightTheme onBackPress={() => navigation.goBack()} />
         <Content padding={10}>
-          <ScreenLabel mainText="Мои обращения" />
+          <ScreenLabel mainText="Чаты по поездкам" />
           {this.renderHelpChatList()}
         </Content>
       </Container>
