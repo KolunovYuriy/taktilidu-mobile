@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Image } from 'react-native'
-import { Text, Thumbnail, View, Button } from 'native-base'
+import { Text, Thumbnail, View, Button, Input, Item } from 'native-base'
 
 import styles from './styles'
 import { icEdit } from '../../../../assets/images'
@@ -11,6 +11,8 @@ export default function ProfileTopSection({
   registerDate,
   lightTheme,
   editable,
+  onNameChange,
+  nameValue,
   onImageEditPress
 }) {
   return (
@@ -35,7 +37,29 @@ export default function ProfileTopSection({
           </View>
           <View style={[styles.verticalSection, { marginLeft: 15 }]}>
             <Text style={styles.registerDateStyle}>Дата регистрация: 12 октября 2018</Text>
-            <Text style={styles.profileStyle}>Вячеслав Михайлов</Text>
+            {editable ? (
+              <Item style={styles.item}>
+                <Input
+                  ref={c => (this.nameInput = c)}
+                  style={styles.profileStyle}
+                  onChangeText={onNameChange}
+                  value={nameValue}
+                />
+                <Button
+                  transparent
+                  style={{
+                    height: 'auto',
+                    paddingTop: 0,
+                    paddingBottom: 0
+                  }}
+                  onPress={() => this.nameInput._root.focus()}
+                >
+                  <Image source={icEdit} style={styles.iconNameEdit} />
+                </Button>
+              </Item>
+            ) : (
+              <Text style={styles.profileStyle}>Вячеслав Михайлов</Text>
+            )}
           </View>
         </View>
       )}
