@@ -1,29 +1,89 @@
-import { StyleSheet, Dimensions } from 'react-native'
-
-const { width } = Dimensions.get('window')
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  icon: {
+  linearGradient: {},
+  list: {
+    marginLeft: 0
+  },
+  listItem: {
+    marginLeft: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+    borderBottomWidth: 1.5,
+    borderBottomColor: '#D9D9D9',
+    justifyContent: 'space-between'
+  },
+  listItemText: {
+    fontWeight: '300',
+    fontSize: 16
+  },
+  iconRightArrow: {
     resizeMode: 'contain',
-    tintColor: '#9B4B9A',
-    marginRight: 8,
-    width: 15,
-    height: 15
+    width: 10,
+    height: 10
   },
-  infoSection: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginLeft: 0,
-    paddingLeft: 0
+  // Edit screen
+  sectionTitle: {
+    marginTop: 16
   },
-  infoSectionItem: {
-    width: (width - 30) / 2,
-    marginLeft: 0,
-    paddingTop: 15,
+  editButton: {
+    paddingTop: 0,
     paddingBottom: 0,
-    borderBottomWidth: 0
+    height: '100%'
   },
-  infoText: {
-    fontSize: 12
+  iconEdit: {
+    resizeMode: 'contain',
+    width: 20,
+    height: 20,
+    tintColor: '#818181'
+  },
+  icon: {
+    tintColor: '#9B4B9A',
+    resizeMode: 'contain',
+    width: 16,
+    height: 16,
+    marginRight: 10
+  },
+  datepicker: {
+    fontWeight: '300',
+    paddingTop: 0,
+    paddingBottom: 0,
+    paddingLeft: 0,
+    marginTop: 0,
+    marginBottom: 0
+  },
+  gender: {
+    height: 'auto',
+    width: 'auto',
+    paddingVertical: 0,
+    marginBottom: 0,
+    marginTop: 0,
+    marginLeft: 0,
+    marginRight: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: 0,
+    paddingBottom: 0
+  },
+  genderText: {
+    fontSize: 16,
+    fontWeight: '300',
+    color: '#000',
+    textAlign: 'left',
+    marginRight: 50
+  },
+  activeText: {
+    color: '#9B4B9A'
+  },
+  listItemInput: {
+    flex: 0.9,
+    fontSize: 16,
+    fontWeight: '300',
+    height: 20,
+    paddingLeft: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
+    marginBottom: 0,
+    marginTop: 0
   }
 })

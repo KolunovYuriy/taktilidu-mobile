@@ -2,16 +2,17 @@ import React from 'react'
 import { createBottomTabNavigator } from 'react-navigation'
 import { Image } from 'react-native'
 
-import { HomeScreen, CreateTripScreen, ProfileScreen, TicketsScreen } from '../screens'
+import { HomeScreen, TicketsScreen } from '../screens'
 import FindTripStack from './FindTripStack'
 import ProfileStack from './ProfileStack'
-import { icHome, icPlus, icSearch, icTicket, icUserCircle } from '../assets/images'
+import CreateTripStack from './CreateTripStack'
+import { icHome, icQA, icSearch, icCar, icUserCircle } from '../assets/images'
 
 export default createBottomTabNavigator(
   {
     Home: HomeScreen,
     FindTrip: FindTripStack,
-    CreateTrip: CreateTripScreen,
+    CreateTrip: CreateTripStack,
     Tickets: TicketsScreen,
     Profile: ProfileStack
   },
@@ -29,10 +30,10 @@ export default createBottomTabNavigator(
             iconName = icSearch
             break
           case 'CreateTrip':
-            iconName = icPlus
+            iconName = icCar
             break
           case 'Tickets':
-            iconName = icTicket
+            iconName = icQA
             break
           case 'Profile':
             iconName = icUserCircle
@@ -40,7 +41,12 @@ export default createBottomTabNavigator(
         }
 
         // You can return any component that you like here!
-        return <Image source={iconName} style={{ tintColor: tintColor, width: 24, height: 24 }} />
+        return (
+          <Image
+            source={iconName}
+            style={{ resizeMode: 'contain', tintColor: tintColor, width: 48, height: 24 }}
+          />
+        )
       }
     }),
     tabBarOptions: {

@@ -1,7 +1,6 @@
 export { default as HomeScreen } from '../screens/HomeScreen'
 export { default as ProfileScreen } from '../screens/ProfileScreen'
-export { default as SettingsScreen } from '../screens/ProfileScreen/SettingsScreen'
-export { default as EditScreen } from '../screens/ProfileScreen/SettingsScreen/EditScreen'
+export { default as EditScreen } from '../screens/ProfileScreen/EditScreen'
 export { default as SupportScreen } from '../screens/ProfileScreen/SupportScreen'
 export { default as NotificationsScreen } from '../screens/ProfileScreen/NotificationsScreen'
 export { default as HelpScreen } from '../screens/ProfileScreen/SupportScreen/HelpScreen'
@@ -11,8 +10,12 @@ export { default as FindTripScreen } from '../screens/FindTripScreen'
 export { default as TripResultsScreen } from '../screens/FindTripScreen/TripResultsScreen'
 export { default as TripDetailsScreen } from '../screens/FindTripScreen/TripDetailsScreen'
 
-export { default as CreateTripScreen } from '../screens/CreateTripScreen'
+export { default as OfferTripScreen } from '../screens/OfferTripScreen'
+
 export { default as TicketsScreen } from '../screens/TicketsScreen'
+
+export { default as CreateTripScreen } from '../screens/CreateTripScreen'
+export { default as FeedbackScreen } from '../screens/ProfileScreen/FeedbackScreen'
 
 export { default as WelcomeScreen } from '../screens/AuthScreen/WelcomeScreen'
 export { default as AuthLoadingScreen } from '../screens/AuthLoadingScreen'

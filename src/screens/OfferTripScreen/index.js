@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
 import { Container, Text } from 'native-base'
 
-import Header from '../../components/Header'
 import Content from '../../components/MainContent'
-import { FindTripsForm } from '../../components/Forms'
 import ScreenLabel from '../../components/ScreenLabel'
 import { MainButton as Button } from '../../components/Button'
 
-import styles from './styles'
+import { OfferTripForm } from '../../components/Forms'
 
-class FindTripScreen extends Component {
+class CreateTripScreen extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       header: null
@@ -34,25 +32,20 @@ class FindTripScreen extends Component {
   render() {
     const { navigation } = this.props
     const { isDatetimepickerVisible } = this.state
-
     return (
       <Container>
-        <Content padding={10}>
-          <ScreenLabel mainText="Найти поездку" noHeader />
-          <FindTripsForm
+        <Content padding={7}>
+          <ScreenLabel noHeader mainText="Предложить поездку" />
+          <OfferTripForm
             onPressDatetimepicker={this._onHandleDatetimepicker}
             onDatetimepickerCancel={this._onDatetimepickerCancel}
             isDatetimepickerVisible={isDatetimepickerVisible}
           />
-          <Button text="Далее" onPress={() => navigation.navigate('TripResults')} />
-          <Text style={styles.text}>или</Text>
-          <Text style={styles.createButton} onPress={() => navigation.navigate('CreateTrip')}>
-            Создать поездку
-          </Text>
+          <Button text="Далее" onPress={() => navigation.navigate('')} />
         </Content>
       </Container>
     )
   }
 }
 
-export default FindTripScreen
+export default CreateTripScreen
