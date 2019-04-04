@@ -11,6 +11,11 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     flex: 1
   },
+  avatar: {
+    resizeMode: 'contain',
+    width: 56,
+    height: 56
+  },
   ltAvatar: {
     marginRight: 15
   },

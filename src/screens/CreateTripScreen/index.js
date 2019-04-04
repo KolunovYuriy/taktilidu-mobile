@@ -8,14 +8,41 @@ import { MainButton as Button } from '../../components/Button'
 import { CreateTripForm } from '../../components/Forms'
 
 class CreateTripScreen extends Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      header: null
+    }
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      isDatetimepickerVisible: false
+    }
+  }
+
+  _onHandleDatetimepicker = () => {
+    this.setState({ isDatetimepickerVisible: true })
+  }
+
+  _onDatetimepickerCancel = () => {
+    this.setState({ isDatetimepickerVisible: false })
+  }
+
   render() {
     const { navigation } = this.props
+    const { isDatetimepickerVisible } = this.state
     return (
       <Container>
         <Content padding={7}>
           <ScreenLabel noHeader mainText="Создать поездку" />
-          <CreateTripForm />
+          <CreateTripForm
+            onPressDatetimepicker={this._onHandleDatetimepicker}
+            onDatetimepickerCancel={this._onDatetimepickerCancel}
+            isDatetimepickerVisible={isDatetimepickerVisible}
+          />
           <Button text="Далее" onPress={() => navigation.navigate('')} />
+          <Text onPress={() => navigation.navigate('OfferTrip')}>Предложить поездку</Text>
         </Content>
       </Container>
     )

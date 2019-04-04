@@ -1,41 +1,37 @@
 import React, { Component } from 'react'
 import { Image } from 'react-native'
-import { Container, Text, List, ListItem } from 'native-base'
+import { Container, Text, List, ListItem, View } from 'native-base'
+import LinearGradient from 'react-native-linear-gradient'
 
 import Header from '../../components/Header'
 import Content from '../../components/MainContent'
 import ProfileTopSection from './components/ProfileTopSection'
-import ScreenLabel from '../../components/ScreenLabel'
 
-import {
-  icNotification,
-  icUnreadNotification,
-  icSettings,
-  icEmail,
-  icBirthday,
-  icGender,
-  icPhone,
-  imgUserPhoto
-} from '../../assets/images'
+import { icNotification, icDownThinArrow, imgUserPhoto, icCircle } from '../../assets/images'
 
 import styles from './styles'
 
-const userInformation = [
+const settingsListItems = [
   {
-    icon: icPhone,
-    text: '+3 (063) 760 00 00'
+    routeName: 'Welcome',
+    text: 'Войти'
   },
   {
-    icon: icBirthday,
-    text: '11 августа 1996 года'
+    routeName: 'Edit',
+    text: 'Информация обо мне'
   },
   {
-    icon: icEmail,
-    text: 'Slavik21.ua@gmail.com'
+    routeName: 'Notifications',
+    text: 'Уведомления',
+    notify: true
   },
   {
-    icon: icGender,
-    text: 'Мужской'
+    routeName: 'Feedback',
+    text: 'Оставить отзыв о сервисе'
+  },
+  {
+    routeName: '',
+    text: 'О приложении'
   }
 ]
 
@@ -46,17 +42,35 @@ class ProfileScreen extends Component {
     }
   }
 
-  renderInformation = items => {
+  renderSettingsList = items => {
+    const { navigation } = this.props
     return (
-      <List style={styles.infoSection}>
-        {items.map((item, index) => {
-          return (
-            <ListItem style={styles.infoSectionItem} key={index}>
-              <Image source={item.icon} style={styles.icon} />
-              <Text style={styles.infoText}>{item.text}</Text>
-            </ListItem>
-          )
-        })}
+      <List style={styles.list}>
+        {items.map((item, index) => (
+          <ListItem
+            key={index}
+            style={styles.listItem}
+            onPress={() => item.routeName && navigation.navigate(item.routeName)}
+          >
+            <View>
+              <Text style={styles.listItemText}>{item.text}</Text>
+              {item.notify && (
+                <Image
+                  source={icCircle}
+                  style={{
+                    width: 8,
+                    height: 8,
+                    tintColor: '#1BFB08',
+                    position: 'absolute',
+                    right: -9,
+                    top: 0
+                  }}
+                />
+              )}
+            </View>
+            <Image source={icDownThinArrow} style={styles.iconRightArrow} />
+          </ListItem>
+        ))}
       </List>
     )
   }
@@ -65,24 +79,27 @@ class ProfileScreen extends Component {
     const { navigation } = this.props
     return (
       <Container>
-        <Header
-          headerItems={[
-            {
-              icon: icUnreadNotification,
-              onButtonPress: () => navigation.navigate('')
-            },
-            {
-              icon: icSettings,
-              onButtonPress: () => navigation.navigate('Settings')
-            }
-          ]}
-        />
-        <Content padding={15}>
-          <ProfileTopSection lightTheme userImg={imgUserPhoto} />
-          {this.renderInformation(userInformation)}
-          <ScreenLabel noMargin mainText="Мои предстоящие поездки" />
-          <ScreenLabel noMargin mainText="История поездок" />
-        </Content>
+        <LinearGradient
+          useAngle
+          angle={140.18}
+          locations={[0, 1]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 0, y: 0 }}
+          style={styles.linearGradient}
+          colors={['#EC91B0', '#676ECD']}
+        >
+          <Header
+            lightTheme
+            headerItems={[
+              {
+                icon: icNotification,
+                onButtonPress: () => navigation.navigate('Notifications')
+              }
+            ]}
+          />
+          <ProfileTopSection userImg={imgUserPhoto} />
+        </LinearGradient>
+        <Content padding={15}>{this.renderSettingsList(settingsListItems)}</Content>
       </Container>
     )
   }

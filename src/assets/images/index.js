@@ -24,6 +24,8 @@ export const icPlus = require('./plus.png')
 export const icTicket = require('./group.png')
 export const icSearch = require('./search.png')
 export const icUserCircle = require('./userCircle.png')
+export const icCar = require('./car.png')
+export const icQA = require('./qa.png')
 
 export const icEdit = require('./edit.png')
 export const icFrom = require('./from.png')

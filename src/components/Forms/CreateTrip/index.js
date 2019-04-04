@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react'
 import { Image } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
-import { Item, Form, Input } from 'native-base'
+import { Item, Form, Input, View, Label, Button, Icon, Text } from 'native-base'
+import DateTimePicker from 'react-native-modal-datetime-picker'
+import moment from 'moment/min/moment-with-locales'
 
 import { icFrom, icTo, icUsers, icTime, icCoins, icLocation } from '../../../assets/images'
 
@@ -55,6 +57,94 @@ renderCreateTripInput = ({ input, placeholder, type, meta: { touched, error, war
   )
 }
 
+renderOfferTripDatepicker = ({
+  input,
+  isDatetimepickerVisible,
+  onPressDatetimepicker,
+  onDatetimepickerCancel,
+  type,
+  meta: { touched, error, warning }
+}) => {
+  let hasError = false
+  if (error !== undefined) {
+    hasError = true
+  }
+  moment.locale('ru')
+
+  return (
+    <View style={styles.datepickerStyle}>
+      {input.value ? (
+        <Text onPress={onPressDatetimepicker} style={styles.time}>
+          {moment(input.value).format('D MMMM YYYY, H:mm')}
+        </Text>
+      ) : (
+        <Text onPress={onPressDatetimepicker} style={styles.timePlaceholder}>
+          Желаемая дата, время?
+        </Text>
+      )}
+
+      <DateTimePicker
+        mode="datetime"
+        cancelTextIOS="Отмена"
+        confirmTextIOS="Подтвердить"
+        isVisible={isDatetimepickerVisible}
+        hideTitleContainerIOS
+        datePickerModeAndroid="spinner"
+        minimumDate={new Date()}
+        date={input.value ? new Date(input.value) : new Date()}
+        onConfirm={date => {
+          const formattedDate = moment(date).format()
+          input.onChange(formattedDate)
+          onDatetimepickerCancel()
+        }}
+        onCancel={onDatetimepickerCancel}
+      />
+    </View>
+  )
+}
+
+renderCreateTripCounter = ({
+  input,
+  placeholder,
+  label,
+  type,
+  meta: { touched, error, warning }
+}) => {
+  let hasError = false
+  if (error !== undefined) {
+    hasError = true
+  }
+
+  if (!input.value) {
+    input.onChange(1)
+  }
+
+  return (
+    <View style={styles.counterStyle}>
+      <Label style={styles.amountLabel}>{label}</Label>
+      <View style={{ flexDirection: 'row' }}>
+        <Button
+          iconLeft
+          rounded
+          style={styles.buttonMinusStyle}
+          onPress={() => input.value !== 1 && input.onChange(input.value - 1)}
+        >
+          <Icon name="ios-remove" style={styles.iconMinusStyle} />
+        </Button>
+        <Text style={styles.amountValue}>{input.value}</Text>
+        <Button
+          iconLeft
+          rounded
+          style={styles.buttonPlusStyle}
+          onPress={() => input.value !== 20 && input.onChange(input.value + 1)}
+        >
+          <Icon name="ios-add" style={styles.iconPlusStyle} />
+        </Button>
+      </View>
+    </View>
+  )
+}
+
 const CreateTripForm = props => {
   return (
     <Fragment>
@@ -80,37 +170,36 @@ const CreateTripForm = props => {
         <Item style={styles.formGroup}>
           <Image source={icLocation} style={styles.icon} />
           <Field
-            name="time"
+            name="intermediate"
             component={this.renderCreateTripInput}
-            type="time"
             placeholder={'Промежуточные пункты?'}
           />
         </Item>
         <Item style={styles.formGroup}>
           <Image source={icTime} style={styles.icon} />
           <Field
-            name="password"
-            component={this.renderCreateTripInput}
-            type="password"
+            name="time"
+            isDatetimepickerVisible={props.isDatetimepickerVisible}
+            onPressDatetimepicker={props.onPressDatetimepicker}
+            onDatetimepickerCancel={props.onDatetimepickerCancel}
+            component={this.renderOfferTripDatepicker}
             placeholder={'Желаемая дата, время?'}
           />
         </Item>
         <Item style={styles.formGroup}>
           <Image source={icUsers} style={styles.icon} />
           <Field
-            name="password"
-            component={this.renderCreateTripInput}
-            type="password"
-            placeholder={'Количество мест'}
+            name="amount"
+            component={this.renderCreateTripCounter}
+            label={'Количество пассажиров'}
           />
         </Item>
         <Item style={styles.formGroup}>
           <Image source={icCoins} style={styles.icon} />
           <Field
-            name="password"
+            name="price"
             component={this.renderCreateTripInput}
-            type="password"
-            placeholder={'Цена'}
+            placeholder={'Цена за место'}
           />
         </Item>
       </Form>

@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import { Image } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
-import { Item, Form, Input, View, Label, Button, Icon, Text } from 'native-base'
+import { Button, Item, Form, Input, Label, View, Icon, Text } from 'native-base'
 import DateTimePicker from 'react-native-modal-datetime-picker'
-import moment from 'moment/min/moment-with-locales'
 
-import { icFrom, icTo, icUsers, icTime } from '../../../assets/images'
+import { icFrom, icTo, icUsers, icTime, icCoins, icLocation } from '../../../assets/images'
+import moment from 'moment/min/moment-with-locales'
 
 import styles from './styles'
 
@@ -40,7 +40,7 @@ const validate = values => {
   return error
 }
 
-renderFindTripInput = ({ input, placeholder, type, meta: { touched, error, warning } }) => {
+renderOfferTripInput = ({ input, placeholder, type, meta: { touched, error, warning } }) => {
   let hasError = false
   if (error !== undefined) {
     hasError = true
@@ -103,7 +103,7 @@ renderOfferTripDatepicker = ({
   )
 }
 
-renderFindTripCounter = ({
+renderOfferTripCounter = ({
   input,
   placeholder,
   label,
@@ -145,23 +145,25 @@ renderFindTripCounter = ({
   )
 }
 
-const FindTripsForm = props => {
+const OfferTripForm = props => {
   return (
     <Fragment>
       <Form style={styles.form}>
         <Item style={styles.formGroup}>
           <Image source={icFrom} style={styles.icon} />
           <Field
-            name="departure"
-            component={this.renderFindTripInput}
+            name="email"
+            component={this.renderCreateTripInput}
+            type="email"
             placeholder={'Откуда вы едете?'}
           />
         </Item>
         <Item style={styles.formGroup}>
           <Image source={icTo} style={styles.icon} />
           <Field
-            name="arrival"
-            component={this.renderFindTripInput}
+            name="phone"
+            component={this.renderCreateTripInput}
+            type="phone"
             placeholder={'Куда вы едете?'}
           />
         </Item>
@@ -180,7 +182,7 @@ const FindTripsForm = props => {
           <Image source={icUsers} style={styles.icon} />
           <Field
             name="amount"
-            component={this.renderFindTripCounter}
+            component={this.renderOfferTripCounter}
             label={'Количество пассажиров'}
           />
         </Item>
@@ -190,6 +192,6 @@ const FindTripsForm = props => {
 }
 
 export default reduxForm({
-  form: 'findTrip',
+  form: 'offerTrip',
   validate
-})(FindTripsForm)
+})(OfferTripForm)
