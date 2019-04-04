@@ -1,25 +1,17 @@
 import React, { Component } from 'react'
 import { Image } from 'react-native'
-import { Button, Container, DatePicker, Text, List, ListItem, View, Input } from 'native-base'
+import { Button, Container, DatePicker, Text, List, ListItem, View } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
 
-import Header from '../../../components/Header'
-import Content from '../../../components/MainContent'
-import ProfileTopSection from '../components/ProfileTopSection'
+import Header from '../../components/Header'
+import Content from '../../components/MainContent'
+import ProfileTopSection from './components/ProfileTopSection'
 import { TextInputMask } from 'react-native-masked-text'
-import { UserEmailInputEditForm } from '../../../components/Forms'
+import { UserEmailInputEditForm } from '../../components/Forms'
 import ImagePicker from 'react-native-image-picker'
 import moment from 'moment/min/moment-with-locales'
 
-import {
-  icNotification,
-  icGender,
-  imgUserPhoto,
-  icEdit,
-  icPhone,
-  icBirthday,
-  icEmail
-} from '../../../assets/images'
+import { icGender, imgUserPhoto, icEdit, icPhone, icBirthday, icEmail } from '../../assets/images'
 
 import styles from './styles'
 
@@ -63,8 +55,10 @@ class EditScreen extends Component {
       gender: null,
       borderBottomEmailColor: '#D9D9D9',
       borderBottomPhoneColor: '#D9D9D9',
+      borderBottomDatepickerColor: '#D9D9D9',
       isPhoneInputFocused: false,
       isEmailInputFocused: false,
+      isDatepickerFocused: false,
       phoneNumber: '',
       name: 'Вячеслав Михайлов'
     }
@@ -81,7 +75,12 @@ class EditScreen extends Component {
   }
 
   setDate = newDate => {
-    this.setState({ chosenDate: newDate })
+    this.onDatePickerBlur()
+    this.setState({
+      chosenDate: newDate,
+      borderBottomDatepickerColor: '#D9D9D9',
+      isDatepickerFocused: false
+    })
   }
 
   onChooseGender = gender => {
@@ -90,42 +89,61 @@ class EditScreen extends Component {
     })
   }
 
-  onEmailFocus() {
+  onEmailFocus = () => {
     this.setState({
       borderBottomEmailColor: '#9B4B9A',
       isEmailInputFocused: true
     })
   }
 
-  onEmailBlur() {
+  onDatePickerFocus = () => {
+    this.setState({
+      borderBottomDatepickerColor: '#9B4B9A',
+      isDatepickerFocused: true
+    })
+  }
+
+  onDatePickerBlur = () => {
+    this.setState({
+      borderBottomDatepickerColor: '#D9D9D9',
+      isDatepickerFocused: false
+    })
+  }
+
+  onEmailBlur = () => {
     this.setState({
       borderBottomEmailColor: '#D9D9D9',
       isEmailInputFocused: false
     })
   }
 
-  onPhoneFocus() {
+  onPhoneFocus = () => {
     this.setState({
       borderBottomPhoneColor: '#9B4B9A',
       isPhoneInputFocused: true
     })
   }
 
-  onPhoneBlur() {
+  onPhoneBlur = () => {
     this.setState({
       borderBottomPhoneColor: '#D9D9D9',
       isPhoneInputFocused: false
     })
   }
 
+  setNumberIfEmpty = () => {
+    this.setState({ phoneNumber: '+7 ' })
+  }
+
   renderSettingsList = items => {
-    const { navigation } = this.props
     const {
       gender,
       borderBottomPhoneColor,
       borderBottomEmailColor,
+      borderBottomDatepickerColor,
       isPhoneInputFocused,
       isEmailInputFocused,
+      isDatepickerFocused,
       phoneNumber
     } = this.state
     return (
@@ -138,13 +156,23 @@ class EditScreen extends Component {
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Image source={item.icon} style={styles.icon} />
                     <Text
-                      onPress={() => this.onChooseGender('male')}
+                      onPress={() => {
+                        this.onEmailBlur()
+                        this.onPhoneBlur()
+                        this.onDatePickerBlur()
+                        this.onChooseGender('male')
+                      }}
                       style={[styles.genderText, gender === 'male' && styles.activeText]}
                     >
                       Мужской
                     </Text>
                     <Text
-                      onPress={() => this.onChooseGender('female')}
+                      onPress={() => {
+                        this.onEmailBlur()
+                        this.onPhoneBlur()
+                        this.onDatePickerBlur()
+                        this.onChooseGender('female')
+                      }}
                       style={[styles.genderText, gender === 'female' && styles.activeText]}
                     >
                       Женский
@@ -154,13 +182,18 @@ class EditScreen extends Component {
               )
             case 'datePicker':
               return (
-                <ListItem key={index} style={styles.listItem}>
+                <ListItem
+                  key={index}
+                  style={[styles.listItem, { borderBottomColor: borderBottomDatepickerColor }]}
+                >
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Image source={item.icon} style={styles.icon} />
                     <DatePicker
                       formatChosenDate={date => {
                         return moment(date).format('LL')
                       }}
+                      disabled
+                      ref={c => (this.datepicker = c)}
                       defaultDate={new Date(2018, 4, 4)}
                       minimumDate={new Date(1900, 1, 1)}
                       maximumDate={new Date(2001, 12, 31)}
@@ -173,8 +206,20 @@ class EditScreen extends Component {
                       onDateChange={this.setDate}
                     />
                   </View>
-                  <Button style={styles.editButton} transparent>
-                    <Image source={icEdit} style={styles.iconEdit} />
+                  <Button
+                    style={styles.editButton}
+                    onPress={() => {
+                      this.onEmailBlur()
+                      this.onPhoneBlur()
+                      this.onDatePickerFocus()
+                      this.datepicker.showDatePicker()
+                    }}
+                    transparent
+                  >
+                    <Image
+                      source={icEdit}
+                      style={[styles.iconEdit, isDatepickerFocused && { tintColor: '#9B4B9A' }]}
+                    />
                   </Button>
                 </ListItem>
               )
@@ -188,13 +233,19 @@ class EditScreen extends Component {
                     <Image source={item.icon} style={styles.icon} />
                     <UserEmailInputEditForm
                       inputRef={c => (this._emailInput = c)}
-                      onInputFocus={() => this.onEmailFocus()}
+                      onInputFocus={() => {
+                        this.onDatePickerBlur()
+                        this.onEmailFocus()
+                      }}
                       onInputBlur={() => this.onEmailBlur()}
                     />
                   </View>
                   <Button
                     style={styles.editButton}
-                    onPress={() => this._emailInput._root.focus()}
+                    onPress={() => {
+                      this.onDatePickerBlur()
+                      this._emailInput._root.focus()
+                    }}
                     transparent
                   >
                     <Image
@@ -210,14 +261,23 @@ class EditScreen extends Component {
                   key={index}
                   style={[styles.listItem, { borderBottomColor: borderBottomPhoneColor }]}
                 >
-                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      alignItems: 'center'
+                    }}
+                  >
                     <Image source={item.icon} style={styles.icon} />
                     <TextInputMask
                       type={'custom'}
                       options={{
                         mask: '+7 (999) 999 99 99'
                       }}
-                      onFocus={() => this.onPhoneFocus()}
+                      onFocus={() => {
+                        phoneNumber === '' && this.setNumberIfEmpty()
+                        this.onDatePickerBlur()
+                        this.onPhoneFocus()
+                      }}
                       onBlur={() => this.onPhoneBlur()}
                       ref={c => (this._phoneInput = c)}
                       style={styles.listItemInput}
@@ -230,7 +290,10 @@ class EditScreen extends Component {
                   </View>
                   <Button
                     style={styles.editButton}
-                    onPress={() => this._phoneInput._inputElement.focus()}
+                    onPress={() => {
+                      this.onDatePickerBlur()
+                      this._phoneInput._inputElement.focus()
+                    }}
                     transparent
                   >
                     <Image

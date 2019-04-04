@@ -12,9 +12,9 @@ export default StyleSheet.create({
     marginLeft: 5,
     marginTop: 5,
     marginBottom: 24,
-    borderRadius: 6,
+    borderRadius: 10,
     backgroundColor: '#fff',
-    elevation: 5,
+    elevation: 3,
     shadowColor: 'rgba(0, 0, 0, 0.2)',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
@@ -34,12 +34,11 @@ export default StyleSheet.create({
   },
   city: {
     fontSize: 14,
-    fontWeight: '300',
+    fontFamily: 'OpenSans-Light',
     paddingBottom: 15
   },
   cityNameSection: {
-    paddingTop: 15,
-    paddingLeft: 15
+    paddingTop: 15
   },
   priceSection: {
     paddingLeft: 18,

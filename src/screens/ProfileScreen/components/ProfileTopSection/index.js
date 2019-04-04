@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Image } from 'react-native'
+import { Image, ImageBackground } from 'react-native'
 import { Text, Thumbnail, View, Button, Input, Item } from 'native-base'
 
 import styles from './styles'
@@ -27,19 +27,29 @@ export default function ProfileTopSection({
         </View>
       ) : (
         <View style={[styles.horizontalSection, { paddingBottom: 20 }]}>
-          <View>
-            <Thumbnail style={styles.avatar} source={userImg} />
-            {editable && (
-              <Button style={styles.editButton} onPress={onImageEditPress}>
-                <Image source={icEdit} style={styles.iconEdit} />
-              </Button>
-            )}
-          </View>
+          {editable ? (
+            <View>
+              <ImageBackground
+                imageStyle={{ borderRadius: 28 }}
+                style={styles.avatar}
+                source={userImg}
+              >
+                <Button style={styles.editButton} onPress={onImageEditPress}>
+                  <Image source={icEdit} style={styles.iconEdit} />
+                </Button>
+              </ImageBackground>
+            </View>
+          ) : (
+            <Thumbnail source={userImg} />
+          )}
+
           <View style={[styles.verticalSection, { marginLeft: 15 }]}>
             <Text style={styles.registerDateStyle}>Дата регистрация: 12 октября 2018</Text>
             {editable ? (
               <Item style={styles.item}>
                 <Input
+                  multiline
+                  blurOnSubmit
                   ref={c => (this.nameInput = c)}
                   style={styles.profileStyle}
                   onChangeText={onNameChange}

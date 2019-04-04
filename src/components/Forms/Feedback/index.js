@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
-import { Image } from 'react-native'
+import { Image, Keyboard } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
-import { Item, Form, Input, Text } from 'native-base'
+import { Item, Form, Input, Text, Textarea } from 'native-base'
 
 import { icFrom, icTo, icUsers, icTime } from '../../../assets/images'
 
@@ -39,52 +39,38 @@ const validate = values => {
   return error
 }
 
-renderUserEmailInputEdit = ({
-  input,
-  onInputBlur,
-  onInputFocus,
-  inputRef,
-  meta: { touched, error, warning }
-}) => {
+renderFeedback = ({ input, meta: { touched, error, warning } }) => {
   let hasError = false
   if (error !== undefined) {
     hasError = true
   }
 
   return (
-    <Item style={styles.item} error={touched && hasError}>
-      <Input
+    <Item style={styles.formGroup} error={touched && hasError}>
+      <Textarea
         {...input}
         style={styles.listItemInput}
-        onFocus={onInputFocus}
-        onBlur={onInputBlur}
-        ref={inputRef}
-        placeholder={'user@example.com'}
-        placeholderTextColor="#ccc"
+        rowSpan={15}
+        placeholder="Оставить отзыв..."
+        placeholderTextColor="#BABABA"
+        multiline
+        blurOnSubmit
+        onSubmitEditing={Keyboard.dismiss}
       />
       {touched && hasError && <Text style={styles.errorText}>{error}</Text>}
     </Item>
   )
 }
 
-const UserEmailInputEditForm = props => {
+const FeedbackForm = props => {
   return (
     <Fragment>
-      <Field
-        name="email"
-        inputRef={props.inputRef}
-        component={this.renderUserEmailInputEdit}
-        type="email"
-        onInputFocus={props.onInputFocus}
-        onInputBlur={props.onInputBlur}
-      />
+      <Field name="feedback" inputRef={props.inputRef} component={this.renderFeedback} />
     </Fragment>
   )
 }
 
 export default reduxForm({
-  form: 'userEmailInputEdit',
-  touchOnChange: true,
-  touchOnBlur: true,
+  form: 'feedback',
   validate
-})(UserEmailInputEditForm)
+})(FeedbackForm)
