@@ -1,9 +1,26 @@
 import React from 'react'
-import { View, Image } from 'react-native'
-import { ListItem, Text, Thumbnail, Label, Button, Item } from 'native-base'
+import { View, Image, Dimensions, ImageBackground } from 'react-native'
+import { ListItem, Text, Thumbnail, Label } from 'native-base'
+import { BoxShadow } from 'react-native-shadow'
 import LinearGradient from 'react-native-linear-gradient'
 import { icLine2x, icPassenger } from '../../assets/images'
 import styles from './styles'
+
+const { width, height } = Dimensions.get('window')
+const shadowOpt = {
+  width: width - 32,
+  height: height / 4,
+  color: '#ccc',
+  border: 10,
+  radius: 6,
+  opacity: 0.2,
+  x: 0,
+  y: 0,
+  style: {
+    alignSelf: 'center',
+    marginBottom: 16
+  }
+}
 
 export default function TripDetailItem({
   tripDetailType,
@@ -133,6 +150,53 @@ export default function TripDetailItem({
             <Text style={styles.reserveButton}>Забронировать</Text>
           </LinearGradient>
         </ListItem>
+      )
+    case 'MyCurrentTripScreen':
+      return (
+        <BoxShadow setting={shadowOpt}>
+          <ListItem style={[styles.mctListItem, styles.verticalSection]}>
+            <View style={[styles.mctHorizontalSection]}>
+              <View
+                style={[styles.verticalSection, { flex: 0.45, justifyContent: 'space-between' }]}
+              >
+                <Text style={styles.mctTextCity}>{fromCity}</Text>
+                <Text style={styles.mctTextCity}>{toCity}</Text>
+              </View>
+              <View style={{ flex: 0.55, flexDirection: 'row', justifyContent: 'space-around' }}>
+                <View style={styles.verticalSection}>
+                  <Text style={[styles.mctDate, { marginBottom: 8 }]}>{date}</Text>
+                  <Text style={styles.mctTime}>{time}</Text>
+                </View>
+                <View style={styles.verticalSection}>
+                  <Text style={[styles.mctDate, { marginBottom: 8 }]}>{date}</Text>
+                  <Text style={styles.mctTime}>{time}</Text>
+                </View>
+              </View>
+            </View>
+            <View style={[styles.mctHorizontalSection, { justifyContent: 'flex-start' }]}>
+              <Text style={styles.mctCarrierInfo}>ИП “Очень хороший перевозчик”</Text>
+              <Text style={styles.price}>{price}</Text>
+            </View>
+            <Text style={styles.chatLink}>Перейти в чат по поездке</Text>
+            <View style={styles.mctBottomSection}>
+              <View style={styles.driverinfo}>
+                <Thumbnail
+                  small
+                  style={{ width: 20, height: 20, marginRight: 10 }}
+                  source={{
+                    uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'
+                  }}
+                />
+                <Text style={styles.driverName}>
+                  {driverName} - {carId}
+                </Text>
+              </View>
+              <Text style={styles.mctAboutDriver} onPress={onPress}>
+                Детальнее
+              </Text>
+            </View>
+          </ListItem>
+        </BoxShadow>
       )
   }
 }

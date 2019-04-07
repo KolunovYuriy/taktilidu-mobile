@@ -5,14 +5,14 @@ import { Image } from 'react-native'
 import { HomeScreen, TicketsScreen } from '../screens'
 import FindTripStack from './FindTripStack'
 import ProfileStack from './ProfileStack'
-import CreateTripStack from './CreateTripStack'
+import MyTripsStack from './MyTripsStack'
 import { icHome, icQA, icSearch, icCar, icUserCircle } from '../assets/images'
 
 export default createBottomTabNavigator(
   {
     Home: HomeScreen,
     FindTrip: FindTripStack,
-    CreateTrip: CreateTripStack,
+    MyTrips: MyTripsStack,
     Tickets: TicketsScreen,
     Profile: ProfileStack
   },
@@ -29,7 +29,7 @@ export default createBottomTabNavigator(
           case 'FindTrip':
             iconName = icSearch
             break
-          case 'CreateTrip':
+          case 'MyTrips':
             iconName = icCar
             break
           case 'Tickets':

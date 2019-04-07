@@ -1,13 +1,32 @@
 import React, { Fragment } from 'react'
-import { Image } from 'react-native'
+import { Image, Dimensions } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 import { Item, Form, Input, View, Label, Button, Icon, Text } from 'native-base'
+import { BoxShadow } from 'react-native-shadow'
 import DateTimePicker from 'react-native-modal-datetime-picker'
 import moment from 'moment/min/moment-with-locales'
 
 import { icFrom, icTo, icUsers, icTime, icCoins, icLocation } from '../../../assets/images'
 
 import styles from './styles'
+
+const { width } = Dimensions.get('window')
+
+const shadowOpt = {
+  width: width - 32,
+  height: 50,
+  color: '#ccc',
+  border: 10,
+  radius: 6,
+  opacity: 0.2,
+  x: 0,
+  y: 0,
+  style: {
+    alignSelf: 'center',
+    alignItems: 'center',
+    marginBottom: 16
+  }
+}
 
 const validate = values => {
   const error = {}
@@ -57,7 +76,7 @@ renderCreateTripInput = ({ input, placeholder, type, meta: { touched, error, war
   )
 }
 
-renderOfferTripDatepicker = ({
+renderCreateTripDatepicker = ({
   input,
   isDatetimepickerVisible,
   onPressDatetimepicker,
@@ -149,59 +168,71 @@ const CreateTripForm = props => {
   return (
     <Fragment>
       <Form style={styles.form}>
-        <Item style={styles.formGroup}>
-          <Image source={icFrom} style={styles.icon} />
-          <Field
-            name="email"
-            component={this.renderCreateTripInput}
-            type="email"
-            placeholder={'Откуда вы едете?'}
-          />
-        </Item>
-        <Item style={styles.formGroup}>
-          <Image source={icTo} style={styles.icon} />
-          <Field
-            name="phone"
-            component={this.renderCreateTripInput}
-            type="phone"
-            placeholder={'Куда вы едете?'}
-          />
-        </Item>
-        <Item style={styles.formGroup}>
-          <Image source={icLocation} style={styles.icon} />
-          <Field
-            name="intermediate"
-            component={this.renderCreateTripInput}
-            placeholder={'Промежуточные пункты?'}
-          />
-        </Item>
-        <Item style={styles.formGroup}>
-          <Image source={icTime} style={styles.icon} />
-          <Field
-            name="time"
-            isDatetimepickerVisible={props.isDatetimepickerVisible}
-            onPressDatetimepicker={props.onPressDatetimepicker}
-            onDatetimepickerCancel={props.onDatetimepickerCancel}
-            component={this.renderOfferTripDatepicker}
-            placeholder={'Желаемая дата, время?'}
-          />
-        </Item>
-        <Item style={styles.formGroup}>
-          <Image source={icUsers} style={styles.icon} />
-          <Field
-            name="amount"
-            component={this.renderCreateTripCounter}
-            label={'Количество пассажиров'}
-          />
-        </Item>
-        <Item style={styles.formGroup}>
-          <Image source={icCoins} style={styles.icon} />
-          <Field
-            name="price"
-            component={this.renderCreateTripInput}
-            placeholder={'Цена за место'}
-          />
-        </Item>
+        <BoxShadow setting={shadowOpt}>
+          <Item style={styles.formGroup}>
+            <Image source={icFrom} style={styles.icon} />
+            <Field
+              name="email"
+              component={this.renderCreateTripInput}
+              type="email"
+              placeholder={'Откуда вы едете?'}
+            />
+          </Item>
+        </BoxShadow>
+        <BoxShadow setting={shadowOpt}>
+          <Item style={styles.formGroup}>
+            <Image source={icTo} style={styles.icon} />
+            <Field
+              name="phone"
+              component={this.renderCreateTripInput}
+              type="phone"
+              placeholder={'Куда вы едете?'}
+            />
+          </Item>
+        </BoxShadow>
+        <BoxShadow setting={shadowOpt}>
+          <Item style={styles.formGroup}>
+            <Image source={icLocation} style={styles.icon} />
+            <Field
+              name="intermediate"
+              component={this.renderCreateTripInput}
+              placeholder={'Промежуточные пункты?'}
+            />
+          </Item>
+        </BoxShadow>
+        <BoxShadow setting={shadowOpt}>
+          <Item style={styles.formGroup}>
+            <Image source={icTime} style={styles.icon} />
+            <Field
+              name="time"
+              isDatetimepickerVisible={props.isDatetimepickerVisible}
+              onPressDatetimepicker={props.onPressDatetimepicker}
+              onDatetimepickerCancel={props.onDatetimepickerCancel}
+              component={this.renderCreateTripDatepicker}
+              placeholder={'Желаемая дата, время?'}
+            />
+          </Item>
+        </BoxShadow>
+        <BoxShadow setting={shadowOpt}>
+          <Item style={styles.formGroup}>
+            <Image source={icUsers} style={styles.icon} />
+            <Field
+              name="amount"
+              component={this.renderCreateTripCounter}
+              label={'Количество пассажиров'}
+            />
+          </Item>
+        </BoxShadow>
+        <BoxShadow setting={shadowOpt}>
+          <Item style={styles.formGroup}>
+            <Image source={icCoins} style={styles.icon} />
+            <Field
+              name="price"
+              component={this.renderCreateTripInput}
+              placeholder={'Цена за место'}
+            />
+          </Item>
+        </BoxShadow>
       </Form>
     </Fragment>
   )

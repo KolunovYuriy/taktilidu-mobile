@@ -18,7 +18,7 @@ class TripDetailsScreen extends Component {
     return (
       <Container>
         <Header onBackPress={() => navigation.goBack()} />
-        <Content padding={7}>
+        <Content padding={10}>
           <ScreenLabel mainText="Найдено: " additionalText="18 результатов" />
           <TripDetailItem
             tripDetailType="TripDetailsScreen"
