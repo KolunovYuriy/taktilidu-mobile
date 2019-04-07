@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform, Dimensions } from 'react-native'
+
+const { width, height } = Dimensions.get('window')
 
 export default StyleSheet.create({
   // Sections starts
@@ -51,9 +53,8 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   listItem: {
-    marginLeft: 8,
-    marginRight: 8,
-    elevation: 8,
+    marginLeft: 5,
+    marginRight: 5,
     marginTop: 0,
     marginBottom: 20,
     paddingRight: 0,
@@ -62,11 +63,11 @@ export default StyleSheet.create({
     borderBottomWidth: 0,
     borderRadius: 6,
     borderColor: 'transparent',
-    backgroundColor: '#fff',
-    shadowColor: 'rgba(0, 0, 0, 0.2)',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.5,
-    shadowRadius: 10
+    backgroundColor: '#fff'
+    // shadowColor: 'rgba(0, 0, 0, 0.2)',
+    // shadowOffset: { width: 0, height: 0 },
+    // shadowOpacity: 0.5,
+    // shadowRadius: 10
   },
   // Sections ends
   // Text styles
@@ -193,6 +194,82 @@ export default StyleSheet.create({
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
     borderColor: '#0D25B9'
+  },
+  // My current trip screen details
+  mctListItem: {
+    flex: 0,
+    width: '100%',
+    height: height / 4,
+    marginTop: 0,
+    marginLeft: 0,
+    marginRight: 0,
+    marginBottom: 5,
+    paddingRight: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderBottomWidth: 0,
+    borderRadius: 6,
+    borderColor: 'transparent',
+    backgroundColor: '#fff'
+    // shadowColor: 'rgba(0, 0, 0, 0.2)',
+    // shadowOffset: { width: 0, height: 0 },
+    // shadowOpacity: 0.5,
+    // shadowRadius: 10
+  },
+  mctHorizontalSection: {
+    flexDirection: 'row',
+    flex: 1,
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingTop: 16,
+    width: '100%',
+    justifyContent: 'space-between'
+  },
+  mctTextCity: {
+    fontSize: 14,
+    fontFamily: 'OpenSans-Light',
+    alignSelf: 'flex-start'
+  },
+  mctDate: {
+    fontSize: 12,
+    color: '#C4C4C4',
+    alignSelf: 'flex-start'
+  },
+  mctTime: {
+    fontSize: 16,
+    alignSelf: 'flex-start'
+  },
+  mctCarrierInfo: {
+    color: '#C4C4C4',
+    fontSize: 12,
+    marginRight: 45
+  },
+  mctAboutDriver: {
+    textDecorationLine: 'underline',
+    fontSize: 12,
+    color: '#9B4B9A'
+  },
+  chatLink: {
+    fontSize: 12,
+    color: '#9B4B9A',
+    alignSelf: 'flex-start',
+    textDecorationLine: 'underline',
+    paddingTop: 16,
+    paddingBottom: 16,
+    paddingLeft: 16,
+    paddingRight: 16
+  },
+  mctBottomSection: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#FBFBFB',
+    width: '100%',
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+    flex: 1,
+    borderBottomLeftRadius: 6,
+    borderBottomRightRadius: 6
   }
-  //
 })

@@ -31,7 +31,7 @@ const dataArray = [
   }
 ]
 
-class HelpChatScreen extends Component {
+class ChatScreen extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       header: null
@@ -144,4 +144,4 @@ class HelpChatScreen extends Component {
   }
 }
 
-export default HelpChatScreen
+export default ChatScreen

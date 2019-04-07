@@ -1,10 +1,12 @@
 export { default as HomeScreen } from '../screens/HomeScreen'
 export { default as ProfileScreen } from '../screens/ProfileScreen'
 export { default as EditScreen } from '../screens/ProfileScreen/EditScreen'
-export { default as SupportScreen } from '../screens/ProfileScreen/SupportScreen'
 export { default as NotificationsScreen } from '../screens/ProfileScreen/NotificationsScreen'
-export { default as HelpScreen } from '../screens/ProfileScreen/SupportScreen/HelpScreen'
-export { default as HelpChatScreen } from '../screens/ProfileScreen/SupportScreen/HelpChatScreen'
+
+export { default as MyTripsScreen } from '../screens/MyTripsScreen'
+export { default as SupportScreen } from '../screens/MyTripsScreen/ChatScreen/supportScreen'
+export { default as ChatListScreen } from '../screens/MyTripsScreen/ChatScreen/ChatList'
+export { default as ChatScreen } from '../screens/MyTripsScreen/ChatScreen'
 
 export { default as FindTripScreen } from '../screens/FindTripScreen'
 export { default as TripResultsScreen } from '../screens/FindTripScreen/TripResultsScreen'

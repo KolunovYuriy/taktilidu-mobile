@@ -5,7 +5,6 @@ import LinearGradient from 'react-native-linear-gradient'
 
 import Header from '../../../components/Header'
 import Content from '../../../components/MainContent'
-import ProfileTopSection from '../components/ProfileTopSection'
 import ScreenLabel from '../../../components/ScreenLabel'
 import { MainButton as Button } from '../../../components/Button'
 import { ContactUsForm } from '../../../components/Forms'
@@ -37,7 +36,7 @@ const dataArray = [
   }
 ]
 
-class HelpScreen extends Component {
+class ChatListScreen extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
       header: null
@@ -53,7 +52,7 @@ class HelpScreen extends Component {
             key={index}
             style={styles.helpChatListItem}
             onPress={() =>
-              navigation.navigate('HelpChat', {
+              navigation.navigate('Chat', {
                 chatTitle: item.title,
                 chatTime: item.time,
                 isChatOpen: item.isOpen
@@ -88,4 +87,4 @@ class HelpScreen extends Component {
   }
 }
 
-export default HelpScreen
+export default ChatListScreen
