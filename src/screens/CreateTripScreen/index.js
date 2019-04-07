@@ -34,7 +34,7 @@ class CreateTripScreen extends Component {
     const { isDatetimepickerVisible } = this.state
     return (
       <Container>
-        <Content padding={7}>
+        <Content padding={10}>
           <ScreenLabel noHeader mainText="Создать поездку" />
           <CreateTripForm
             onPressDatetimepicker={this._onHandleDatetimepicker}

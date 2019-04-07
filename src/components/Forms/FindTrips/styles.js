@@ -13,12 +13,14 @@ export default StyleSheet.create({
   time: {
     fontSize: 17,
     fontWeight: '300',
-    color: '#000'
+    color: '#000',
+    width: '100%'
   },
   timePlaceholder: {
     fontSize: 17,
     fontWeight: '300',
-    color: '#818181'
+    color: '#818181',
+    width: '100%'
   },
   counterStyle: {
     flex: 1,
@@ -104,21 +106,22 @@ export default StyleSheet.create({
   },
   formGroup: {
     flex: 0,
+    width: '100%',
     marginTop: 0,
     marginBottom: 16,
     marginRight: 8,
     marginLeft: 8,
-    elevation: 5,
+    // elevation: 5,
     alignSelf: 'center',
     backgroundColor: '#fff',
     borderBottomWidth: 0,
     borderColor: 'transparent',
     borderRadius: 6,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    shadowColor: 'rgba(0, 0, 0, 0.2)',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.5,
-    shadowRadius: 10
+    alignItems: 'center'
+    // justifyContent: 'space-between',
+    // shadowColor: 'rgba(0, 0, 0, 0.2)',
+    // shadowOffset: { width: 0, height: 0 },
+    // shadowOpacity: 0.5,
+    // shadowRadius: 10
   }
 })

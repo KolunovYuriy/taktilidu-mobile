@@ -5,7 +5,6 @@ import LinearGradient from 'react-native-linear-gradient'
 
 import Header from '../../../components/Header'
 import Content from '../../../components/MainContent'
-import ProfileTopSection from '../components/ProfileTopSection'
 import ScreenLabel from '../../../components/ScreenLabel'
 import { MainButton as Button } from '../../../components/Button'
 import { ContactUsForm } from '../../../components/Forms'

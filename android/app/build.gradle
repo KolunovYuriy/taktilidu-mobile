@@ -145,10 +145,10 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-svg')
     implementation project(':react-native-image-picker')
     implementation project(':react-native-view-overflow')
     implementation project(':react-native-i18n')
-    implementation project(':react-native-svg')
     implementation project(':react-native-gesture-handler')
     implementation project(':react-native-linear-gradient')
     implementation fileTree(dir: "libs", include: ["*.jar"])

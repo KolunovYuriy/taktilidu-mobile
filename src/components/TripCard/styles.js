@@ -13,12 +13,12 @@ export default StyleSheet.create({
     marginTop: 5,
     marginBottom: 24,
     borderRadius: 10,
-    backgroundColor: '#fff',
-    elevation: 3,
-    shadowColor: 'rgba(0, 0, 0, 0.2)',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.5,
-    shadowRadius: 5
+    backgroundColor: '#fff'
+    // elevation: 3,
+    // shadowColor: 'rgba(0, 0, 0, 0.2)',
+    // shadowOffset: { width: 0, height: 0 },
+    // shadowOpacity: 0.5,
+    // shadowRadius: 5
   },
   circlePlusButton: {
     position: 'absolute',
