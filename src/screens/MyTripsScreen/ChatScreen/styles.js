@@ -94,8 +94,9 @@ export default StyleSheet.create({
   chatAttachment: {
     resizeMode: 'contain',
     tintColor: '#9B4B9A',
-    width: 16,
-    height: 15
+    marginLeft: 10,
+    width: 18,
+    height: 18
   },
   // Chat styles
   avatar: {
