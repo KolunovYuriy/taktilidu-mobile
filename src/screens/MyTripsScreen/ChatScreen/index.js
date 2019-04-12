@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { Image } from 'react-native'
-import { Container, Button, Thumbnail, View, Text } from 'native-base'
+import { Container, Button, Thumbnail, View, Text, Icon } from 'native-base'
 
 import Header from '../../../components/Header'
-import { GiftedChat } from 'react-native-gifted-chat'
+import { GiftedChat, Send } from 'react-native-gifted-chat'
 
 import { icAttachment } from '../../../assets/images'
 import styles from './styles'
@@ -75,7 +75,11 @@ class ChatScreen extends Component {
           <Text style={styles.helpChatListItemText}>{item.chatTitle}</Text>
           <View style={styles.horizontalSection}>
             <Text style={styles.helpChatListItemTime}>{item.chatTime}</Text>
-            <Text style={styles.helpChatListItemOpen}>{item.isChatOpen}</Text>
+            {item.isChatOpen ? (
+              <Text style={styles.helpChatListItemOpen}>Открыто</Text>
+            ) : (
+              <Text style={styles.helpChatListItemOpen}>Закрыто</Text>
+            )}
           </View>
         </View>
       </View>
@@ -121,6 +125,24 @@ class ChatScreen extends Component {
         <GiftedChat
           messages={this.state.messages}
           onSend={messages => this.onSend(messages)}
+          renderInputToolbar={!navigation.state.params.isChatOpen ? () => null : undefined}
+          alwaysShowSend
+          renderSend={props => {
+            console.log(props)
+            return (
+              <Send {...props}>
+                <Icon
+                  name="md-send"
+                  style={{
+                    color: '#9B4B9A',
+                    marginRight: 10,
+                    marginBottom: 5,
+                    alignItems: 'center'
+                  }}
+                />
+              </Send>
+            )
+          }}
           renderActions={() => {
             return (
               <Button

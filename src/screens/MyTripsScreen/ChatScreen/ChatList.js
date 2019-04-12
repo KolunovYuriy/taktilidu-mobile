@@ -17,22 +17,22 @@ const dataArray = [
   {
     title: 'Москва - Сочи',
     time: '11.01.2019 - 15.26',
-    isOpen: 'Открыт'
+    isOpen: true
   },
   {
     title: 'Москва - Сочи',
     time: '11.01.2019 - 15.26',
-    isOpen: 'Закрыт'
+    isOpen: false
   },
   {
     title: 'Москва - Сочи',
     time: '11.01.2019 - 15.26',
-    isOpen: 'Закрыт'
+    isOpen: false
   },
   {
     title: 'Москва - Сочи',
     time: '11.01.2019 - 15.26',
-    isOpen: 'Закрыт'
+    isOpen: false
   }
 ]
 
@@ -63,7 +63,11 @@ class ChatListScreen extends Component {
               <Text style={styles.helpChatListItemText}>{item.title}</Text>
               <View style={styles.horizontalSection}>
                 <Text style={styles.helpChatListItemTime}>{item.time}</Text>
-                <Text style={styles.helpChatListItemOpen}>{item.isOpen}</Text>
+                {item.isOpen ? (
+                  <Text style={styles.helpChatListItemOpen}>Открыто</Text>
+                ) : (
+                  <Text style={styles.helpChatListItemOpen}>Закрыто</Text>
+                )}
               </View>
             </View>
             <Image source={icRightThinArrow} style={styles.iconRightThinArrow} />

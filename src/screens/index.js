@@ -7,6 +7,10 @@ export { default as MyTripsScreen } from '../screens/MyTripsScreen'
 export { default as SupportScreen } from '../screens/MyTripsScreen/ChatScreen/supportScreen'
 export { default as ChatListScreen } from '../screens/MyTripsScreen/ChatScreen/ChatList'
 export { default as ChatScreen } from '../screens/MyTripsScreen/ChatScreen'
+export { default as DriverFeedbackScreen } from '../screens/MyTripsScreen/DriverFeedbackScreen'
+export {
+  default as DriversFeedbackListScreen
+} from '../screens/MyTripsScreen/DriverFeedbackScreen/DriversFeedbackList'
 
 export { default as FindTripScreen } from '../screens/FindTripScreen'
 export { default as TripResultsScreen } from '../screens/FindTripScreen/TripResultsScreen'

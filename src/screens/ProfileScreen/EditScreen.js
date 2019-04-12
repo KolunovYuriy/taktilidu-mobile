@@ -192,7 +192,6 @@ class EditScreen extends Component {
                       formatChosenDate={date => {
                         return moment(date).format('LL')
                       }}
-                      disabled
                       ref={c => (this.datepicker = c)}
                       defaultDate={new Date(2018, 4, 4)}
                       minimumDate={new Date(1900, 1, 1)}

@@ -8,7 +8,17 @@ import TripDetailItem from '../../components/TripDetailItem'
 
 import styles from './styles'
 
-const pastTrips = [{}, {}, {}]
+const pastTrips = [
+  {
+    isFeedbackMade: true
+  },
+  {
+    isFeedbackMade: false
+  },
+  {
+    isFeedbackMade: false
+  }
+]
 
 export default class MyTripsScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -41,6 +51,13 @@ export default class MyTripsScreen extends Component {
             time="12:40"
             date="18 февраля"
             price="900 р"
+            onBoxLinkPress={() =>
+              this.props.navigation.navigate('Chat', {
+                chatTitle: 'Москва - Сочи',
+                chatTime: '11.01.2019 - 15.26',
+                isChatOpen: 'Открыт'
+              })
+            }
             carId="ХХ1234ХХ"
             driverName="Viacheslav Mykhailov"
           />
@@ -57,6 +74,14 @@ export default class MyTripsScreen extends Component {
               time="12:40"
               date="18 февраля"
               price="900 р"
+              onBox
+              isPastTrip
+              onBoxLinkPress={() =>
+                this.props.navigation.navigate(
+                  item.isFeedbackMade ? 'DriversFeedbackList' : 'DriverFeedback'
+                )
+              }
+              isFeedbackMade={item.isFeedbackMade}
               carId="ХХ1234ХХ"
               driverName="Viacheslav Mykhailov"
             />
