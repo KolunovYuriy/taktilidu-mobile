@@ -9,7 +9,7 @@ import styles from './styles'
 const { width, height } = Dimensions.get('window')
 const shadowOpt = {
   width: width - 32,
-  height: height / 4,
+  height: 190,
   color: '#ccc',
   border: 10,
   radius: 6,
@@ -33,7 +33,10 @@ export default function TripDetailItem({
   carId,
   driverName,
   onPress,
-  passengersAmount
+  onBoxLinkPress,
+  passengersAmount,
+  isPastTrip,
+  isFeedbackMade
 }) {
   switch (tripDetailType) {
     case 'TripResultsScreen':
@@ -164,20 +167,26 @@ export default function TripDetailItem({
               </View>
               <View style={{ flex: 0.55, flexDirection: 'row', justifyContent: 'space-around' }}>
                 <View style={styles.verticalSection}>
-                  <Text style={[styles.mctDate, { marginBottom: 8 }]}>{date}</Text>
+                  <Text style={styles.mctDate}>{date}</Text>
                   <Text style={styles.mctTime}>{time}</Text>
                 </View>
                 <View style={styles.verticalSection}>
-                  <Text style={[styles.mctDate, { marginBottom: 8 }]}>{date}</Text>
+                  <Text style={styles.mctDate}>{date}</Text>
                   <Text style={styles.mctTime}>{time}</Text>
+                  <Text style={styles.mctPrice}>{price}</Text>
                 </View>
               </View>
             </View>
-            <View style={[styles.mctHorizontalSection, { justifyContent: 'flex-start' }]}>
+            <View style={[styles.mctCarrierSection, { justifyContent: 'flex-start' }]}>
               <Text style={styles.mctCarrierInfo}>ИП “Очень хороший перевозчик”</Text>
-              <Text style={styles.price}>{price}</Text>
             </View>
-            <Text style={styles.chatLink}>Перейти в чат по поездке</Text>
+            <Text style={styles.chatLink} onPress={onBoxLinkPress}>
+              {isPastTrip
+                ? isFeedbackMade
+                  ? 'Мои отзывы'
+                  : 'Оставить отзыв'
+                : 'Перейти в чат по поездке'}
+            </Text>
             <View style={styles.mctBottomSection}>
               <View style={styles.driverinfo}>
                 <Thumbnail

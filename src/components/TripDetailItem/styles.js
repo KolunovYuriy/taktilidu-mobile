@@ -199,7 +199,7 @@ export default StyleSheet.create({
   mctListItem: {
     flex: 0,
     width: '100%',
-    height: height / 4,
+    height: 190,
     marginTop: 0,
     marginLeft: 0,
     marginRight: 0,
@@ -225,6 +225,14 @@ export default StyleSheet.create({
     width: '100%',
     justifyContent: 'space-between'
   },
+  mctCarrierSection: {
+    flexDirection: 'row',
+    paddingLeft: 16,
+    paddingRight: 16,
+    paddingTop: 16,
+    width: '70%',
+    justifyContent: 'space-between'
+  },
   mctTextCity: {
     fontSize: 14,
     fontFamily: 'OpenSans-Light',
@@ -239,10 +247,15 @@ export default StyleSheet.create({
     fontSize: 16,
     alignSelf: 'flex-start'
   },
+  mctPrice: {
+    fontSize: 16,
+    alignSelf: 'flex-start',
+    color: '#9B4B9A',
+    paddingTop: 14
+  },
   mctCarrierInfo: {
     color: '#C4C4C4',
-    fontSize: 12,
-    marginRight: 45
+    fontSize: 12
   },
   mctAboutDriver: {
     textDecorationLine: 'underline',
@@ -254,7 +267,7 @@ export default StyleSheet.create({
     color: '#9B4B9A',
     alignSelf: 'flex-start',
     textDecorationLine: 'underline',
-    paddingTop: 16,
+    paddingTop: 11,
     paddingBottom: 16,
     paddingLeft: 16,
     paddingRight: 16
