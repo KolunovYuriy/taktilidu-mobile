@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
+import { Image } from 'react-native'
 import { Container, Text } from 'native-base'
 
-import Header from '../../components/Header'
 import Content from '../../components/MainContent'
 import { FindTripsForm } from '../../components/Forms'
 import ScreenLabel from '../../components/ScreenLabel'
 import { MainButton as Button } from '../../components/Button'
 
 import styles from './styles'
+import { imgLogo, icArrowDown } from '../../assets/images'
 
 class FindTripScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -38,17 +39,28 @@ class FindTripScreen extends Component {
     return (
       <Container>
         <Content padding={10}>
-          <ScreenLabel mainText="Найти поездку" noHeader />
+          <Image source={imgLogo} style={styles.image} />
+          <ScreenLabel mainText="Найти поездку" sectionWithLogo />
           <FindTripsForm
             onPressDatetimepicker={this._onHandleDatetimepicker}
             onDatetimepickerCancel={this._onDatetimepickerCancel}
             isDatetimepickerVisible={isDatetimepickerVisible}
           />
-          <Button text="Далее" onPress={() => navigation.navigate('TripResults')} />
-          <Text style={styles.text}>или</Text>
-          <Text style={styles.createButton} onPress={() => navigation.navigate('CreateTrip')}>
-            Создать поездку
-          </Text>
+          <Button
+            buttonWidth={250}
+            text="Поиск"
+            onPress={() => navigation.navigate('TripResults')}
+          />
+          <Text style={styles.text}>Не нашли подходящего?</Text>
+          <Image source={icArrowDown} style={styles.iconDown} />
+          <Button
+            buttonWidth={250}
+            noGradient
+            noGradientStyle={styles.noGradientStyle}
+            noIcon
+            text="Предложить поездку"
+            onPress={() => navigation.navigate('CreateTrip')}
+          />
         </Content>
       </Container>
     )

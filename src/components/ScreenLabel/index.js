@@ -4,11 +4,21 @@ import { Text } from 'native-base'
 
 import styles from './styles'
 
-export default function ScreenLabel({ mainText, additionalText, noHeader, noMargin }) {
+export default function ScreenLabel({
+  mainText,
+  additionalText,
+  noHeader,
+  noMargin,
+  sectionWithLogo
+}) {
   return (
     <View
       style={[
-        noHeader ? styles.sectionWithHeader : styles.section,
+        noHeader
+          ? styles.sectionWithHeader
+          : sectionWithLogo
+          ? styles.sectionWithLogo
+          : styles.section,
         noMargin && { marginLeft: 0, marginRight: 0 }
       ]}
     >

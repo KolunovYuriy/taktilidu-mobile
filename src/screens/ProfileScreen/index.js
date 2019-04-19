@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Image } from 'react-native'
 import { Container, Text, List, ListItem, View } from 'native-base'
 import LinearGradient from 'react-native-linear-gradient'
@@ -79,27 +79,29 @@ class ProfileScreen extends Component {
     const { navigation } = this.props
     return (
       <Container>
-        <LinearGradient
-          useAngle
-          angle={140.18}
-          locations={[0, 1]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 0 }}
-          style={styles.linearGradient}
-          colors={['#EC91B0', '#676ECD']}
-        >
-          <Header
-            lightTheme
-            headerItems={[
-              {
-                icon: icNotification,
-                onButtonPress: () => navigation.navigate('Notifications')
-              }
-            ]}
-          />
-          <ProfileTopSection userImg={imgUserPhoto} />
-        </LinearGradient>
-        <Content padding={15}>{this.renderSettingsList(settingsListItems)}</Content>
+        <Fragment>
+          <LinearGradient
+            useAngle
+            angle={140.18}
+            locations={[0, 1]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 0, y: 0 }}
+            style={styles.linearGradient}
+            colors={['#EC91B0', '#676ECD']}
+          >
+            <Header
+              lightTheme
+              headerItems={[
+                {
+                  icon: icNotification,
+                  onButtonPress: () => navigation.navigate('Notifications')
+                }
+              ]}
+            />
+            <ProfileTopSection userImg={imgUserPhoto} />
+          </LinearGradient>
+          <Content padding={15}>{this.renderSettingsList(settingsListItems)}</Content>
+        </Fragment>
       </Container>
     )
   }
