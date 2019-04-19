@@ -3,7 +3,8 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   ltHorizontalSection: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: 20
   },
   verticalSection: {
     height: '100%',

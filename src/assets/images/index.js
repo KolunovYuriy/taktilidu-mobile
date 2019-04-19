@@ -18,6 +18,7 @@ export const icRightThinArrow = require('./rightThinArrow.png')
 export const icUpArrow = require('./up-arrow.png')
 export const icDownArrow = require('./down-arrow.png')
 export const icDownThinArrow = require('./down-thin-arrow.png')
+export const icArrowDown = require('./down-thinArrow.png')
 
 export const icHome = require('./home.png')
 export const icPlus = require('./plus.png')

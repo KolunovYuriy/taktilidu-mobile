@@ -1,15 +1,31 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+
+const { width } = Dimensions.get('window')
 
 export default StyleSheet.create({
+  image: {
+    resizeMode: 'contain',
+    height: 50,
+    marginLeft: 5,
+    marginRight: 5,
+    marginTop: 24,
+    width: 148
+  },
   createButton: {
     color: '#9B4B9A',
     fontSize: 16,
     alignSelf: 'center',
     textDecorationLine: 'underline'
   },
+  noGradientStyle: {
+    backgroundColor: '#8C3B8B',
+    paddingLeft: 5,
+    paddingRight: 5
+  },
   text: {
     fontSize: 16,
     color: '#000',
+    fontFamily: 'OpenSans-Light',
     paddingTop: 16,
     paddingBottom: 16,
     alignSelf: 'center'
@@ -24,6 +40,12 @@ export default StyleSheet.create({
     height: 12,
     marginRight: 10,
     marginLeft: 10
+  },
+  iconDown: {
+    alignSelf: 'center',
+    width: 18,
+    height: 9,
+    marginBottom: 16
   },
   targetSection: {
     marginTop: 0,

@@ -30,6 +30,11 @@ class TripDetailsScreen extends Component {
             price="900 р"
             carId="ХХ1234ХХ"
             driverName="Viacheslav Mykhailov"
+            onPress={() =>
+              navigation.navigate('DriverProfile', {
+                isDriverProfile: true
+              })
+            }
           />
         </Content>
       </Container>

@@ -17,6 +17,14 @@ export default StyleSheet.create({
     marginLeft: 5,
     marginRight: 5
   },
+  sectionWithLogo: {
+    flexDirection: 'row',
+    flex: 1,
+    marginTop: 24,
+    marginBottom: 24,
+    marginLeft: 5,
+    marginRight: 5
+  },
   text: {
     fontSize: 24,
     color: '#000'
