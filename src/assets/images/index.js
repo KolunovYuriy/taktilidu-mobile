@@ -53,3 +53,6 @@ export const imgUserPhoto = require('./user-photo.png')
 export const icPassenger = require('./passenger.png')
 export const icCircle = require('./circle.png')
 export const icStar = require('./star.png')
+
+export const glImg1 = require('./image-1.png')
+export const glImg2 = require('./image-2.png')

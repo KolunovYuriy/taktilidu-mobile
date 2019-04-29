@@ -49,5 +49,23 @@ export default StyleSheet.create({
     fontSize: 24,
     color: '#000',
     paddingTop: 14
+  },
+  icRightThinArrow: {
+    resizeMode: 'contain',
+    width: 6,
+    height: 18,
+    tintColor: '#818181'
+  },
+  button: {
+    paddingTop: 0,
+    paddingBottom: 0,
+    paddingHorizontal: 0,
+    justifyContent: 'flex-end',
+    height: 'auto'
+  },
+  buttonText: {
+    color: '#000',
+    textAlign: 'right',
+    paddingRight: 0
   }
 })
