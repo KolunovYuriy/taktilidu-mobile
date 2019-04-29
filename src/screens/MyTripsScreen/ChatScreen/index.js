@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react'
-import { Image } from 'react-native'
-import { Container, Button, Thumbnail, View, Text, Icon } from 'native-base'
+import { Image, KeyboardAvoidingView } from 'react-native'
+import { Container, Button, Thumbnail, View, Text, Icon, Textarea } from 'native-base'
 
 import Header from '../../../components/Header'
-import { GiftedChat, Send } from 'react-native-gifted-chat'
+import { GiftedChat, Send, InputToolbar } from 'react-native-gifted-chat'
+import ImagePicker from 'react-native-image-picker'
+import moment from 'moment'
 
 import { icAttachment } from '../../../assets/images'
 import styles from './styles'
@@ -116,6 +118,32 @@ class ChatScreen extends Component {
     )
   }
 
+  _uploadImage = () => {
+    ImagePicker.showImagePicker(options, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker')
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error)
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton)
+      } else {
+        let source = { uri: response.uri }
+        // You can also display the image using data:
+        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+        this.setState(previousState => ({
+          messages: GiftedChat.append(previousState.messages, {
+            _id: 2,
+            createdAt: moment(),
+            user: {
+              _id: 1
+            },
+            image: response.uri
+          })
+        }))
+      }
+    })
+  }
+
   render() {
     const { navigation } = this.props
     return (
@@ -127,19 +155,43 @@ class ChatScreen extends Component {
           onSend={messages => this.onSend(messages)}
           renderInputToolbar={!navigation.state.params.isChatOpen ? () => null : undefined}
           alwaysShowSend
-          renderSend={props => {
-            console.log(props)
+          isAnimated
+          renderComposer={props => {
             return (
-              <Send {...props}>
-                <Icon
-                  name="md-send"
+              <Textarea
+                onChangeText={text => props.onTextChanged(text)}
+                enablesReturnKeyAutomatically
+                multiline
+                isAnimated
+                keyboardAppearance="default"
+                minComposerHeight={44}
+                style={{
+                  flex: 1,
+                  height: '100%'
+                }}
+                placeholder="Написать сообщение..."
+              />
+            )
+          }}
+          renderSend={props => {
+            return (
+              <Send {...props} containerStyle={{ height: '100%' }}>
+                <View
                   style={{
-                    color: '#9B4B9A',
-                    marginRight: 10,
-                    marginBottom: 5,
-                    alignItems: 'center'
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    height: '100%',
+                    paddingRight: 10
                   }}
-                />
+                >
+                  <Icon
+                    name="md-send"
+                    style={{
+                      color: '#9B4B9A'
+                    }}
+                  />
+                </View>
               </Send>
             )
           }}
@@ -148,10 +200,11 @@ class ChatScreen extends Component {
               <Button
                 transparent
                 style={{
-                  justifyContent: 'center',
-                  alignItems: 'center'
+                  paddingTop: 0,
+                  paddingBottom: 0,
+                  height: '100%'
                 }}
-                onPress={this.uploadImage}
+                onPress={this._uploadImage}
               >
                 <Image source={icAttachment} style={styles.chatAttachment} />
               </Button>
@@ -163,6 +216,14 @@ class ChatScreen extends Component {
         />
       </Container>
     )
+  }
+}
+
+const options = {
+  title: 'Выбрать файл',
+  storageOptions: {
+    skipBackup: true,
+    path: 'images'
   }
 }
 

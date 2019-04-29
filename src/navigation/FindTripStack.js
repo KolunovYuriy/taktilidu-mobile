@@ -6,7 +6,8 @@ import {
   TripDetailsScreen,
   CreateTripScreen,
   OfferTripScreen,
-  DriverProfileScreen
+  DriverProfileScreen,
+  CarGalleryScreen
 } from '../screens'
 
 export default createStackNavigator(
@@ -16,7 +17,8 @@ export default createStackNavigator(
     TripDetails: TripDetailsScreen,
     CreateTrip: CreateTripScreen,
     OfferTrip: OfferTripScreen,
-    DriverProfile: DriverProfileScreen
+    DriverProfile: DriverProfileScreen,
+    CarGallery: CarGalleryScreen
   },
   {
     initialRouteName: 'FindTrip'
