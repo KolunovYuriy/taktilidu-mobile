@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Image } from 'react-native'
-import { Container, Text, Label, List, ListItem, View } from 'native-base'
+import { Container, Text, Label, List, ListItem, View, Button } from 'native-base'
 
 import Content from '../../../components/MainContent'
 import Header from '../../../components/Header'
@@ -58,7 +58,7 @@ const driverInformation = [
   {
     label: 'Дополнительное:',
     type: 'extra',
-    text: 'есть кондеционер'
+    text: 'есть кондиционер'
   }
 ]
 
@@ -113,14 +113,22 @@ class DriverProfileScreen extends Component {
               )
             default:
               return (
-                <ListItem style={styles.listItem} key={index}>
-                  <Text style={styles.listText}>{item.label} - </Text>
-                  <Text style={[styles.listText, { color: '#C4C4C4' }]}>{item.text}</Text>
+                <ListItem
+                  style={[styles.listItem, { justifyContent: 'space-between' }]}
+                  key={index}
+                >
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Text style={styles.listText}>{item.label} - </Text>
+                    <Text style={[styles.listText, { color: '#C4C4C4' }]}>{item.text}</Text>
+                  </View>
                   {item.isButton && (
-                    <Image
-                      source={icRightThinArrow}
-                      style={{ resizeMode: 'contain', width: 14, height: 28 }}
-                    />
+                    <Button
+                      transparent
+                      style={styles.button}
+                      onPress={() => this.props.navigation.navigate('CarGallery')}
+                    >
+                      <Text style={styles.buttonText}>Фото</Text>
+                    </Button>
                   )}
                 </ListItem>
               )

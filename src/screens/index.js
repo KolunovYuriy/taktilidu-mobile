@@ -16,6 +16,7 @@ export { default as FindTripScreen } from '../screens/FindTripScreen'
 export { default as TripResultsScreen } from '../screens/FindTripScreen/TripResultsScreen'
 export { default as TripDetailsScreen } from '../screens/FindTripScreen/TripDetailsScreen'
 export { default as DriverProfileScreen } from '../screens/FindTripScreen/DriverProfileScreen'
+export { default as CarGalleryScreen } from '../screens/FindTripScreen/CarGalleryScreen'
 
 export { default as OfferTripScreen } from '../screens/OfferTripScreen'
 
