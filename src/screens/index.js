@@ -4,7 +4,6 @@ export { default as EditScreen } from '../screens/ProfileScreen/EditScreen'
 export { default as NotificationsScreen } from '../screens/ProfileScreen/NotificationsScreen'
 
 export { default as MyTripsScreen } from '../screens/MyTripsScreen'
-export { default as SupportScreen } from '../screens/MyTripsScreen/ChatScreen/supportScreen'
 export { default as ChatListScreen } from '../screens/MyTripsScreen/ChatScreen/ChatList'
 export { default as ChatScreen } from '../screens/MyTripsScreen/ChatScreen'
 export { default as DriverFeedbackScreen } from '../screens/MyTripsScreen/DriverFeedbackScreen'
@@ -20,7 +19,7 @@ export { default as CarGalleryScreen } from '../screens/FindTripScreen/CarGaller
 
 export { default as OfferTripScreen } from '../screens/OfferTripScreen'
 
-export { default as TicketsScreen } from '../screens/TicketsScreen'
+export { default as SupportScreen } from '../screens/SupportScreen'
 
 export { default as CreateTripScreen } from '../screens/CreateTripScreen'
 export { default as FeedbackScreen } from '../screens/ProfileScreen/FeedbackScreen'

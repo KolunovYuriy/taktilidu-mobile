@@ -4,6 +4,12 @@ const { width, height } = Dimensions.get('window')
 
 export default StyleSheet.create({
   // Sections starts
+  section: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center'
+  },
   horizontalSection: {
     flexDirection: 'row',
     flex: 1,
@@ -18,11 +24,31 @@ export default StyleSheet.create({
     flexDirection: 'row',
     flex: 1,
     paddingLeft: 16,
-    paddingRight: 16,
+    paddingRight: 0,
     width: '100%',
     justifyContent: 'space-between',
     paddingTop: 16,
-    paddingBottom: 16
+    paddingBottom: 16,
+    backgroundColor: '#FBFBFB'
+  },
+  tDListItem: {
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
+    width: '100%',
+    height: 190,
+    marginBottom: 4,
+    paddingRight: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderBottomWidth: 0,
+    borderRadius: 6,
+    borderColor: 'transparent',
+    backgroundColor: '#fff'
+    // shadowColor: 'rgba(0, 0, 0, 0.2)',
+    // shadowOffset: { width: 0, height: 0 },
+    // shadowOpacity: 0.5,
+    // shadowRadius: 10
   },
   tripDetailItemSection: {
     paddingBottom: 8
@@ -40,7 +66,6 @@ export default StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 10,
     paddingRight: 10,
-    flex: 1,
     borderBottomLeftRadius: 6,
     borderBottomRightRadius: 6
   },
@@ -51,6 +76,34 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center'
+  },
+  statusInfo: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
+  },
+  statusText: {
+    fontSize: 14,
+    paddingLeft: 5
+  },
+  icCheck: {
+    resizeMode: 'contain',
+    width: 20,
+    height: 10,
+    marginLeft: 5
+  },
+  icMore: {
+    marginLeft: -5,
+    height: 4,
+    width: 25,
+    resizeMode: 'contain',
+    alignSelf: 'flex-end'
+  },
+  icX: {
+    resizeMode: 'contain',
+    height: 15,
+    width: 15,
+    marginRight: 8
   },
   listItem: {
     marginLeft: 5,
@@ -84,9 +137,14 @@ export default StyleSheet.create({
     textAlign: 'left',
     alignSelf: 'flex-start'
   },
+  tDGroupLabel: {
+    color: '#9B4B9A',
+    fontSize: 14
+  },
   tDLabel: {
     color: '#C4C4C4',
     fontSize: 14,
+    paddingTop: 10,
     textAlign: 'left',
     alignSelf: 'flex-start'
   },
@@ -96,9 +154,9 @@ export default StyleSheet.create({
     alignSelf: 'flex-start'
   },
   tDtextStyle: {
-    fontSize: 14,
-    textAlign: 'left',
-    alignSelf: 'flex-start'
+    fontSize: 16,
+    textAlign: 'center',
+    alignSelf: 'center'
   },
   carrierInfo: {
     textAlign: 'left',
@@ -121,8 +179,10 @@ export default StyleSheet.create({
     color: '#9B4B9A'
   },
   tDprice: {
-    fontSize: 14,
-    color: '#9B4B9A'
+    fontSize: 16,
+    color: '#9B4B9A',
+    textAlign: 'center',
+    alignSelf: 'center'
   },
   textCityStyle: {
     fontSize: 12,

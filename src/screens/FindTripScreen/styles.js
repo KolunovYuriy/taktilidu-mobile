@@ -3,6 +3,11 @@ import { StyleSheet, Dimensions } from 'react-native'
 const { width } = Dimensions.get('window')
 
 export default StyleSheet.create({
+  horizontal: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginRight: 50
+  },
   image: {
     resizeMode: 'contain',
     height: 50,
@@ -31,9 +36,19 @@ export default StyleSheet.create({
     alignSelf: 'center'
   },
   iconCircle: {
-    width: 4,
-    height: 4,
+    resizeMode: 'contain',
+    width: 6,
+    marginTop: 2,
+    height: 24,
     marginRight: 8
+  },
+  timeLabel: {
+    fontSize: 12,
+    color: '#818181'
+  },
+  time: {
+    fontSize: 14,
+    fontFamily: 'OpenSans-Light'
   },
   iconRightArrow: {
     width: 12,
