@@ -2,7 +2,7 @@ import React from 'react'
 import { createBottomTabNavigator } from 'react-navigation'
 import { Image } from 'react-native'
 
-import { HomeScreen, TicketsScreen } from '../screens'
+import { HomeScreen, SupportScreen } from '../screens'
 import FindTripStack from './FindTripStack'
 import ProfileStack from './ProfileStack'
 import MyTripsStack from './MyTripsStack'
@@ -13,7 +13,7 @@ export default createBottomTabNavigator(
     Home: HomeScreen,
     FindTrip: FindTripStack,
     MyTrips: MyTripsStack,
-    Tickets: TicketsScreen,
+    Support: SupportScreen,
     Profile: ProfileStack
   },
   {
@@ -32,7 +32,7 @@ export default createBottomTabNavigator(
           case 'MyTrips':
             iconName = icCar
             break
-          case 'Tickets':
+          case 'Support':
             iconName = icQA
             break
           case 'Profile':
