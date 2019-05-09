@@ -1,41 +1,66 @@
 import React, { Component } from 'react'
 import { Image } from 'react-native'
-import { Container, List, ListItem, Text } from 'native-base'
+import { Container, List, ListItem, Text, View } from 'native-base'
 
 import Content from '../../components/MainContent'
 import Header from '../../components/Header'
 import ScreenLabel from '../../components/ScreenLabel'
 import TripDetailItem from '../../components/TripDetailItem'
-import { icCircle, icRightArrow } from '../../assets/images'
+import { icCircle, icRightArrow, icLine1x } from '../../assets/images'
 import styles from './styles'
 
 const listSample = [
   {
     fromCity: 'г. Москва',
     toCity: 'г. Санкт-Петербург',
-    time: '12.40',
-    price: '900 р',
+    time: '12:40',
+    price: '900 р.',
     driver: 'Viacheslav Mykhailov',
     carId: 'ХХ1234ХХ',
-    driverPhoto: ''
+    driverPhoto: '',
+    status: 'accepted',
+    isGroupFilledOut: false,
+    passengersAmount: 17,
+    passengersJoined: 12
   },
   {
     fromCity: 'г. Москва',
     toCity: 'г. Санкт-Петербург',
-    time: '12.40',
-    price: '900 р',
+    time: '12:40',
+    price: '900 р.',
     driver: 'Viacheslav Mykhailov',
     carId: 'ХХ1234ХХ',
-    driverPhoto: ''
+    driverPhoto: '',
+    status: 'notAcceptedYet',
+    isGroupFilledOut: false,
+    passengersAmount: 1,
+    passengersJoined: 1
   },
   {
     fromCity: 'г. Санкт-Петербург',
     toCity: 'г. Москва',
-    time: '12.40',
-    price: '900 р',
+    time: '12:40',
+    price: '900 р.',
     driver: 'Viacheslav Mykhailov',
     carId: 'ХХ1234ХХ',
-    driverPhoto: ''
+    driverPhoto: '',
+    status: 'fromDriver',
+    isGroupFilledOut: false,
+    passengersAmount: 12,
+    passengersJoined: 0
+  },
+  {
+    fromCity: 'г. Санкт-Петербург',
+    toCity: 'г. Москва',
+    time: '12:40',
+    price: '900 р.',
+    driver: 'Viacheslav Mykhailov',
+    carId: 'ХХ1234ХХ',
+    driverPhoto: '',
+    status: 'waiting',
+    isGroupFilledOut: true,
+    passengersAmount: 12,
+    passengersJoined: 12
   }
 ]
 
@@ -49,10 +74,19 @@ class TripResultsScreen extends Component {
   renderTarget = (fromCity, toCity) => {
     return (
       <ListItem style={styles.targetSection}>
-        <Image source={icCircle} style={styles.iconCircle} />
-        <Text style={styles.fromTargetText}>{fromCity}</Text>
-        <Image source={icRightArrow} style={styles.iconRightArrow} />
-        <Text style={styles.toTargetText}>{toCity}</Text>
+        <View style={styles.horizontal}>
+          <Image source={icLine1x} style={styles.iconCircle} />
+          <View>
+            <Text style={styles.fromTargetText}>{fromCity}</Text>
+            <Text style={styles.toTargetText}>{toCity}</Text>
+          </View>
+        </View>
+        <View style={styles.horizontal}>
+          <View>
+            <Text style={styles.timeLabel}>Дорога займет</Text>
+            <Text style={styles.time}>2 часа, 45 минут</Text>
+          </View>
+        </View>
       </ListItem>
     )
   }
@@ -72,7 +106,10 @@ class TripResultsScreen extends Component {
             carId={item.carId}
             driverName={item.driver}
             onPress={() => navigation.navigate('TripDetails')}
-            passengersAmount={4}
+            passengersAmount={item.passengersAmount}
+            passengersJoined={item.passengersJoined}
+            status={item.status}
+            isGroupFilledOut={item.isGroupFilledOut}
           />
         ))}
       </List>
