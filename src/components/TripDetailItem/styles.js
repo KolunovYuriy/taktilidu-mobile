@@ -12,7 +12,6 @@ export default StyleSheet.create({
   },
   horizontalSection: {
     flexDirection: 'row',
-    flex: 1,
     paddingLeft: 10,
     paddingRight: 10,
     width: '100%',
@@ -31,12 +30,31 @@ export default StyleSheet.create({
     paddingBottom: 16,
     backgroundColor: '#FBFBFB'
   },
-  tDListItem: {
+  tRListItem: {
     marginLeft: 0,
     marginRight: 0,
     marginTop: 0,
     width: '100%',
     height: 190,
+    marginBottom: 4,
+    paddingRight: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderBottomWidth: 0,
+    borderRadius: 6,
+    borderColor: 'transparent',
+    backgroundColor: '#fff'
+    // shadowColor: 'rgba(0, 0, 0, 0.2)',
+    // shadowOffset: { width: 0, height: 0 },
+    // shadowOpacity: 0.5,
+    // shadowRadius: 10
+  },
+  tDListItem: {
+    marginLeft: 0,
+    marginRight: 0,
+    marginTop: 0,
+    width: '100%',
+    height: 520,
     marginBottom: 4,
     paddingRight: 0,
     paddingTop: 0,
@@ -57,6 +75,17 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'flex-start'
+  },
+  orderStatus: {
+    flex: 1,
+    width: '100%',
+    backgroundColor: '#FBFBFB',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 8,
+    paddingBottom: 8,
+    marginTop: 16,
+    marginBottom: 8
   },
   bottomSection: {
     flexDirection: 'row',
@@ -124,6 +153,22 @@ export default StyleSheet.create({
   },
   // Sections ends
   // Text styles
+  groupDetailSection: {
+    flexDirection: 'row',
+    flex: 1,
+    paddingLeft: 10,
+    paddingRight: 10,
+    width: '100%',
+    justifyContent: 'space-between',
+    paddingTop: 5,
+    paddingBottom: 5
+  },
+  groupDetail: {
+    fontSize: 14,
+    color: '#9B4B9A',
+    textDecorationLine: 'underline',
+    paddingBottom: 5
+  },
   sectionLabel: {
     textAlign: 'left',
     width: '100%',
@@ -136,6 +181,13 @@ export default StyleSheet.create({
     fontSize: 14,
     textAlign: 'left',
     alignSelf: 'flex-start'
+  },
+  TDlabel: {
+    color: '#C4C4C4',
+    fontSize: 14,
+    textAlign: 'left',
+    alignSelf: 'flex-start',
+    paddingBottom: 5
   },
   tDGroupLabel: {
     color: '#9B4B9A',
@@ -161,8 +213,8 @@ export default StyleSheet.create({
   carrierInfo: {
     textAlign: 'left',
     alignSelf: 'flex-start',
-    paddingTop: 8,
     paddingLeft: 10,
+    paddingRight: 10,
     fontSize: 14
   },
   moreButton: {
@@ -344,5 +396,27 @@ export default StyleSheet.create({
     flex: 1,
     borderBottomLeftRadius: 6,
     borderBottomRightRadius: 6
+  },
+  infoSection: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 16,
+    paddingBottom: 16
+  },
+  icInfo: {
+    width: 15,
+    height: 15,
+    resizeMode: 'contain',
+    marginTop: 3,
+    marginRight: 8
+  },
+  textInfo: {
+    flex: 1,
+    flexWrap: 'wrap',
+    fontSize: 14,
+    color: '#9B4B9A',
+    fontFamily: 'OpenSans-Light'
   }
 })
