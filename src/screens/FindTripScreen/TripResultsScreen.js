@@ -57,7 +57,7 @@ const listSample = [
     driver: 'Viacheslav Mykhailov',
     carId: 'ХХ1234ХХ',
     driverPhoto: '',
-    status: 'waiting',
+    status: 'accepted',
     isGroupFilledOut: true,
     passengersAmount: 12,
     passengersJoined: 12
@@ -105,11 +105,18 @@ class TripResultsScreen extends Component {
             price={item.price}
             carId={item.carId}
             driverName={item.driver}
-            onPress={() => navigation.navigate('TripDetails')}
             passengersAmount={item.passengersAmount}
             passengersJoined={item.passengersJoined}
             status={item.status}
             isGroupFilledOut={item.isGroupFilledOut}
+            onPress={() =>
+              navigation.navigate('TripDetails', {
+                status: item.status,
+                isGroupFilledOut: item.isGroupFilledOut,
+                passengersAmount: item.passengersAmount,
+                passengersJoined: item.passengersJoined
+              })
+            }
           />
         ))}
       </List>

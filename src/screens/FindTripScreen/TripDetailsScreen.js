@@ -30,6 +30,10 @@ class TripDetailsScreen extends Component {
             price="900 р"
             carId="ХХ1234ХХ"
             driverName="Viacheslav Mykhailov"
+            status={this.props.navigation.state.params.status}
+            passengersAmount={this.props.navigation.state.params.passengersAmount}
+            passengersJoined={this.props.navigation.state.params.passengersJoined}
+            isGroupFilledOut={this.props.navigation.state.params.isGroupFilledOut}
             onPress={() =>
               navigation.navigate('DriverProfile', {
                 isDriverProfile: true

@@ -22,6 +22,7 @@ export const icArrowDown = require('./down-thinArrow.png')
 
 export const icHome = require('./home.png')
 export const icPlus = require('./plus.png')
+export const icAlert = require('./alert.png')
 export const icTicket = require('./group.png')
 export const icSearch = require('./search.png')
 export const icUserCircle = require('./userCircle.png')
