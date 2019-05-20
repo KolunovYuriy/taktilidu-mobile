@@ -5,6 +5,7 @@ import Content from '../../components/MainContent'
 import Header from '../../components/Header'
 import ScreenLabel from '../../components/ScreenLabel'
 import TripDetailItem from '../../components/TripDetailItem'
+import { PopUpModal } from '../../components/Modal'
 
 class TripDetailsScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -13,8 +14,16 @@ class TripDetailsScreen extends Component {
     }
   }
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      isModalVisible: false
+    }
+  }
+
   render() {
     const { navigation } = this.props
+    const { isModalVisible } = this.state
     return (
       <Container>
         <Header onBackPress={() => navigation.goBack()} />
@@ -39,7 +48,11 @@ class TripDetailsScreen extends Component {
                 isDriverProfile: true
               })
             }
+            onActionBtnPress={() =>
+              this.setState(prevState => ({ isModalVisible: !prevState.isModalVisible }))
+            }
           />
+          <PopUpModal isVisible={isModalVisible} />
         </Content>
       </Container>
     )
