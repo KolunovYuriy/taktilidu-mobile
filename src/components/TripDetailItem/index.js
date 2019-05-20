@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { View, Image, Dimensions, ImageBackground } from 'react-native'
-import { ListItem, Text, Thumbnail, Label } from 'native-base'
+import { ListItem, Text, Thumbnail, Label, Button } from 'native-base'
 import { BoxShadow } from 'react-native-shadow'
 import LinearGradient from 'react-native-linear-gradient'
 import {
@@ -105,7 +105,8 @@ export default function TripDetailItem({
   isPastTrip,
   isFeedbackMade,
   status,
-  isGroupFilledOut
+  isGroupFilledOut,
+  onActionBtnPress
 }) {
   switch (tripDetailType) {
     case 'TripResultsScreen':
@@ -357,7 +358,9 @@ export default function TripDetailItem({
               style={styles.linearGradient}
               colors={['#95499B', '#2131B5']}
             >
-              <Text style={styles.reserveButton}>{this.renderActionBtnText(status)}</Text>
+              <Button transparent onPress={onActionBtnPress}>
+                <Text style={styles.reserveButton}>{this.renderActionBtnText(status)}</Text>
+              </Button>
             </LinearGradient>
           </ListItem>
         </BoxShadow>
