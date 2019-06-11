@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Image } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
-import { Item, Form, Input } from 'native-base'
+import { Item, Form, Input, Button, Text } from 'native-base'
 
 import styles from '../styles'
 

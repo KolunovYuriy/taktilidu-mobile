@@ -3,12 +3,13 @@ import { Image } from 'react-native'
 import { Header, Left, Right, Button, Icon, Text } from 'native-base'
 import styles from './styles'
 
-import { icLeftArrow } from '../../assets/images'
+import { icLeftArrow, icRightArrow } from '../../assets/images'
 
 export default function AuthHeader({
   onLayout,
   routeName,
   onPress,
+  isModalHeader,
   onBackPress,
   headerItems,
   lightTheme
@@ -28,9 +29,13 @@ export default function AuthHeader({
       <Right>
         {routeName && (
           <Button onPress={onPress} transparent>
-            <Text style={styles.textStyle} uppercase={false}>
+            <Text
+              style={isModalHeader ? styles.modalHeaderTextStyle : styles.textStyle}
+              uppercase={false}
+            >
               {routeName}
             </Text>
+            {isModalHeader && <Image source={icRightArrow} style={styles.rightIcon} />}
           </Button>
         )}
         {headerItems &&

@@ -11,6 +11,12 @@ export default StyleSheet.create({
     width: 16,
     height: 16
   },
+  rightIcon: {
+    resizeMode: 'contain',
+    width: 16,
+    height: 16,
+    marginLeft: 5
+  },
   rightSideIcon: {
     resizeMode: 'contain',
     width: 20,
@@ -23,6 +29,10 @@ export default StyleSheet.create({
     fontSize: 16,
     color: '#fff',
     textDecorationLine: 'underline'
+  },
+  modalHeaderTextStyle: {
+    fontSize: 12,
+    color: '#000'
   },
   backTextStyle: {
     color: '#000',

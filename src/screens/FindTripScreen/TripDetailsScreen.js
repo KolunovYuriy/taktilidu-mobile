@@ -6,6 +6,7 @@ import Header from '../../components/Header'
 import ScreenLabel from '../../components/ScreenLabel'
 import TripDetailItem from '../../components/TripDetailItem'
 import { PopUpModal } from '../../components/Modal'
+import { icCarFront, icHighFive, icCheckout } from '../../assets/images'
 
 class TripDetailsScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -17,13 +18,88 @@ class TripDetailsScreen extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isModalVisible: false
+      isModalVisible: false,
+      userCount: 3
+    }
+  }
+
+  onBackBtnHandle = () => {
+    this.setState({ isModalVisible: false })
+  }
+
+  onAddPassengerPress = () => {
+    this.state.userCount <
+      this.props.navigation.state.params.passengersAmount -
+        this.props.navigation.state.params.passengersJoined &&
+      this.setState(prevState => ({
+        userCount: prevState.userCount + 1
+      }))
+  }
+
+  onRemovePassengerPress = () => {
+    this.state.userCount > 1 &&
+      this.setState(prevState => ({
+        userCount: prevState.userCount - 1
+      }))
+  }
+
+  renderPopUpModal = () => {
+    const { isModalVisible } = this.state
+    switch (this.props.navigation.state.params.status) {
+      case 'notAcceptedYet':
+        return (
+          <PopUpModal
+            onBackPress={this.onBackBtnHandle}
+            routeName="Мои поездки"
+            onPress={() => {
+              this.onBackBtnHandle()
+              this.props.navigation.navigate('MyTrips')
+            }}
+            icon={icHighFive}
+            title="Вы успешно присоединились к поездке"
+            text="Отслеживайте статус Вашей поездки во вкладке Мои Поездки. Для связи с водителем и другими участниками поездки используйте чат по поездке."
+            isVisible={isModalVisible}
+          />
+        )
+      case 'accepted':
+        return (
+          <PopUpModal
+            onBackPress={this.onBackBtnHandle}
+            routeName="Мои поездки"
+            onPress={() => {
+              this.onBackBtnHandle()
+              this.props.navigation.navigate('MyTrips')
+            }}
+            icon={icCarFront}
+            title="Вы успешно отменили участие в поездке"
+            isVisible={isModalVisible}
+          />
+        )
+      case 'fromDriver':
+        console.log('User count', this.state.userCount)
+        return (
+          <PopUpModal
+            onBackPress={this.onBackBtnHandle}
+            onPress={() => {
+              this.onBackBtnHandle()
+              this.props.navigation.navigate('Auth')
+            }}
+            passengerAmount={this.state.userCount}
+            onAddPassengerPress={this.onAddPassengerPress}
+            onRemovePassengerPress={this.onRemovePassengerPress}
+            routeName="Войти"
+            icon={icCheckout}
+            text="Пожалуйста, авторизуйтесь, чтобы иметь возможность участвовать в поездках и предлагать их."
+            isVisible={isModalVisible}
+          />
+        )
+      default:
+        break
     }
   }
 
   render() {
     const { navigation } = this.props
-    const { isModalVisible } = this.state
     return (
       <Container>
         <Header onBackPress={() => navigation.goBack()} />
@@ -52,7 +128,7 @@ class TripDetailsScreen extends Component {
               this.setState(prevState => ({ isModalVisible: !prevState.isModalVisible }))
             }
           />
-          <PopUpModal isVisible={isModalVisible} />
+          {this.renderPopUpModal()}
         </Content>
       </Container>
     )

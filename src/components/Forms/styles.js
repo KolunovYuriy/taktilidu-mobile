@@ -40,5 +40,27 @@ export default StyleSheet.create({
     tintColor: '#fff',
     marginLeft: 5,
     marginRight: 5
+  },
+  iconMinus: {
+    resizeMode: 'contain',
+    width: 20,
+    marginLeft: 5,
+    marginRight: 5
+  },
+  // PassengerFillForm
+  passengerFillItem: {
+    width: '100%',
+    marginLeft: 0,
+    marginTop: 5,
+    marginBottom: 15,
+    paddingTop: 0,
+    paddingBottom: 0
+  },
+  passengerFillBtn: {
+    backgroundColor: '#fff',
+    marginTop: 30,
+    marginBottom: 40,
+    marginLeft: 40,
+    marginRight: 40
   }
 })

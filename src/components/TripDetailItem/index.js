@@ -359,7 +359,9 @@ export default function TripDetailItem({
               colors={['#95499B', '#2131B5']}
             >
               <Button transparent onPress={onActionBtnPress}>
-                <Text style={styles.reserveButton}>{this.renderActionBtnText(status)}</Text>
+                <Text style={styles.reserveButton} uppercase={false}>
+                  {this.renderActionBtnText(status)}
+                </Text>
               </Button>
             </LinearGradient>
           </ListItem>
